@@ -1,0 +1,5 @@
+{
+    "baseUrl": "https://ghost-xefe.onrender.com/",
+    "testFiles": "**/*.feature",
+    "chromeWebSecurity": false
+}
