@@ -42,3 +42,12 @@ Version de node recomendada: `16.20.0`
    - Editar una page con todos sus datos, publicar y visualizar en web site
    - Crear page draft con todos sus datos, utilizar url en nav bar y visualizar desde web site
    - Eliminar page que se encuentra en nav bar e intentar acceder por nav bar o url
+
+## Resumen
+### Pros
+-
+-
+
+### Contras
+-
+-
