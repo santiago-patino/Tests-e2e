@@ -67,7 +67,7 @@ When('Hacer click al post {string}', (namepost)=>{
 
 Then('Validar titulo del post {string}', (namepost)=>{
     cy.get('h1').should('have.text', namepost);
-    cy.screenshot("2 - Verificar el post")
+    cy.screenshot("2 - Verificar el post y tag")
 })
 
 //--- Editar post publicado
