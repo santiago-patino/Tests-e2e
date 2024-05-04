@@ -9,10 +9,10 @@
 
 ## Url del sitio:
 https://ghost-xefe.onrender.com/
-Ghost version: 
+- Ghost version: 
 
 ## Instalaciones
-Version de node romendada: `16.20.0`
+Version de node recomendada: `16.20.0`
 
 ### Kraken
 1. Ir a la carpeta de kraken con `cd kraken`.
