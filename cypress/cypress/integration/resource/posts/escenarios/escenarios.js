@@ -46,7 +46,7 @@ And('Hace click en el boton de confirm post', ()=>{
 Then('Validar que se haya creado el post {string}', (namepost)=>{
     cy.wait(500)
     cy.get('.gh-post-bookmark-title').should('have.text', namepost);
-    cy.screenshot("Crear un post")
+    cy.screenshot("1 - Crear un post")
 })
 
 //-- Verificar el nuevo post publicado
@@ -62,7 +62,7 @@ When('Hacer click al post {string}', (namepost)=>{
 
 Then('Validar titulo del post {string}', (namepost)=>{
     cy.get('h1').should('have.text', namepost);
-    cy.screenshot("Verificar el post")
+    cy.screenshot("2 - Verificar el post")
 })
 
 //--- Editar post publicado
@@ -75,7 +75,7 @@ And('Hacer click en el boton Update', ()=>{
 Then('Validar notificacion de confirmacion', () => {
     cy.wait(500)
     cy.get('.gh-notification').should('exist');
-    cy.screenshot("Editar post")
+    cy.screenshot("3 - Editar post")
 })
 
 //--- Eliminar post
@@ -108,5 +108,5 @@ And('Hace click en confirmar delete', ()=>{
 Then('Validar redireccion a posts', ()=>{
     cy.wait(500)
     cy.url().should('contains', '#/posts')
-    cy.screenshot("Elimina post")
+    cy.screenshot("4 - Elimina post")
 })

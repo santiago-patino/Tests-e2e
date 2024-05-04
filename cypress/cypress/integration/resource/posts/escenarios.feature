@@ -1,6 +1,6 @@
-Feature: Escenario 1: Crear un post
+Feature: Escenarios: Crear - Validar - Editar - Eliminar un post
 
-    Feature Crear un post
+    Feature Crear - Validar - Editar - Eliminar un post
 
     Scenario: Crear un nuevo post
         Given Ingresa a la pagina de inicio de sesion
@@ -9,7 +9,7 @@ Feature: Escenario 1: Crear un post
 
         When Hacer click en nuevo post
             And Ingresa el titulo del post "Post 1"
-            And Ingresa la descripcion del post "Description new post"
+            And Ingresa la descripcion del post "Description post 1"
             And Hace click en el boton de publish post
             And Hace click en el boton de confirm post
         Then Validar que se haya creado el post "Post 1"
@@ -26,16 +26,18 @@ Feature: Escenario 1: Crear un post
 
         Given Ingresar al sitio posts
             When Seleccionar el post con el nombre "Post 1"
-            And Ingresa el titulo del post "Editado"
-            And Ingresa la descripcion del post "editado"
+            And Ingresa el titulo del post " Editado"
+            And Ingresa la descripcion del post " editado"
             And Hacer click en el boton Update
         Then Validar notificacion de confirmacion
 
     Scenario: Eliminar post
+        Given Ingresa a la pagina de inicio de sesion
+            When Ingresa el nombre de usuario y ingresa la contraseña
+        Then Iniciar Sesion Exitoso
         
-
         Given Ingresar al sitio posts
-            When Seleccionar el post con el nombre "Post 1"
+            When Seleccionar el post con el nombre "Post 1 Editado"
             And Hacer click en las configuracion del post
             And Hace click en el boton delete
             And Hace click en confirmar delete
