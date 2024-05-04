@@ -1,6 +1,6 @@
 Feature: Escenarios: Crear - Validar - Editar - Eliminar un post
 
-    Feature Crear - Validar - Editar - Eliminar un post
+    Feature Crear post, Añadir tag, Publicar post, Validar post, Editar post, Eliminar post
 
     Scenario: Crear un nuevo post
         Given Ingresa a la pagina de inicio de sesion
@@ -10,6 +10,9 @@ Feature: Escenarios: Crear - Validar - Editar - Eliminar un post
         When Hacer click en nuevo post
             And Ingresa el titulo del post "Post 1"
             And Ingresa la descripcion del post "Description post 1"
+            And Hacer click en las configuracion del post
+            And Añadir Tag
+            And Hacer click en las configuracion del post
             And Hace click en el boton de publish post
             And Hace click en el boton de confirm post
         Then Validar que se haya creado el post "Post 1"

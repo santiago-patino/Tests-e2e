@@ -33,6 +33,11 @@ And('Ingresa la descripcion del post {string}', (textpost)=>{
     cy.get('.koenig-editor__editor').type(textpost)
 })
 
+And('Añadir Tag', ()=>{
+    cy.get('#tag-input').click()
+    cy.get(".ember-power-select-option").click()
+})
+
 And('Hace click en el boton de publish post', ()=>{
     cy.get('.gh-publish-trigger').click();
 })
