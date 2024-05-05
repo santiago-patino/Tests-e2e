@@ -44,9 +44,10 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
    - Editar datos de un member existente y verificar que se actualiza la información del member
    - Eliminar un member existente y verificar que ya no aparece en la lista de members
 3. Posts:
-   - Crear un nuevo post y validar que se cree el borrador
-   - Publicar un post borrador y validar que el sitio se genere
-   - Editar un post y validar la confirmación
+   - Crear un nuevo post con titulo y descripcion aleatorios
+   - Añadir tag a un nuevo post
+   - Publicar post y validar que el sitio se visualize correctamente
+   - Editar un post y validar la modificacion
    - Eliminar post y validar que ya no aparezca en los posts
 4. Pages:
    - Crear una page con todos sus datos, publicar y visualizar en web site
