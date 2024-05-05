@@ -45,7 +45,7 @@ Then(
   "Debería tener un nuevo member en la lista que coincida con los datos que ingresé {kraken-string}",
   async function (nombre) {
     let memberNameElement = await this.driver.$(
-      "div.gh-list-scrolling table.gh-list tbody tr a.ember-view h3.gh-members-list-name "
+      "div.gh-list-scrolling table.gh-list tbody tr a.ember-view h3.gh-members-list-name"
     );
     let memberName = await memberNameElement.getText();
     expect(memberName).to.include(nombre);
