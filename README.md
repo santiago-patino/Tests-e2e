@@ -63,4 +63,11 @@ Version de node recomendada: `16.20.0`
 
 ### Contras
 - Es más lento para realizar la ejecución de las pruebas. 
-- Restringe en cada paso la realización de una sola funcionalidad de click(). 
+- Restringe en cada paso la realización de una sola funcionalidad de click().
+
+## Estrategias de Pruebas
+### Estrategia de Pruebas 1 actualizada
+[estrategia-pruebas1-actualizada.pdf](https://github.com/santiago-patino/Tests-e2e/files/15212033/estrategia-pruebas1-actualizada.pdf)
+
+### Estrategia de Pruebas 2 actualizada
+[estrategia-pruebas2-actualizada.pdf](https://github.com/santiago-patino/Tests-e2e/files/15212034/estrategia-pruebas2-actualizada.pdf)
