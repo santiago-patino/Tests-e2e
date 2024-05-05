@@ -1,4 +1,4 @@
-Feature: Crear un nuevo member con todos los datos válidos
+Feature: Eliminar un miembro existente y validar que se eliminó
 
 @user1 @web
 Scenario: Como admin creo un nuevo member con todos los datos válidos y luego verifico si se creó en la lista de miembros 
@@ -24,4 +24,5 @@ Scenario: Como admin creo un nuevo member con todos los datos válidos y luego v
         And I wait for 3 seconds
 
     When Borrar el member creado
-    Then I wait for 3 seconds
+    Then No debería estar el member en la lista
+        And I wait for 3 seconds
