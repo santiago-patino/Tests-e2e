@@ -14,11 +14,21 @@ https://ghost-xefe.onrender.com/
 ## Instalaciones
 Version de node recomendada: `16.20.0`
 
+Version de npm recomandada `8.19.4`
+
 ### Kraken
+
+En la raiz del proyecto, ejecutar los siguientes commandos:
+
 1. Ir a la carpeta de kraken con `cd kraken`.
-2. Instalar appium con `npm i appium`.
-3. Instalar lo demas con `npm i`.
-4. Ejecutar `npx kraken-node run`.
+2. Instalar las dependencias `npm i`.
+3. Seleccionar el numero de la funcionalidad a ejecutar con.
+   
+   Por ejemplo: (Seleccionar funcionalidad 1 Crear miembros)
+
+   `npm run func -- 1` 
+
+5. Ejecutar `npx kraken-node run`.
 
 ### Cypress
 1. Ir a la carpeta de cypress con `cd cypress`.
