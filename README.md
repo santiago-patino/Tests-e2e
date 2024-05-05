@@ -13,9 +13,13 @@ https://ghost-xefe.onrender.com/
 
 ## Instalaciones
 Version de node recomendada: `16.20.0`
+
 Version de npm recomandada `8.19.4`
 
 ### Kraken
+
+En la raiz del proyecto, ejecutar los siguientes commandos:
+
 1. Ir a la carpeta de kraken con `cd kraken`.
 2. Instalar las dependencias `npm i`.
 3. Seleccionar el numero de la funcionalidad a ejecutar con.
