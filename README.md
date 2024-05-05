@@ -21,7 +21,7 @@ Version de node recomendada: `16.20.0`
 4. Ejecutar `npx kraken-node run`.
 
 ### Cypress
-1. Ir a la carpeta de kraken con `cd cypress`.
+1. Ir a la carpeta de cypress con `cd cypress`.
 2. Instalar con `npm i`.
 3. Ejecutar `npx cypress run`.
 
