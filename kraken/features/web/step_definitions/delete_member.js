@@ -30,11 +30,11 @@ When("Borrar el member creado", async function () {
     await confirmButton.click();
   });
   
-  Then("No debería estar el member en la lista", async function () {
+  Then("No debería estar el member en la lista {kraken-string}", async function (nombre) {
     let memberNameElement = await this.driver.$(
       "div.gh-list-scrolling table.gh-list tbody tr a.ember-view h3.gh-members-list-name "
     );
     let memberName = await memberNameElement.getText();
-    expect(memberName).to.not.include("Edna Conde");
+    expect(memberName).to.not.include(nombre);
   });
   
