@@ -2,7 +2,7 @@
 -------
 
 ## Participantes:
-- Edna Katherine Conde Vega
+- Edna Katherine Conde Vega - e.condev@uniandes.edu.co
 - Jhon Fernando Ávila Uribe
 - Manuel Guillermo Sánchez Ballén
 - Santiago Patiño Hernandez - s.patino@uniandes.edu.co
@@ -43,11 +43,21 @@ Version de node recomendada: `16.20.0`
    - Crear page draft con todos sus datos, utilizar url en nav bar y visualizar desde web site
    - Eliminar page que se encuentra en nav bar e intentar acceder por nav bar o url
 
-## Resumen
+## Resumen Kraken
 ### Pros
--
--
+- Permite espeficar de forma muy detallada los escenarios, lo que permite que los errores en su ejecución sean menos probables.
+- Es rápido para realizar la ejecución de las pruebas.
 
 ### Contras
--
--
+- Definir los selectores es un proceso largo porque es necesario detallar muy bien dónde se encuentra el elemento, es decir dentro de qué tipo de elementos y clases, porque en algunas ocasiones no encuentra el elemento por el id.
+- Si dentro de un escenario se obtiene un error en alguno de los pasos, se detiene la ejecución.
+
+## Resumen Cypress
+### Pros
+- Genera un video resumen de la ejecución de cada uno de los escenarios.
+- Se puede configurar para guardar capturas de pantalla en cada uno de los casos.
+- No se detiene la ejecución si hay un fallo en alguno de los pasos de un escenario.
+
+### Contras
+- Es más lento para realizar la ejecución de las pruebas. 
+- Restringe en cada paso la realización de una sola funcionalidad de click(). 
