@@ -29,7 +29,7 @@ Version de node recomendada: `16.20.0`
 1. Members:
    - Crear un member con todos los datos válidos y visualizar el listado para verificar que se creó
    - Crear un member con datos inválidos y verificar que se recibe un error
-   - Crear un member con datos de un member existente
+   - Crear un member con datos de un member existente y verificar que se recibe un error
    - Editar datos de un member existente y verificar que se actualiza
    - Eliminar un member existente y verificar que ya no aparece en la lista
 2. Posts:
