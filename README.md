@@ -26,21 +26,27 @@ Version de node recomendada: `16.20.0`
 3. Ejecutar `npx cypress run`.
 
 ## Funcionalidades - Escenarios
-1. Members:
-   - Crear un member con todos los datos válidos y visualizar el listado para verificar que se creó
+1. Crear members:
+   - Crear un member con todos los datos válidos y visualizar el listado de members para verificar que se creó
    - Crear un member con datos inválidos y verificar que se recibe un error
    - Crear un member con datos de un member existente y verificar que se recibe un error
-   - Editar datos de un member existente y verificar que se actualiza
-   - Eliminar un member existente y verificar que ya no aparece en la lista
-2. Posts:
+2. Editar members:
+   - Editar datos de un member existente y verificar que se actualiza la información del member
+3. Eliminar members:
+   - Eliminar un member existente y verificar que ya no aparece en la lista de members
+4. Crear posts:
    - Crear un nuevo post y validar que se cree el borrador
    - Publicar un post borrador y validar que el sitio se genere
+5. Editar un post
    - Editar un post y validar la confirmacion
+6. Eliminar un post
    - Eliminar post y validar que ya no aparezca en los posts
-3. Pages
+7. Crear pages:
    - Crear una page con todos sus datos, publicar y visualizar en web site
-   - Editar una page con todos sus datos, publicar y visualizar en web site
    - Crear page draft con todos sus datos, utilizar url en nav bar y visualizar desde web site
+8. Editar pages:
+   - Editar una page con todos sus datos, publicar y visualizar en web site
+9. Eliminar pages:
    - Eliminar page que se encuentra en nav bar e intentar acceder por nav bar o url
 
 ## Resumen Kraken
