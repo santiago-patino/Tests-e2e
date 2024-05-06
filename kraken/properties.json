@@ -1,5 +1,8 @@
 {
     "HOST": "https://ghost-xefe.onrender.com/",
     "USERNAME": "s.patino@uniandes.edu.co",
-    "PASSWORD": "admin-uniandes"
+    "PASSWORD": "admin-uniandes",
+    "NEWPASSWORD": "admin-uniandes",
+    "FAKEOLDPASSWORD": "admin-uniandes2",
+    "EMPTYPASSWORD": ""
 }
