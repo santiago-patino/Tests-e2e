@@ -34,10 +34,10 @@ Scenario: Cambiar contraseña con contraseña vieja y contraseñas nuevas difere
     Then Validar pagina de perfil
 
     When Ingresar datos de contraseñas "<PASSWORD>", "<NEWPASSWORD>" y "<FAKEOLDPASSWORD>"
-    Then Validar que las contraseñas coincidan "Your new passwords do not match"
+    Then Validar que las contraseñas no coincidan "Your new passwords do not match"
 
 @user4 @web
-Scenario: Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes
+Scenario: Cambiar contraseña con contraseña vieja y contraseñas nuevas vacías
     Given Ir hacia "<HOST>" "ghost"
     When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
     Then Validar inicio sesion exitoso
