@@ -1,0 +1,70 @@
+Feature: Cambiar contraseña administrador
+
+@user1 @web
+Scenario: Cambiar contraseña con contraseña vieja invalida y nueva contraseña
+    Given Ir hacia "<HOST>" "ghost"
+        When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
+    Then Validar inicio sesion exitoso
+
+    When Ir a mi perfil
+    Then Validar pagina de perfil
+
+    When Ingresar datos de contraseñas "<FAKEOLDPASSWORD>", "<NEWPASSWORD>" y "<NEWPASSWORD>"
+    Then Validar cambio de contraseña "Retry"
+
+@user2 @web
+Scenario: Cambiar contraseña con contraseña vieja vacía y nueva contraseña
+    Given Ir hacia "<HOST>" "ghost"
+    When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
+    Then Validar inicio sesion exitoso
+
+    When Ir a mi perfil
+    Then Validar pagina de perfil
+
+    When Ingresar datos de contraseñas "<EMPTYPASSWORD>", "<NEWPASSWORD>" y "<NEWPASSWORD>"
+    Then Validar error en campo oldPassword "Your current password is required to set a new one"
+
+@user3 @web
+Scenario: Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes
+    Given Ir hacia "<HOST>" "ghost"
+    When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
+    Then Validar inicio sesion exitoso
+
+    When Ir a mi perfil
+    Then Validar pagina de perfil
+
+    When Ingresar datos de contraseñas "<PASSWORD>", "<NEWPASSWORD>" y "<FAKEOLDPASSWORD>"
+    Then Validar que las contraseñas coincidan "Your new passwords do not match"
+
+@user4 @web
+Scenario: Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes
+    Given Ir hacia "<HOST>" "ghost"
+    When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
+    Then Validar inicio sesion exitoso
+
+    When Ir a mi perfil
+    Then Validar pagina de perfil
+
+    When Ingresar datos de contraseñas "<PASSWORD>", "<EMPTYPASSWORD>" y "<EMPTYPASSWORD>"
+    Then Validar que no esté vacío new Password "Sorry, passwords can't be blank"
+
+@user5 @web
+Scenario: Cambio de contraseña exitoso
+    Given Ir hacia "<HOST>" "ghost"
+    When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
+    Then Validar inicio sesion exitoso
+
+    When Ir a mi perfil
+    Then Validar pagina de perfil
+
+    When Ingresar datos de contraseñas "<PASSWORD>", "<NEWPASSWORD>" y "<NEWPASSWORD>"
+
+
+    When Logout
+    Then Validar pagina de logueo
+
+    When Autenticarse con credenciales "<USERNAME>" "<NEWPASSWORD>"
+    Then Validar inicio sesion exitoso
+
+
+    
