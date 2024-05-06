@@ -9,7 +9,7 @@
 
 ## Url del sitio:
 https://ghost-xefe.onrender.com/
-- Ghost version: 
+- Ghost version: 5.44.0
 
 ## Instalaciones
 Version de node recomendada: `16.20.0`
