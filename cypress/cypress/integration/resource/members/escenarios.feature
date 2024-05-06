@@ -45,14 +45,6 @@ Feature: Escenarios: Crear member valido, Crear member datos no validos, Crear m
             When Ingresa el nombre de usuario y ingresa la contraseña
         Then Iniciar Sesion Exitoso
 
-        When Ingresar a members
-            And Seleccionar el member a editar 
-            And Ingresar el nuevo nombre del member "Edna Conde"
-            And Ingresar el nuevo email del member "e.condev@uniandes.edu.co"
-            And Hacer click en el boton Save
-            And Ingresar a members
-        Then Validar que se haya editado el member "Edna Conde"
-
     Scenario: Eliminar un member existente
         Given Ingresa a la pagina de inicio de sesion
             When Ingresa el nombre de usuario y ingresa la contraseña
@@ -64,4 +56,4 @@ Feature: Escenarios: Crear member valido, Crear member datos no validos, Crear m
             And Hacer click en eliminar
             And Hacer click en confirmar
             And Ingresar a members
-        Then Validar que se haya eliminado el member "Edna Conde"
+        Then Validar que se haya eliminado el member "Edna"

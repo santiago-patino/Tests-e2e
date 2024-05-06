@@ -90,7 +90,7 @@ And("Ingresar el nuevo nombre del member {string}", (name) => {
 });
 
 And("Ingresar el nuevo email del member {string}", (email) => {
-  cy.wait(2000);
+  //cy.wait(2000);
   cy.get("#member-email").clear();
   cy.get("#member-email").type(email, { force: true });
 });
@@ -99,7 +99,7 @@ And("Ingresar el nuevo email del member {string}", (email) => {
 
 Then("Validar que se haya editado el member {string}", (name) => {
   cy.wait(2000);
-  cy.contains(name).should("exist");
+  cy.get('h3').should("have.text", name)
   cy.screenshot("4 - Editar un member existente");
 });
 
