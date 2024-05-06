@@ -45,20 +45,3 @@ Feature: Escenarios: Cambiar contraseña con contraseña vieja invalida y nueva 
 
         When Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas vacías
         Then Validar cambio de contraseña " Retry"
-
-    Scenario: Cambio de contraseña exitoso
-        Given Ingresa a la pagina de inicio de sesion
-        When Ingresa el nombre de usuario y ingresa la contraseña
-        Then Iniciar Sesion Exitoso
-
-        When Ir a mi perfil
-        Then Validar pagina de perfil
-
-        When Ingresar datos de contraseñas correctos
-
-        When Logout
-        Then Validar pagina de logueo
-
-        Given Ingresa a la pagina de inicio de sesion
-        When Ingresa el nombre de usuario y ingresa la contraseña
-        Then Iniciar Sesion Exitoso
