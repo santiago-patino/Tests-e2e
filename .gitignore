@@ -1,6 +1,10 @@
 */node_modules/*
 node_modules
 */reports/*
+
+*/3.42/reports/*
+*/5.44/reports/*
+
 cypress/cypress/videos/*
 
 package-lock.json
