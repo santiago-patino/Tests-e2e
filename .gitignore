@@ -6,6 +6,6 @@ node_modules
 */reports/*
 
 cypress/3.42/cypress/videos/*
-cypress/5.44/cypress/videos/*
+cypress/5.14/cypress/videos/*
 
 package-lock.json
