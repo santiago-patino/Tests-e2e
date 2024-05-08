@@ -1,8 +1,8 @@
 // Importación de dependencias necesarias
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
-import login from '../../../common/login.js';
-import newPage from '../../../common/newPage.js';
-import checkPage from '../../../common/checkPage.js';
+import login from '../../pages/pageLogin.js';
+import pagePage from '../../pages/pagePage.js';
+import pageDashboard from '../../pages/pageDashboard.js';
 
 
 // Configuraciones
@@ -23,46 +23,45 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
 //--- Crear y que se haya validado page
 Given('Ingresar al sitio pages', ()=>{
-    checkPage.PageUrl()
+    pageDashboard.listPageUrl()
 })
     And('Hacer click en nuevo page', ()=>{ 
-        checkPage.NewPageUrl()
+        pageDashboard.createPageUrl()
         cy.screenshot("1 - Creación Page")
     })
     And('Ingresa el titulo de page {string}', (namepage)=>{
-        newPage.nameInput(namepage)
+        pagePage.titleInput(namepage)
     })
     And('Ingresa la descripcion de page {string}', (textpage)=>{
-        newPage.textInput(textpage)
+        pagePage.descriptionInput(textpage)
+        cy.screenshot("2 - formulario poblado")
     })
 
 
-Given('Hacer click en el boton de publish page', ()=>{
-    newPage.publishPageButton()
-})
+    And('Hacer click en el boton de publish page', ()=>{
+        pagePage.publishPageButton()
+    })
     And('Hacer click en el boton de confirm page', ()=>{
-        newPage.FinalpublishPageButton()
-        newPage.confirmPageButton()
+        pagePage.FinalpublishPageButton()
+        pagePage.confirmPageButton()
     })
 
 Then('Validar que se haya creado page {string}', (namepage)=>{
-    checkPage.checkCreatedPage(namepage) 
+    pagePage.validateCreatedPage(namepage) 
+    cy.screenshot("3- Publicación de page")
+    pagePage.backEditor()
 })
-    And('volver al editor', ()=>{
-       newPage.backEditor()
-    })
 
 
-//--- Editar post publicado
+//--- Editar page publicado
 When('Seleccionar page con el nombre {string}', (namepage)=>{
-    newPage.selectPage(namepage)
+    pagePage.selectPage(namepage)
+    cy.screenshot("4- Lista de pages")
 })
-
-And('Hacer click en el boton Update', ()=>{
-    newPage.updatePage()
+    And('Hacer click en el boton Update', ()=>{
+        pagePage.updatePage()
+    })
+Then('Validar notificacion de edicion', () => {
+    pagePage.validateMessageUpdated()
+    cy.screenshot("5- Mensaje de actualización")
 })
-
-Then('Validar notificacion de confirmacion', () => {
-    checkPage.checkMessageUpdated()
-})
-

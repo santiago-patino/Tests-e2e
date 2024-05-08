@@ -1,4 +1,27 @@
-class pageDashboard {
+class pageDashboard{
+    // Variables para crear page
+    
+    elements = {
+        //Pages
+        listPageUrl: () => cy.get('[href="#/pages/"]'),
+        createPageUrl: () => cy.get('[href="#/editor/page/"]'),
+
+    }
+
+
+    //-------------------------------------
+    
+    // ver listado de Page publicadas y borrador
+    listPageUrl = () =>{
+        cy.wait(1500)
+        this.elements.listPageUrl().click()
+    }
+
+    // Creación de nueva Page
+    createPageUrl = () =>{
+        cy.wait(1500)
+        this.elements.createPageUrl().click()
+    }
 
 
 }
