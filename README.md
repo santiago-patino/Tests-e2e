@@ -38,31 +38,34 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
 3. Ejecutar `npx cypress run`.
 
 ## Funcionalidades - Escenarios
-1. Crear members:
-   - Crear un member con todos los datos válidos y visualizar el listado de members para verificar que se creó
-   - Crear un member con datos inválidos y verificar que se recibe un error
-   - Crear un member con datos de un member existente y verificar que se recibe un error
-2. Actualizar members:
-   - Editar datos de un member existente y verificar que se actualiza la información del member
-   - Eliminar un member existente y verificar que ya no aparece en la lista de members
-3. Posts:
-   - Crear un nuevo post con titulo y descripcion aleatorios
-   - Añadir tag a un nuevo post
-   - Publicar post y validar que el sitio se visualize correctamente
-   - Editar un post y validar la modificacion
-   - Eliminar post y validar que ya no aparezca en los posts
-4. Pages:
-   - Crear una page con todos sus datos, publicar y visualizar
-   - Crear y editar una page con todos sus datos, actualizar y visualizar
-   - Crear, eliminar page y validar que no se encuentre page
-   - Crear page draft con todos sus datos e intentar visualizar
-   - Crear page, configurar nav y validar que sea accesible 
-5. Cambio de contraseña:
-   - Cambiar contraseña con contraseña vieja invalida y nueva contraseña
-   - Cambiar contraseña con contraseña vieja vacía y nueva contraseña
-   - Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes
-   - Cambio de contraseña con contraseña vieja y contraseñas nuevas vacías
-   - Cambio de contraseña exitoso
+Crear members:
+
+   1. Crear un member con todos los datos válidos y visualizar el listado de members para verificar que se creó
+   2. Crear un member con datos inválidos y verificar que se recibe un error
+   3. Crear un member con datos de un member existente y verificar que se recibe un error
+   4. Editar datos de un member existente y verificar que se actualiza la información del member
+   5. Eliminar un member existente y verificar que ya no aparece en la lista de members
+Posts:
+
+   6. Crear un nuevo post con titulo y descripcion aleatorios
+   7. Añadir tag a un nuevo post
+   8. Publicar post y validar que el sitio se visualize correctamente
+   9. Editar un post y validar la modificacion
+   10. Eliminar post y validar que ya no aparezca en los posts
+Pages:
+
+   11. Crear una page con todos sus datos, publicar y visualizar
+   12. Crear y editar una page con todos sus datos, actualizar y visualizar
+   13. Crear, eliminar page y validar que no se encuentre page
+   14. Crear page draft con todos sus datos e intentar visualizar
+   15. Crear page, configurar nav y validar que sea accesible
+Cambio de contraseña:
+  
+   16. Cambiar contraseña con contraseña vieja invalida y nueva contraseña
+   17. Cambiar contraseña con contraseña vieja vacía y nueva contraseña
+   18. Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes
+   19. Cambio de contraseña con contraseña vieja y contraseñas nuevas vacías
+   20. Cambio de contraseña exitoso
 
 ## Resumen Kraken
 ### Pros
