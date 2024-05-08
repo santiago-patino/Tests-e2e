@@ -18,9 +18,13 @@ Feature: Escenarios: Crear - Validar - Editar - Eliminar un post
         Then Validar que se haya creado el post "Post 1"
 
     Scenario: Verificar el nuevo post publicado
-        Given Ingresa al sitio como usuario normal
-            When Hacer click al post "Post 1"
-        Then Validar titulo del post "Post 1"
+        Given Ingresa a la pagina de inicio de sesion
+            When Ingresa el nombre de usuario y ingresa la contraseña
+        Then Iniciar Sesion Exitoso
+
+        Given Ingresar al sitio posts
+            When Seleccionar el post con el nombre "Post 1"
+        Then Validar que exista "Published"
     
     Scenario: Editar post
         Given Ingresa a la pagina de inicio de sesion

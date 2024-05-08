@@ -1,4 +1,4 @@
-class login {
+class pageLogin {
     
     user = 's.patino@uniandes.edu.co';
     pass = 'admin-uniandes';
@@ -16,4 +16,4 @@ class login {
 
 }
 
-export default new login();
+export default new pageLogin();
