@@ -47,10 +47,10 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
    5. Eliminar un member existente y verificar que ya no aparece en la lista de members
 ### Posts:
 
-   6. Crear un nuevo post con titulo y descripcion aleatorios
-   7. Añadir tag a un nuevo post
-   8. Publicar post y validar que el sitio se visualize correctamente
-   9. Editar un post y validar la modificacion
+   6. Crear un nuevo post, validar que se cree como borrador
+   7. Crear un nuevo post, publicarlo y validar que se visualice
+   8. Crear un nuevo post, añadir un tag, publicarlo y validar que se visualice
+   9. Editar un nuevo post, actualizarlo y validar que se visualice la modificacion
    10. Eliminar post y validar que ya no aparezca en los posts
 ### Pages:
 
