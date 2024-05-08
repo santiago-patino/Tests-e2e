@@ -2,10 +2,12 @@
 -------
 
 ## Participantes:
-- Edna Katherine Conde Vega - e.condev@uniandes.edu.co
-- Jhon Fernando Ávila Uribe
-- Manuel Guillermo Sánchez Ballén
-- Santiago Patiño Hernandez - s.patino@uniandes.edu.co
+| Nombre    | Correo Electrónico     |
+|-------------|-------------------------|
+| Edna Katherine Conde Vega    | e.condev@uniandes.edu.co             |
+| Jhon Fernando Ávila Uribe    | jf.avila@uniandes.edu.co             |
+| Manuel Guillermo Sánchez Ballén | mg.sanchezb1@uniandes.edu.co       |
+| Santiago Patiño Hernandez    | s.patino@uniandes.edu.co             |
 
 ## Url del sitio:
 https://ghost-xefe.onrender.com/
@@ -50,10 +52,17 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
    - Editar un post y validar la modificacion
    - Eliminar post y validar que ya no aparezca en los posts
 4. Pages:
-   - Crear una page con todos sus datos, publicar y visualizar en web site
-   - Crear page draft con todos sus datos, utilizar url en nav bar y visualizar desde web site
-   - Editar una page con todos sus datos, publicar y visualizar en web site
-   - Eliminar page que se encuentra en nav bar e intentar acceder por nav bar o url
+   - Crear una page con todos sus datos, publicar y visualizar
+   - Crear y editar una page con todos sus datos, actualizar y visualizar
+   - Crear, eliminar page y validar que no se encuentre page
+   - Crear page draft con todos sus datos e intentar visualizar
+   - Crear page, configurar nav y validar que sea accesible 
+5. Cambio de contraseña:
+   - Cambiar contraseña con contraseña vieja invalida y nueva contraseña
+   - Cambiar contraseña con contraseña vieja vacía y nueva contraseña
+   - Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes
+   - Cambio de contraseña con contraseña vieja y contraseñas nuevas vacías
+   - Cambio de contraseña exitoso
 
 ## Resumen Kraken
 ### Pros
