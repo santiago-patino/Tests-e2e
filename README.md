@@ -38,28 +38,28 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
 3. Ejecutar `npx cypress run`.
 
 ## Funcionalidades - Escenarios
-Crear members:
+### Crear members:
 
    1. Crear un member con todos los datos válidos y visualizar el listado de members para verificar que se creó
    2. Crear un member con datos inválidos y verificar que se recibe un error
    3. Crear un member con datos de un member existente y verificar que se recibe un error
    4. Editar datos de un member existente y verificar que se actualiza la información del member
    5. Eliminar un member existente y verificar que ya no aparece en la lista de members
-Posts:
+### Posts:
 
    6. Crear un nuevo post con titulo y descripcion aleatorios
    7. Añadir tag a un nuevo post
    8. Publicar post y validar que el sitio se visualize correctamente
    9. Editar un post y validar la modificacion
    10. Eliminar post y validar que ya no aparezca en los posts
-Pages:
+### Pages:
 
    11. Crear una page con todos sus datos, publicar y visualizar
    12. Crear y editar una page con todos sus datos, actualizar y visualizar
    13. Crear, eliminar page y validar que no se encuentre page
    14. Crear page draft con todos sus datos e intentar visualizar
    15. Crear page, configurar nav y validar que sea accesible
-Cambio de contraseña:
+### Cambio de contraseña:
   
    16. Cambiar contraseña con contraseña vieja invalida y nueva contraseña
    17. Cambiar contraseña con contraseña vieja vacía y nueva contraseña
