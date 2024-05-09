@@ -32,10 +32,33 @@ And('Ingresa la descripcion del post {string}', (descripcion)=>{
     pagePost.descriptionEditor(descripcion);
 })
 
-Then('Validar que se haya creado como borrador {string}', (text)=>{
-    cy.wait(3000)
-    pagePost.statusEditor(text);
-    cy.screenshot("1 - Crear un post como borrador")
+And('Hace click en el boton de publish post', ()=>{
+    pagePost.publishButton();
+})
+
+And('Hace click en el boton de confirm post', ()=>{
+    pagePost.buttonConfirmPublish1();
+    cy.wait(500)
+    pagePost.buttonConfirmPublish2();
+});
+
+Then('Validar que se haya creado el post {string}', (title)=>{
+    cy.wait(1000)
+    pagePost.confirmationPublishTitle(title);
+    cy.screenshot("1 - Crear un post")
+})
+
+//-- Verificar el nuevo post publicado
+
+Given('Ingresa al post {string} como usuario normal', (title)=> {
+    let replacedString = title.replace(/\s+/g, '-');
+    
+    cy.visit('/'+replacedString.toLowerCase(), { failOnStatusCode: false });
+})
+
+Then('Validar titulo del post {string}', (title)=>{
+    pagePost.userTitlePost(title)
+    cy.screenshot("2 - Verificar el post")
 })
 
 //--- Eliminar post
@@ -71,3 +94,7 @@ Then('Validar redireccion a posts', ()=>{
     cy.screenshot("4 - Elimina post")
 })
 
+Then('Validar error {string}', (errorCode)=>{
+    cy.wait(500)
+    pagePost.errorCodeUser(errorCode)
+})

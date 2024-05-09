@@ -18,7 +18,9 @@ class pagePost {
         postsTitleList: () => cy.get('h3.gh-content-entry-title'),
         settigsPostEditor: () => cy.get('[title="Settings"]'),
         deleteButtonEditor: () => cy.get('.gh-btn.gh-btn-hover-red.gh-btn-icon.settings-menu-delete-button'),
-        confirmDeleteButtonEditor: () => cy.get('.gh-btn.gh-btn-red.gh-btn-icon.ember-view'),                                         
+        confirmDeleteButtonEditor: () => cy.get('.gh-btn.gh-btn-red.gh-btn-icon.ember-view'),
+        statusEditor: () => cy.get(".gh-editor-post-status span div"),
+        errorCodeUser: () => cy.get(".error-code"),                                         
     }
 
     createButton = () => {
@@ -89,6 +91,16 @@ class pagePost {
     confirmDeleteButtonEditor = () =>{
         this.controls.confirmDeleteButtonEditor().click();
     }
+
+    statusEditor = (text) => {
+        cy.contains(text).should("exist");
+       // this.controls.statusEditor().should('have.text', text);
+    }
+
+    errorCodeUser = (errorCode) =>{
+        this.controls.errorCodeUser().should('have.text', errorCode);
+    }
+    
 
 }
 

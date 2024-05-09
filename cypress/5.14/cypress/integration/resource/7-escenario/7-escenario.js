@@ -1,9 +1,6 @@
 import { Given, When, And, Then } from "cypress-cucumber-preprocessor/steps";
 const pagePost = require("../../pages/pagePost");
-const pageDashboard = require("../../pages/pageDashboard");
-const pagelogin = require('../../pages/pageLogin')
-const versionghost = Cypress.config("versionghost")
-const baseUrl = Cypress.config("baseUrl")
+const pagelogin = require('../../pages/pageLogin');
 
 
 Given('Ingresa a la pagina de inicio de sesion', ()=> {
@@ -24,82 +21,43 @@ Then('Iniciar Sesion Exitoso', ()=>{
 When('Hacer click en nuevo post', ()=>{
     cy.wait(1000)
     pagePost.createButton();
-    //cy.get('[title="New post"]').click()
 })
 
 And('Ingresa el titulo del post {string}', (title)=>{
     cy.wait(1500)
     pagePost.titleEditor(title);
-    //cy.get('[placeholder="Post title"]').type(namepost)
 })
 
 And('Ingresa la descripcion del post {string}', (descripcion)=>{
     pagePost.descriptionEditor(descripcion);
-    //cy.get('.koenig-editor__editor').type(textpost)
-})
-
-And('Añadir Tag', ()=>{
-    pagePost.tagControlEditor();
-    pagePost.tagOptionEditor();
-    //cy.get('#tag-input').click()
-    //cy.get(".ember-power-select-option").click()
 })
 
 And('Hace click en el boton de publish post', ()=>{
     pagePost.publishButton();
-    //cy.get('.gh-publish-trigger').click();
 })
 
 And('Hace click en el boton de confirm post', ()=>{
     pagePost.buttonConfirmPublish1();
     cy.wait(500)
     pagePost.buttonConfirmPublish2();
-})
+});
 
 Then('Validar que se haya creado el post {string}', (title)=>{
-    cy.wait(500)
+    cy.wait(1000)
     pagePost.confirmationPublishTitle(title);
-   // cy.get('.gh-post-bookmark-title').should('have.text', namepost);
     cy.screenshot("1 - Crear un post")
 })
 
 //-- Verificar el nuevo post publicado
 
-Then('Validar que exista {string}', (status)=> {
-    cy.wait(1000)
-    cy.contains(status).should("exist");
-});
-
-Given('Ingresa al sitio como usuario normal', ()=> {
-    cy.visit('/')
-})
-
-When('Hacer click al post {string}', (title)=>{
-    cy.wait(1500)
-    pagePost.homeUserTitlePost(title);
-   // cy.contains('.post-card-title', namepost).click();
+Given('Ingresa al post {string} como usuario normal', (title)=> {
+    let replacedString = title.replace(/\s+/g, '-');
+    cy.visit('/'+replacedString, { failOnStatusCode: false });
 })
 
 Then('Validar titulo del post {string}', (title)=>{
     pagePost.userTitlePost(title)
-    //cy.get('h1.article-title').should('have.text', namepost);
-    cy.screenshot("2 - Verificar el post y tag")
-})
-
-//--- Editar post publicado
-
-
-And('Hacer click en el boton Update', ()=>{
-    pagePost.updateEditorButton();
-    //cy.get('.gh-editor-save-trigger').click();
-})
-
-Then('Validar notificacion de confirmacion', () => {
-    cy.wait(500)
-    pagePost.updateNotificationPost();
-    //cy.get('.gh-notification').should('exist');
-    //cy.get('.gh-notification-title').should('have.text', "Updated");
-    cy.screenshot("3 - Editar post")
+    cy.screenshot("2 - Verificar el post")
 })
 
 //--- Eliminar post
@@ -112,25 +70,21 @@ Given('Ingresar al sitio posts', ()=>{
 When('Seleccionar el post con el nombre {string}', (title)=>{
     cy.wait(1000)
     pagePost.postsTitleList(title);
-    //cy.contains('.gh-content-entry-title', namepost).click();
 })
 
 And('Hacer click en las configuracion del post', ()=>{
     cy.wait(1500)
     pagePost.settigsPostEditor();
-    //cy.get('[title="Settings"]').click();
 })
 
 And('Hace click en el boton delete', ()=>{
     cy.wait(1500)
     pagePost.deleteButtonEditor();
-    //cy.get('.gh-btn.gh-btn-hover-red.gh-btn-icon.settings-menu-delete-button').click()
 })
 
 And('Hace click en confirmar delete', ()=>{
     cy.wait(1500)
     pagePost.confirmDeleteButtonEditor();
-    //cy.get('.gh-btn.gh-btn-red.gh-btn-icon.ember-view').click()
 })
 
 Then('Validar redireccion a posts', ()=>{
