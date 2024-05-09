@@ -38,12 +38,12 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
 3. Ejecutar `npx cypress run`.
 
 ## Funcionalidades - Escenarios
-### Crear members:
+### Members:
 
    1. Crear un member con todos los datos válidos y visualizar el listado de members para verificar que se creó
-   2. Crear un member con datos inválidos y verificar que se recibe un error
-   3. Crear un member con datos de un member existente y verificar que se recibe un error
-   4. Editar datos de un member existente y verificar que se actualiza la información del member
+   2. Crear un member con datos vacíos y verificar que se recibe un error
+   3. Crear un member con datos inválidos y verificar que se recibe un error
+   4. Crear un member con datos de un member existente y verificar que se recibe un error
    5. Eliminar un member existente y verificar que ya no aparece en la lista de members
 ### Posts:
 
