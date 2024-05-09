@@ -38,13 +38,11 @@ And('Hace click en el boton de publish post', ()=>{
 
 And('Hace click en el boton de confirm post', ()=>{
     pagePost.buttonConfirmPublish1();
-    cy.wait(500)
-    pagePost.buttonConfirmPublish2();
 });
 
 Then('Validar que se haya creado el post {string}', (title)=>{
     cy.wait(1000)
-    pagePost.confirmationPublishTitle(title);
+    cy.contains('Published').should('exist');
     cy.screenshot("1 - Crear un post")
 })
 

@@ -11,7 +11,7 @@ class login {
 
     check = () =>{
         cy.wait(1000)
-        cy.url().should('contains', '/#/dashboard')
+        cy.url().should('contains', '/#/site')
     }
 
 }
