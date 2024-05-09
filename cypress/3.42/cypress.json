@@ -1,5 +1,5 @@
 {
-    "baseUrl": "https://ghost-xefe.onrender.com/",
+    "baseUrl": "http://jfautest.online/",
     "testFiles": "**/*.feature",
     "chromeWebSecurity": false
 }
