@@ -90,5 +90,4 @@ And('Hace click en confirmar delete', ()=>{
 Then('Validar redireccion a posts', ()=>{
     cy.wait(500)
     cy.url().should('contains', '#/posts');
-    cy.screenshot("4 - Elimina post")
 })
