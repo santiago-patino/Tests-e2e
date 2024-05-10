@@ -3,19 +3,19 @@ const compareImages = require("resemblejs/compareImages")
 const config = require("./config.json");
 const fs = require('fs');
 
-const { v3Directory, v4Directory, options } = config;
+const { cypressGhost342, cypressGhost514, options } = config;
 
 async function executeTest() {
   let resultInfo = {}
   let datetime = new Date().toISOString().replace(/:/g, ".");
 
-  let features = fs.readdirSync(v3Directory);
+  let features = fs.readdirSync(cypressGhost342);
 
 
   for (let index = 0; index < features.length; index++) {
     const feature = features[index];
 
-    let screenshots = fs.readdirSync(`${v3Directory}/${feature}`).map(function (item) {
+    let screenshots = fs.readdirSync(`${cypressGhost342}/${feature}`).map(function (item) {
         return item
       let num = item.split('.')
       return parseInt(num, 10);
@@ -27,8 +27,8 @@ async function executeTest() {
       const step = screenshots[j];
       
       const data = await compareImages(
-        fs.readFileSync(`${v3Directory}/${feature}/${step}`),
-        fs.readFileSync(`${v4Directory}/${feature}/${step}`),
+        fs.readFileSync(`${cypressGhost342}/${feature}/${step}`),
+        fs.readFileSync(`${cypressGhost514}/${feature}/${step}`),
         options
       );
 
@@ -67,8 +67,8 @@ async function executeTest() {
           recursive: true
         });
       }
-      fs.copyFileSync(`${v3Directory}/${feature}/${step}`, `./results/${datetime}/${feature}/v3-${step}.png`);
-      fs.copyFileSync(`${v4Directory}/${feature}/${step}`, `./results/${datetime}/${feature}/v4-${step}.png`);
+      fs.copyFileSync(`${cypressGhost342}/${feature}/${step}`, `./results/${datetime}/${feature}/v3-${step}.png`);
+      fs.copyFileSync(`${cypressGhost514}/${feature}/${step}`, `./results/${datetime}/${feature}/v4-${step}.png`);
     };
   };
   fs.writeFileSync(`./results/${datetime}/report.html`, createReport(datetime, resultInfo));
@@ -119,7 +119,7 @@ function step(f, s, info) {
 
 function feature(f, info) {
 
-  let screenshots = fs.readdirSync(`${v3Directory}/${f}`).map(function (item) {
+  let screenshots = fs.readdirSync(`${cypressGhost342}/${f}`).map(function (item) {
     return item
     let num = item.split('.')
     return parseInt(num, 10);
@@ -135,7 +135,7 @@ function feature(f, info) {
 
 function createReport(datetime, resInfo) {
 
-  let features = fs.readdirSync(v3Directory);
+  let features = fs.readdirSync(cypressGhost342);
 
   return `
     <html>

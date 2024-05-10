@@ -1,6 +1,6 @@
 {
-    "v3Directory": "./../cypress/3.42/cypress/screenshots/resource",
-    "v4Directory": "./../cypress/5.14/cypress/screenshots/resource",
+    "cypressGhost342": "./../cypress/3.42/cypress/screenshots/resource",
+    "cypressGhost514": "./../cypress/5.14/cypress/screenshots/resource",
     "browsers":["chromium", "webkit", "firefox"],
     "options":{
         "output": {
