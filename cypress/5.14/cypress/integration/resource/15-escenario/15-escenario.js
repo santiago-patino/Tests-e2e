@@ -49,7 +49,28 @@ Given('Ingresar al sitio pages', ()=>{
 Then('Validar que se haya creado page {string}', (namepage)=>{
     pagePage.validateCreatedPage(namepage) 
     cy.screenshot("3- Publicación de page")
+    pagePage.backEditor()
 })
+
+//----Validar acceso de URL
+function titleToUrlSlug(titleURL) {
+    return titleURL.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+}
+
+Given('Ingreso a la url de la pagina {string}', (namepage)=>{
+    const urlSlug = titleToUrlSlug(namepage);
+    const baseUrl = 'https://ghost-xefe.onrender.com/';
+    const fullUrl = baseUrl + urlSlug;
+
+    cy.visit(fullUrl, {failOnStatusCode: false});
+    cy.wait(1000)
+})
+
+Then('Validar Url correcta {string}', (namepage)=>{
+    pagePage.urlPageValid(namepage)
+})
+
+
 
 //----Eliminación de Page
 When('Seleccionar page con el nombre {string}', (namepage)=>{

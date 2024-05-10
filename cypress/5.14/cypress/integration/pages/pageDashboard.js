@@ -13,7 +13,8 @@ class pageDashboard{
     
     // ver listado de Page publicadas y borrador
     listPageUrl = () =>{
-        cy.wait(1500)
+        cy.visit('/ghost')
+        cy.wait(3000)
         this.elements.listPageUrl().click()
     }
 
