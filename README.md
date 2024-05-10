@@ -37,7 +37,7 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
 2. Instalar con `npm i`.
 3. Ejecutar `npx cypress run`.
 
-## Funcionalidades - Escenarios
+## Funcionalidades - Escenarios Semana 5
 ### Members:
 
    1. Crear un member con todos los datos válidos y visualizar el listado de members para verificar que se creó
@@ -66,6 +66,12 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
    18. Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes
    19. Cambio de contraseña con contraseña vieja y contraseñas nuevas vacías
    20. Cambio de contraseña exitoso
+
+## Funcionalidades - Escenarios Semana 6
+### Members:
+
+   1. Crear un member con datos vacíos y verificar que se recibe un error
+   2. Crear un member con datos inválidos y verificar que se recibe un error
 
 ### Análisis de herramientas Semana 5 
 [Análisis de herramientas E2E](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-E2E)
