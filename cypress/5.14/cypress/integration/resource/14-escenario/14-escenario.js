@@ -36,20 +36,30 @@ Given('Ingresar al sitio pages', ()=>{
         pagePage.descriptionInput(textpage)
         cy.screenshot("2 - formulario poblado")
     })
-
-
-    And('Hacer click en el boton de publish page', ()=>{
-        pagePage.publishPageButton()
-    })
-    And('Hacer click en el boton de confirm page', ()=>{
-        pagePage.FinalpublishPageButton()
-        pagePage.confirmPageButton()
+Then('Validar draft {string} en lista', (namepage)=>{
+    pagePage.validateDraftPage(namepage)
+    pagePage.validateDraftStatus(namepage)
     })
 
-Then('Validar que se haya creado page {string}', (namepage)=>{
-    pagePage.validateCreatedPage(namepage) 
-    cy.screenshot("3- Publicación de page")
+//----Validar acceso de URL
+function titleToUrlSlug(titleURL) {
+    return titleURL.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+}
+
+Given('Ingreso a la url de la pagina {string}', (namepage)=>{
+    const urlSlug = titleToUrlSlug(namepage);
+    const baseUrl = 'https://ghost-xefe.onrender.com/';
+    const fullUrl = baseUrl + urlSlug;
+
+    cy.visit(fullUrl, {failOnStatusCode: false});
+    cy.wait(1000)
 })
+
+Then('Validar Url 404', ()=>{
+    pagePage.urlPage404()
+})
+
+
 
 //----Eliminación de Page
 When('Seleccionar page con el nombre {string}', (namepage)=>{
