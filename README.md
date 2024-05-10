@@ -73,14 +73,14 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
    1. Crear un member con datos vacíos y verificar que se recibe un error
    2. Crear un member con datos inválidos y verificar que se recibe un error
 
-### Análisis de herramientas Semana 5 
+## Análisis de herramientas Semana 5 
 [Análisis de herramientas E2E](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-E2E)
 
-### Análisis de herramientas Semana 6
+## Análisis de herramientas Semana 6
 [Análisis de herramientas VRT](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-VRT)
 
-### Sistema de registro de incidencias
+## Sistema de registro de incidencias
 https://github.com/santiago-patino/pruebas-automatizadas-issues/issues
 
-### Estrategias de pruebas
+## Estrategias de pruebas
 [Estrategias de pruebas](https://github.com/santiago-patino/Tests-e2e/wiki/Estrategias-de-pruebas)
