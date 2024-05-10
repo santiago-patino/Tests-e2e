@@ -11,13 +11,36 @@
 
 ## Url del sitio:
 https://ghost-xefe.onrender.com/
-- Ghost version: 5.44.0
+- Ghost version: 5.14
+- Ghost version: 3.42
 
-## Instalaciones
-Version de node recomendada: `16.20.0`
+## Instrucciones de ejecucion
+- Clonar el repositorio git:
+  `git clone https://github.com/santiago-patino/Tests-e2e.git`
+- Instalar node
+  Recomendamos instalar la version de node `v16.20.0`
 
-Version de npm recomandada `8.19.4`
+  Puede obtenerla en este enlace:
+  https://nodejs.org/en/blog/release/v16.20.0
 
+### Cypress
+En la raiz del proyecto por medio de la terminal, ejecutar los siguientes commandos:
+
+1. Ir a la carpeta de cypress con `cd cypress`. Aqui encontrara dos directorios `3.42` y `5.14` correspondientes a las versiones de ghost utilizadas
+2. Acceda a la version que desea ejecutar con `cd 3.42` ó `cd 5.14`
+3. Una vez aqui con el comando `npm i` esto instalarar las dependencias necesarias:
+   - cypress@^9.6.0
+   - cypress-cucumber-preprocessor@^4.3.1
+     
+Comentario:
+
+     En caso de presentarse algun error en la instalacion de las dependencias puede instalar cada una de forma independiente:
+     
+     npm install cypress@^9.6.0 --save-dev
+     npm install cypress-cucumber-preprocessor@^4.3.1 --save-dev
+       
+5. Una vez se instalen las dependencias Ejecutar `npx cypress run`. Este comando empezara a ejecutar los escenarios
+   
 ### Kraken
 
 En la raiz del proyecto, ejecutar los siguientes commandos:
@@ -32,10 +55,6 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
 
 5. Ejecutar `npx kraken-node run`.
 
-### Cypress
-1. Ir a la carpeta de cypress con `cd cypress`.
-2. Instalar con `npm i`.
-3. Ejecutar `npx cypress run`.
 
 ## Funcionalidades - Escenarios Semana 5
 ### Members:
