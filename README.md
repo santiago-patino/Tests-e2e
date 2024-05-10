@@ -74,8 +74,8 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
    2. Crear un member con datos inválidos y verificar que se recibe un error
 ### Posts:
 
-   7. Crear un nuevo post, publicarlo y validar que se visualice
-   10. Eliminar post y validar que ya no aparezca en los posts
+   3. Crear un nuevo post, publicarlo y validar que se visualice **(Escenario 7)**
+   4. Eliminar post y validar que ya no aparezca en los posts **(Escenario 10)**
 
 ## Análisis de herramientas Semana 5 
 [Análisis de herramientas E2E](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-E2E)
