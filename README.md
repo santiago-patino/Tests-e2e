@@ -67,28 +67,14 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
    19. Cambio de contraseña con contraseña vieja y contraseñas nuevas vacías
    20. Cambio de contraseña exitoso
 
-## Resumen Kraken
-### Pros
-- Permite espeficar de forma muy detallada los escenarios, lo que permite que los errores en su ejecución sean menos probables.
-- Es rápido para realizar la ejecución de las pruebas.
+### Análisis de herramientas Semana 5 
+[Análisis de herramientas E2E](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-E2E)
 
-### Contras
-- Definir los selectores es un proceso largo porque es necesario detallar muy bien dónde se encuentra el elemento, es decir dentro de qué tipo de elementos y clases, porque en algunas ocasiones no encuentra el elemento por el id.
-- Si dentro de un escenario se obtiene un error en alguno de los pasos, se detiene la ejecución.
+### Análisis de herramientas Semana 6
+[Análisis de herramientas VRT](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-VRT)
 
-## Resumen Cypress
-### Pros
-- Genera un video resumen de la ejecución de cada uno de los escenarios.
-- Se puede configurar para guardar capturas de pantalla en cada uno de los casos.
-- No se detiene la ejecución si hay un fallo en alguno de los pasos de un escenario.
+### Sistema de registro de incidencias
+https://github.com/santiago-patino/pruebas-automatizadas-issues/issues
 
-### Contras
-- Es más lento para realizar la ejecución de las pruebas. 
-- Restringe en cada paso la realización de una sola funcionalidad de click().
-
-## Estrategias de Pruebas
-### Estrategia de Pruebas 1 actualizada
-[estrategia-pruebas1-actualizada.pdf](https://github.com/santiago-patino/Tests-e2e/files/15212033/estrategia-pruebas1-actualizada.pdf)
-
-### Estrategia de Pruebas 2 actualizada
-[estrategia-pruebas2-actualizada.pdf](https://github.com/santiago-patino/Tests-e2e/files/15212034/estrategia-pruebas2-actualizada.pdf)
+### Estrategias de pruebas
+[Estrategias de pruebas](https://github.com/santiago-patino/Tests-e2e/wiki/Estrategias-de-pruebas)
