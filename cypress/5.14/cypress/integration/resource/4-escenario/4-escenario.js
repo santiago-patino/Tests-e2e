@@ -31,7 +31,7 @@ When(
     cy.wait(3000);
     members.goToMembers();
     cy.screenshot(
-      "E4 S1 Ir a crear un member con el correo de un member existente en la sección members y botón new member"
+      "1 - Ir a crear un nuevo member"
     );
     members.goToNewMember();
   }
@@ -45,7 +45,7 @@ And("Ingresar el nombre del member {string}", (name) => {
 And("Ingresar el email del member existente {string}", (email) => {
   cy.wait(2000);
   members.giveMemberEmail(email);
-  cy.screenshot("E4 S2 Ingresar el email del member existente");
+  cy.screenshot("2 - Ingresar el email de un member existente");
 });
 
 And("Dar click en Save", () => {
@@ -57,7 +57,7 @@ Then(
   () => {
     cy.wait(2000);
     cy.screenshot(
-      "E4 S3 Debería tener un error que indica que es el correo de un member existente"
+      "3 - Debería tener un error de correo de un member existente"
     );
     members.validateErrorExistingMember();
     Cypress.on("uncaught:exception", (err, runnable) => {

@@ -22,7 +22,7 @@ Then("Iniciar Sesion Exitoso", () => {
 When("Ir a crear un nuevo member en la sección members y botón new member", () => {
   cy.wait(3000);
   members.goToMembers();
-  cy.screenshot("E1 S1 Ir a crear un nuevo member en la sección members y botón new member");
+  cy.screenshot("1 - Ir a crear un nuevo member");
   members.goToNewMember();
 });
 
@@ -34,7 +34,7 @@ And("Ingresar el nombre del member {string}", (name) => {
 And("Ingresar el email válido del member {string}", (email) => {
   cy.wait(2000);
   members.giveMemberEmail(email);
-  cy.screenshot("E1 S2 Ingresar el email válido del member");
+  cy.screenshot("2 - Ingresar el email válido");
 });
 
 And("Dar click en Save", () => {
@@ -49,5 +49,5 @@ And("Ingresar a members", () => {
 Then("Debería ver que se actualiza la vista con la información de creación", () => {
     cy.wait(2000);
     members.validateInfoMember();
-    cy.screenshot("E1 S3 Debería ver que se actualiza la vista con la información de creación");
+    cy.screenshot("3- Debería ver que se actualiza la vista");
   });

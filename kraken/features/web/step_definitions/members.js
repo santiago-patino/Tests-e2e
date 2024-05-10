@@ -13,28 +13,28 @@ async function takeScreenshotEveryStep(driver, fileNamePasoEscenario) {
 When("Ir a crear un nuevo member en la sección members y botón new member", async function () {
   await this.driver.url("https://ghost-xefe.onrender.com/ghost/#/members");
   let element = await this.driver.$("a.ember-view.gh-btn.gh-btn-primary");
-  await takeScreenshotEveryStep(this.driver, "E1 S1 Ir a crear un nuevo member en la sección members y botón new member");
+  await takeScreenshotEveryStep(this.driver, "E1 S1 Ir a crear un nuevo member");
   return await element.click();
 });
 
 When("Ir a crear un nuevo member con datos vacíos en la sección members y botón new member", async function () {
   await this.driver.url("https://ghost-xefe.onrender.com/ghost/#/members");
   let element = await this.driver.$("a.ember-view.gh-btn.gh-btn-primary");
-  await takeScreenshotEveryStep(this.driver, "E2 S1 Ir a crear un nuevo member con datos vacíos en la sección members y botón new member");
+  await takeScreenshotEveryStep(this.driver, "E2 S1 Ir a crear un nuevo member");
   return await element.click();
 });
 
 When("Ir a crear un member con datos inválidos en la sección members y botón new member", async function () {
   await this.driver.url("https://ghost-xefe.onrender.com/ghost/#/members");
   let element = await this.driver.$("a.ember-view.gh-btn.gh-btn-primary");
-  await takeScreenshotEveryStep(this.driver, "E3 S1 Ir a crear un member con datos inválidos en la sección members y botón new member");
+  await takeScreenshotEveryStep(this.driver, "E3 S1 Ir a crear un member");
   return await element.click();
 });
 
 When("Ir a crear un member con el correo de un member existente en la sección members y botón new member", async function () {
   await this.driver.url("https://ghost-xefe.onrender.com/ghost/#/members");
   let element = await this.driver.$("a.ember-view.gh-btn.gh-btn-primary");
-  await takeScreenshotEveryStep(this.driver, "E4 S1 Ir a crear un member con el correo de un member existente en la sección members y botón new member");
+  await takeScreenshotEveryStep(this.driver, "E4 S1 Ir a crear un member");
   return await element.click();
 });
 
@@ -48,14 +48,14 @@ When("Ingresar el email válido del member {kraken-string}", async function (ema
   let randomEmail = email;
   let element = await this.driver.$("#member-email");
   await element.setValue(randomEmail);
-  return await takeScreenshotEveryStep(this.driver, "E1 S2 Ingresar el email válido del member");
+  return await takeScreenshotEveryStep(this.driver, "E1 S2 Ingresar el email válido");
 });
 
 When("Ingresar el email del member existente {kraken-string}", async function (email) {
   let randomEmail = email;
   let element = await this.driver.$("#member-email");
   await element.setValue(randomEmail);
-  return await takeScreenshotEveryStep(this.driver, "E4 S2 Ingresar el email del member existente");
+  return await takeScreenshotEveryStep(this.driver, "E4 S2 Ingresar el email de un member existente");
 });
 
 When("Dar click en Save", async function () {
@@ -70,7 +70,7 @@ Then(
     let memberCreated = await this.driver.$("div.gh-member-details-meta");
     let isExisting = await memberCreated.isExisting();
     expect(isExisting).to.be.true;
-    return await takeScreenshotEveryStep(this.driver, "E1 S3 Debería ver que se actualiza la vista con la información de creación");
+    return await takeScreenshotEveryStep(this.driver, "E1 S3 Debería ver que se actualiza la vista");
 
   }
 );
@@ -140,7 +140,7 @@ Then(
     expect(responseText).to.include(
       "Member already exists. Attempting to add member with existing email address"
     );
-  await takeScreenshotEveryStep(this.driver, "E4 S3 Debería tener un error que indica que es el correo de un member existente");
+  await takeScreenshotEveryStep(this.driver, "E4 S3 Debería tener un error de correo de un member existente");
   }
 );
 
@@ -153,7 +153,7 @@ When("Ir a la sección members", async function () {
 When("Ir a la sección members para eliminar un member", async function () {
   let elementMembers = await this.driver.$('a[href="#/members/"]');
   await elementMembers.click();
-  await takeScreenshotEveryStep(this.driver, "E5 S1 Ir a la sección members para eliminar un member");
+  await takeScreenshotEveryStep(this.driver, "E5 S1 Ir a la sección members");
 });
 
 When("Borrar el member creado", async function () {
