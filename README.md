@@ -10,9 +10,14 @@
 | Santiago Patiño Hernandez    | s.patino@uniandes.edu.co             |
 
 ## Url del sitio:
-https://ghost-xefe.onrender.com/
+
 - Ghost version: 5.14
+  
+  https://ghost-xefe.onrender.com/
+  
 - Ghost version: 3.42
+  
+  http://jfautest.online/
 
 ## Instrucciones de ejecucion
 - Clonar el repositorio git:
