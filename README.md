@@ -67,11 +67,15 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
    19. Cambio de contraseña con contraseña vieja y contraseñas nuevas vacías
    20. Cambio de contraseña exitoso
 
-## Funcionalidades - Escenarios Semana 6
+## Funcionalidades - Escenarios Semana 6 (Regresión visual)
 ### Members:
 
    1. Crear un member con datos vacíos y verificar que se recibe un error
    2. Crear un member con datos inválidos y verificar que se recibe un error
+### Posts:
+
+   7. Crear un nuevo post, publicarlo y validar que se visualice
+   10. Eliminar post y validar que ya no aparezca en los posts
 
 ## Análisis de herramientas Semana 5 
 [Análisis de herramientas E2E](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-E2E)
