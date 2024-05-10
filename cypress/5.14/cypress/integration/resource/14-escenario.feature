@@ -1,4 +1,4 @@
-Feature: Crear draft e intentar acceder
+Feature: Crear page draft con todos sus datos e intentar visualizar
 
     Scenario: Crear page draft con todos sus datos e intentar acceder
     
