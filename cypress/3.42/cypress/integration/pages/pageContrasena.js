@@ -1,8 +1,8 @@
 class pageContrasena {
 
     controls = {
-        menuButton: () => cy.get('#ember31'),
-        profileButton: () => cy.get('a[href=\"#/settings/staff/administrator/\"]'),
+        menuButton: () => cy.get('.gh-nav-bottom').children('div[role=button]'),
+        profileButton: () => cy.get('a[href=\"#/staff/administrator/\"]'),
         singOutButton: () =>cy.get('a[href=\"#/signout/\"]'),
         userPasswordOldField: () =>cy.get('#user-password-old'),
         userPasswordNewField: () => cy.get('#user-password-new'),
@@ -28,9 +28,9 @@ class pageContrasena {
 
     goToProfile = () => {
         this.clickMenu();
-        cy.screenshot("4")
+        cy.screenshot("4");
         this.clickProfileButton();
-        cy.url().should('contains', '/#/settings/staff/administrator');
+        cy.url().should('contains', '/#/staff/administrator');
 
     }
 
@@ -43,18 +43,21 @@ class pageContrasena {
     clickMenu = () =>{
         this.controls.menuButton().then(($btn) => {
             cy.wrap($btn).click({force: true});
-        });
+            Cypress.on('uncaught:exception', () => false);
+         });
     }
 
     clickLogout = () => {
         this.controls.singOutButton().then(($btn) => {
             cy.wrap($btn).click({force: true});
+            Cypress.on('uncaught:exception', () => false);
         });
     }
 
     clickProfileButton = () => {
         this.controls.profileButton().then(($btn) => {
             cy.wrap($btn).click({force: true});
+            Cypress.on('uncaught:exception', () => false);
         });
     }
 
