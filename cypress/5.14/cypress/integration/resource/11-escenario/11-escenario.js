@@ -63,27 +63,19 @@ Then('Validar que se haya creado page {string}', (namepage)=>{
 
 //----Eliminación de Page
 When('Seleccionar page con el nombre {string}', (namepage)=>{
-    cy.wait(500)
-    cy.screenshot("6- Lista de pages")
     pagePage.selectPage(namepage)
-    cy.screenshot("7- Seleccionar page")
     cy.wait(500)
 })
 And('abrir menu de page', () => {
-    cy.wait(500)
     pagePage.menuSettingsPage()
-    cy.screenshot("8- Page settings")
     cy.wait(500)
 })
 And('eliminar page', () => {
-    cy.wait(500)
     pagePage.deletePage()
-    cy.screenshot("9- Eliminación de page")
 })
 And('confirmar eliminación', () => {
     pagePage.confirmDeletePage()
     cy.wait(500)
-    cy.screenshot("10- confirmación de eliminación")
 })
 Then('Validar eliminacion de page {string}', (namepage) => {
     pagePage.validateDeletePage(namepage)

@@ -59,7 +59,6 @@ Given('Ingresar al sitio pages', ()=>{
 Then('Validar que se haya creado page {string}', (namepage)=>{
     pagePage.validateCreatedPage(namepage) 
     cy.screenshot("6- Page publicada")
-    pagePage.backEditor()
 })
 
 //----Validar acceso de URL
@@ -85,28 +84,26 @@ Then('Validar Url correcta {string}', (namepage)=>{
 
 //----Eliminación de Page
 When('Seleccionar page con el nombre {string}', (namepage)=>{
-    cy.wait(500)
-    cy.screenshot("8- Lista de pages")
     pagePage.selectPage(namepage)
-    cy.screenshot("9- Seleccionar page")
+    cy.screenshot("8- Seleccionar page")
     cy.wait(500)
 })
 
     And('abrir menu de page', () => {
         pagePage.menuSettingsPage()
         cy.wait(500)
-        cy.screenshot("10- Page settings")
+        cy.screenshot("9- Page settings")
     })
     And('eliminar page', () => {
         pagePage.deletePage()
         cy.wait(500)
-        cy.screenshot("11- Eliminación de page")
+        cy.screenshot("10- Eliminación de page")
     })
     And('confirmar eliminación', () => {
         cy.wait(500)
         pagePage.confirmDeletePage()
         cy.wait(500)
-        cy.screenshot("12- confirmación de eliminación")
+        cy.screenshot("11- confirmación de eliminación")
     })
 Then('Validar eliminacion de page {string}', (namepage) => {
     pagePage.validateDeletePage(namepage)

@@ -53,7 +53,6 @@ Given('Ingresar al sitio pages', ()=>{
         pagePage.FinalpublishPageButton()
         cy.wait(500)
         cy.screenshot("4- Publicación de page")
-        pagePage.confirmPageButton()
     })
 
 Then('Validar que se haya creado page {string}', (namepage)=>{

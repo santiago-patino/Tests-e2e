@@ -41,48 +41,68 @@ Given('Ingresar al sitio pages', ()=>{
     })
     And('Ingresa la descripcion de page {string}', (textpage)=>{
         pagePage.descriptionInput(textpage)
+        cy.wait(500)
+        cy.screenshot("3 - formulario poblado")
     })
 
 
     And('Hacer click en el boton de publish page', ()=>{
-        cy.screenshot("3 - formulario poblado")
-        cy.wait(500)
         pagePage.publishPageButton()
     })
     And('Hacer click en el boton de confirm page', ()=>{
         pagePage.FinalpublishPageButton()
         cy.wait(500)
-        cy.screenshot("4- Publicación de page")
-        pagePage.confirmPageButton()
+        cy.screenshot("5- Publicación de page")
     })
 
 Then('Validar que se haya creado page {string}', (namepage)=>{
-    pagePage.validateCreatedPage(namepage)
-    cy.screenshot("5- Page publicada")
+    pagePage.validateCreatedPage(namepage) 
+    cy.screenshot("6- Page publicada")
 })
+
+//----Validar acceso de URL
+function titleToUrlSlug(titleURL) {
+    return titleURL.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+}
+
+Given('Ingreso a la url de la pagina {string}', (namepage)=>{
+    const urlSlug = titleToUrlSlug(namepage);
+    const baseUrl = 'http://jfautest.online/';
+    const fullUrl = baseUrl + urlSlug;
+
+    cy.visit(fullUrl, {failOnStatusCode: false});
+    cy.screenshot("7 - Visualizar pagina publicada")
+    cy.wait(1000)
+})
+
+Then('Validar Url correcta {string}', (namepage)=>{
+    pagePage.urlPageValid(namepage)
+})
+
+
 
 //----Eliminación de Page
 When('Seleccionar page con el nombre {string}', (namepage)=>{
     pagePage.selectPage(namepage)
-    cy.screenshot("6- Seleccionar page")
+    cy.screenshot("8- Seleccionar page")
     cy.wait(500)
 })
 
     And('abrir menu de page', () => {
         pagePage.menuSettingsPage()
         cy.wait(500)
-        cy.screenshot("7- Page settings")
+        cy.screenshot("9- Page settings")
     })
     And('eliminar page', () => {
         pagePage.deletePage()
         cy.wait(500)
-        cy.screenshot("8- Eliminación de page")
+        cy.screenshot("10- Eliminación de page")
     })
     And('confirmar eliminación', () => {
         cy.wait(500)
         pagePage.confirmDeletePage()
         cy.wait(500)
-        cy.screenshot("9- confirmación de eliminación")
+        cy.screenshot("12- confirmación de eliminación")
     })
 Then('Validar eliminacion de page {string}', (namepage) => {
     pagePage.validateDeletePage(namepage)

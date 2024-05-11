@@ -11,16 +11,16 @@ class pagePage{
         validateDraftStatus: () => cy.get('.gh-content-status-draft'), 
 
         //Management
-        titleInput: () => cy.get('[placeholder="Page title"]'),
+        titleInput: () => cy.get('[placeholder="Page Title"]'),
         descriptionInput: () => cy.get('.koenig-editor__editor'),        
-        publishPageButton: () => cy.get('.gh-publish-trigger'),
-        FinalpublishPageButton: () => cy.get('.gh-publish-cta'),
+        publishPageButton: () => cy.get('.gh-publishmenu-trigger'),
+        FinalpublishPageButton: () => cy.get('.gh-publishmenu-button'),
         confirmPageButton: () => cy.get('.gh-btn-pulse'),        
         selectPage: () => cy.get('.gh-content-entry-title'),
         backEditor: () => cy.get('.gh-back-to-editor'),
 
         urlPage404: () => cy.get('h1.error-code'),
-        urlPageValid: () => cy.get('h1.article-title'),
+        urlPageValid: () => cy.get('h1.post-full-title'),
 
         updatePage: () => cy.get('.gh-editor-save-trigger'),
 

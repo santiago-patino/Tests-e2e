@@ -75,28 +75,26 @@ Then('Validar Url 404', ()=>{
 
 //----Eliminación de Page
 When('Seleccionar page con el nombre {string}', (namepage)=>{
-    cy.wait(500)
-    cy.screenshot("6 - Lista de pages")
     pagePage.selectPage(namepage)
-    cy.screenshot("7 - Seleccionar page")
+    cy.screenshot("6 - Seleccionar page")
     cy.wait(500)
 })
 
     And('abrir menu de page', () => {
         pagePage.menuSettingsPage()
         cy.wait(500)
-        cy.screenshot("8 - Page settings")
+        cy.screenshot("7 - Page settings")
     })
     And('eliminar page', () => {
         pagePage.deletePage()
         cy.wait(500)
-        cy.screenshot("9 - Eliminación de page")
+        cy.screenshot("8 - Eliminación de page")
     })
     And('confirmar eliminación', () => {
         cy.wait(500)
         pagePage.confirmDeletePage()
         cy.wait(500)
-        cy.screenshot("10 - confirmación de eliminación")
+        cy.screenshot("9 - confirmación de eliminación")
     })
 Then('Validar eliminacion de page {string}', (namepage) => {
     pagePage.validateDeletePage(namepage)

@@ -87,7 +87,7 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
    12. Crear y editar una page con todos sus datos, actualizar y visualizar
    13. Crear, eliminar page y validar que no se encuentre page
    14. Crear page draft con todos sus datos e intentar visualizar
-   15. Crear page, configurar nav y validar que sea accesible
+   15. Crear page y validar que sea accesible
 ### Cambio de contraseña:
   
    16. Cambiar contraseña con contraseña vieja invalida y nueva contraseña
@@ -105,6 +105,12 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
 
    3. Crear un nuevo post, publicarlo y validar que se visualice **(Escenario 7)**
    4. Eliminar post y validar que ya no aparezca en los posts **(Escenario 10)**
+### Page:
+
+   1. Crear una page con todos sus datos, publicar y Validar creación **(Escenario 11)**
+   2. Crear, eliminar page y validar que no se encuentre page **(Escenario 13)**
+   3. Crear page y validar que sea accesible  **(Escenario 15)**
+
 
 ## Análisis de herramientas Semana 5 
 [Análisis de herramientas E2E](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-E2E)

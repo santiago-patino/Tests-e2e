@@ -29,6 +29,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //--- Crear y que se haya validado page
 Given('Ingresar al sitio pages', ()=>{
     pageDashboard.listPageUrl()
+    
 })
     And('Hacer click en nuevo page', ()=>{ 
         cy.wait(500)
@@ -41,49 +42,40 @@ Given('Ingresar al sitio pages', ()=>{
     })
     And('Ingresa la descripcion de page {string}', (textpage)=>{
         pagePage.descriptionInput(textpage)
+        cy.screenshot("3 - formulario poblado")
     })
 
 
     And('Hacer click en el boton de publish page', ()=>{
-        cy.screenshot("3 - formulario poblado")
-        cy.wait(500)
         pagePage.publishPageButton()
     })
     And('Hacer click en el boton de confirm page', ()=>{
         pagePage.FinalpublishPageButton()
-        cy.wait(500)
         cy.screenshot("4- Publicación de page")
-        pagePage.confirmPageButton()
     })
 
 Then('Validar que se haya creado page {string}', (namepage)=>{
-    pagePage.validateCreatedPage(namepage)
+    cy.wait(1000)
+    pagePage.validateCreatedPage(namepage) 
     cy.screenshot("5- Page publicada")
 })
 
 //----Eliminación de Page
 When('Seleccionar page con el nombre {string}', (namepage)=>{
     pagePage.selectPage(namepage)
-    cy.screenshot("6- Seleccionar page")
+})
+And('abrir menu de page', () => {
+    cy.wait(500)
+    pagePage.menuSettingsPage()
+})
+And('eliminar page', () => {
+    cy.wait(500)
+    pagePage.deletePage()
+})
+And('confirmar eliminación', () => {
+    pagePage.confirmDeletePage()
     cy.wait(500)
 })
-
-    And('abrir menu de page', () => {
-        pagePage.menuSettingsPage()
-        cy.wait(500)
-        cy.screenshot("7- Page settings")
-    })
-    And('eliminar page', () => {
-        pagePage.deletePage()
-        cy.wait(500)
-        cy.screenshot("8- Eliminación de page")
-    })
-    And('confirmar eliminación', () => {
-        cy.wait(500)
-        pagePage.confirmDeletePage()
-        cy.wait(500)
-        cy.screenshot("9- confirmación de eliminación")
-    })
 Then('Validar eliminacion de page {string}', (namepage) => {
     pagePage.validateDeletePage(namepage)
 })

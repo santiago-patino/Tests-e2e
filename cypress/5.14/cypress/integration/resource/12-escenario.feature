@@ -14,6 +14,7 @@ Feature: Crear y editar una page con todos sus datos, actualizar y visualizar
             And Ingresa la descripcion de page "Description page 2"
             And Hacer click en el boton de publish page
             And Hacer click en el boton de confirm page
+            And Ingresar al sitio pages
         Then Validar que se haya creado page "Page 2"
 
     ## Seleccionar y editar Page
