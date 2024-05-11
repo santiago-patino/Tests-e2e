@@ -43,10 +43,7 @@ class pagePage{
     // Validar page eliminada
     validateDeletePage = (namepage) =>{
         cy.wait(500)
-        this.elements.validateDeletePage().each(($el) => {
-            const text = $el.text().trim(); 
-            expect(text).not.to.contain(namepage);
-        });
+        this.elements.validateDeletePage().first().should('not.have.text', namepage);
     }
 
     validateDraftPage = (namepage) => {
@@ -58,7 +55,6 @@ class pagePage{
     validateDraftStatus = (namepage) => {
         cy.wait(500);
         this.elements.validateDraftStatus().should('contain', 'Draft'); 
-        
     }
 
     urlPage404 = () =>{

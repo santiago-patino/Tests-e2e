@@ -9,6 +9,12 @@ import pageDashboard from '../../pages/pageDashboard.js';
 const versionGhost = Cypress.config("versionGhost");
 const baseUrl = Cypress.config("baseUrl");
 
+Cypress.Screenshot.defaults({
+    capture: 'viewport',
+    disableTimersAndAnimations: false
+})
+
+
 // Inicio de sesión
 Given('Ingresa a la pagina de inicio de sesion', ()=> {
     cy.visit('ghost')
@@ -26,19 +32,24 @@ Given('Ingresar al sitio pages', ()=>{
     pageDashboard.listPageUrl()
 })
     And('Hacer click en nuevo page', ()=>{ 
+        cy.wait(500)
+        cy.screenshot("1 - Listado de page inicial")
         pageDashboard.createPageUrl()
-        cy.screenshot("1 - Creación Page")
+        cy.screenshot("2 - Creación Page")
     })
     And('Ingresa el titulo de page {string}', (namepage)=>{
         pagePage.titleInput(namepage)
     })
     And('Ingresa la descripcion de page {string}', (textpage)=>{
         pagePage.descriptionInput(textpage)
-        cy.screenshot("2 - formulario poblado")
+        cy.wait(500)
+        cy.screenshot("3 - formulario poblado")
     })
 Then('Validar draft {string} en lista', (namepage)=>{
     pagePage.validateDraftPage(namepage)
     pagePage.validateDraftStatus(namepage)
+    cy.screenshot("4 - Visualizar Draft")
+    cy.wait(500)
     })
 
 //----Validar acceso de URL
@@ -52,6 +63,7 @@ Given('Ingreso a la url de la pagina {string}', (namepage)=>{
     const fullUrl = baseUrl + urlSlug;
 
     cy.visit(fullUrl, {failOnStatusCode: false});
+    cy.screenshot("5 - Visualizar pagina de Draft no publicado")
     cy.wait(1000)
 })
 
@@ -63,20 +75,29 @@ Then('Validar Url 404', ()=>{
 
 //----Eliminación de Page
 When('Seleccionar page con el nombre {string}', (namepage)=>{
+    cy.wait(500)
+    cy.screenshot("6 - Lista de pages")
     pagePage.selectPage(namepage)
-    cy.screenshot("4- Lista de pages")
+    cy.screenshot("7 - Seleccionar page")
+    cy.wait(500)
 })
-And('abrir menu de page', () => {
-    pagePage.menuSettingsPage()
-})
-And('eliminar page', () => {
-    pagePage.deletePage()
-    cy.screenshot("6- Eliminación de page")
-})
-And('confirmar eliminación', () => {
-    pagePage.confirmDeletePage()
-    cy.screenshot("7- confirmación de eliminación")
-})
+
+    And('abrir menu de page', () => {
+        pagePage.menuSettingsPage()
+        cy.wait(500)
+        cy.screenshot("8 - Page settings")
+    })
+    And('eliminar page', () => {
+        pagePage.deletePage()
+        cy.wait(500)
+        cy.screenshot("9 - Eliminación de page")
+    })
+    And('confirmar eliminación', () => {
+        cy.wait(500)
+        pagePage.confirmDeletePage()
+        cy.wait(500)
+        cy.screenshot("10 - confirmación de eliminación")
+    })
 Then('Validar eliminacion de page {string}', (namepage) => {
-pagePage.validateDeletePage(namepage)
+    pagePage.validateDeletePage(namepage)
 })

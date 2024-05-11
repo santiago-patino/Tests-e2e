@@ -9,6 +9,11 @@ import pageDashboard from '../../pages/pageDashboard.js';
 const versionGhost = Cypress.config("versionGhost");
 const baseUrl = Cypress.config("baseUrl");
 
+Cypress.Screenshot.defaults({
+    capture: 'viewport',
+    disableTimersAndAnimations: false
+})
+
 // Inicio de sesión
 Given('Ingresa a la pagina de inicio de sesion', ()=> {
     cy.visit('ghost')
@@ -26,15 +31,18 @@ Given('Ingresar al sitio pages', ()=>{
     pageDashboard.listPageUrl()
 })
     And('Hacer click en nuevo page', ()=>{ 
+        cy.wait(500)
+        cy.screenshot("1 - Listado de page inicial")
         pageDashboard.createPageUrl()
-        cy.screenshot("1 - Creación Page")
+        cy.screenshot("2 - Creación Page")
     })
     And('Ingresa el titulo de page {string}', (namepage)=>{
         pagePage.titleInput(namepage)
     })
     And('Ingresa la descripcion de page {string}', (textpage)=>{
         pagePage.descriptionInput(textpage)
-        cy.screenshot("2 - formulario poblado")
+        cy.wait(500)
+        cy.screenshot("3 - formulario poblado")
     })
 
 
@@ -43,12 +51,14 @@ Given('Ingresar al sitio pages', ()=>{
     })
     And('Hacer click en el boton de confirm page', ()=>{
         pagePage.FinalpublishPageButton()
+        cy.wait(500)
+        cy.screenshot("5- Publicación de page")
         pagePage.confirmPageButton()
     })
 
 Then('Validar que se haya creado page {string}', (namepage)=>{
     pagePage.validateCreatedPage(namepage) 
-    cy.screenshot("3- Publicación de page")
+    cy.screenshot("6- Page publicada")
     pagePage.backEditor()
 })
 
@@ -63,6 +73,7 @@ Given('Ingreso a la url de la pagina {string}', (namepage)=>{
     const fullUrl = baseUrl + urlSlug;
 
     cy.visit(fullUrl, {failOnStatusCode: false});
+    cy.screenshot("7 - Visualizar pagina publicada")
     cy.wait(1000)
 })
 
@@ -74,20 +85,29 @@ Then('Validar Url correcta {string}', (namepage)=>{
 
 //----Eliminación de Page
 When('Seleccionar page con el nombre {string}', (namepage)=>{
+    cy.wait(500)
+    cy.screenshot("8- Lista de pages")
     pagePage.selectPage(namepage)
-    cy.screenshot("4- Lista de pages")
+    cy.screenshot("9- Seleccionar page")
+    cy.wait(500)
 })
-And('abrir menu de page', () => {
-    pagePage.menuSettingsPage()
-})
-And('eliminar page', () => {
-    pagePage.deletePage()
-    cy.screenshot("6- Eliminación de page")
-})
-And('confirmar eliminación', () => {
-    pagePage.confirmDeletePage()
-    cy.screenshot("7- confirmación de eliminación")
-})
+
+    And('abrir menu de page', () => {
+        pagePage.menuSettingsPage()
+        cy.wait(500)
+        cy.screenshot("10- Page settings")
+    })
+    And('eliminar page', () => {
+        pagePage.deletePage()
+        cy.wait(500)
+        cy.screenshot("11- Eliminación de page")
+    })
+    And('confirmar eliminación', () => {
+        cy.wait(500)
+        pagePage.confirmDeletePage()
+        cy.wait(500)
+        cy.screenshot("12- confirmación de eliminación")
+    })
 Then('Validar eliminacion de page {string}', (namepage) => {
-pagePage.validateDeletePage(namepage)
+    pagePage.validateDeletePage(namepage)
 })
