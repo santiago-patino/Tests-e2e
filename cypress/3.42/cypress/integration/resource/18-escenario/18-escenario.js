@@ -25,7 +25,7 @@ Then("Iniciar Sesion Exitoso", () => {
 
 When('Ir a mi perfil', () => {
     pageContrasena.goToProfile();
-    cy.screenshot("4")
+    cy.screenshot("5")
 })
 
 
@@ -33,12 +33,12 @@ And('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas 
     pageContrasena.typeFieldUserPasswordOld(PASSWORD);
     pageContrasena.typeFieldUserPasswordNew(NEWPASSWORD);
     pageContrasena.typeFieldUserPasswordNewVerify(FAKEOLDPASSWORD);
-    cy.screenshot("5");
+    cy.screenshot("6");
     pageContrasena.changePassword();
 });
 
 Then('Validar que las contraseñas no coincidan {string}', (message) => {
     pageContrasena.validateErrorMessageUserNewVerifyField(message);
-    cy.screenshot("6");
+    cy.screenshot("7");
 });
 

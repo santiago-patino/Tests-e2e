@@ -2,8 +2,6 @@
 node_modules
 */reports/*
 
-*/reports/*
-*/reports/*
 
 cypress/3.42/cypress/videos/*
 cypress/5.14/cypress/videos/*
@@ -11,5 +9,7 @@ cypress/5.14/cypress/videos/*
 package-lock.json
 /cypress/cypress/screenshots/
 /cypress/cypress/videos/
-/cypress/3.42/cypress/screenshots/
+/cypress/3.42/cypress/screenshots/*
 /.idea/
+/cypress/5.14/cypress/screenshots/*
+/cypress/3.42/cypress/screenshots/

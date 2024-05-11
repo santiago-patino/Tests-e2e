@@ -14,5 +14,5 @@ Feature Cambiar contraseña con contraseña vieja invalida y nueva contraseña
     Then Validar cambio de contraseña exitoso "Password updated"
     And SignOut
     And Ingresa el nombre de usuario e ingresa la nueva contraseña
-    Then Iniciar Sesion Exitoso "9"
+    Then Iniciar Sesion Exitoso "10"
 

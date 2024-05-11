@@ -19,7 +19,7 @@ When("Ingresa el nombre de usuario y ingresa la contraseña", () => {
 
 And("Ingresa el nombre de usuario e ingresa la nueva contraseña", (message) => {
     pageContrasena.singIn(USERNAME, NEWPASSWORD);
-    cy.screenshot("8")
+    cy.screenshot("9")
 });
 
 Then("Iniciar Sesion Exitoso {string}", (paso) => {
@@ -30,25 +30,25 @@ Then("Iniciar Sesion Exitoso {string}", (paso) => {
 
 When('Ir a mi perfil', (paso) => {
     pageContrasena.goToProfile();
-    cy.screenshot("4")
+    cy.screenshot("5")
 })
 
 
 And('SignOut', () => {
     pageContrasena.signOut();
-    cy.screenshot("7");
+    cy.screenshot("8");
 });
 
 And('Ingresar datos de contraseñas correctos', () => {
     pageContrasena.typeFieldUserPasswordOld(PASSWORD);
     pageContrasena.typeFieldUserPasswordNew(NEWPASSWORD);
     pageContrasena.typeFieldUserPasswordNewVerify(NEWPASSWORD);
-    cy.screenshot("5");
+    cy.screenshot("6");
     pageContrasena.changePassword();
 });
 
 Then('Validar cambio de contraseña exitoso {string}', (message) => {
     pageContrasena.validateSuccess(message);
-    cy.screenshot("6");
+    cy.screenshot("7");
 });
 
