@@ -10,14 +10,47 @@
 | Santiago Patiño Hernandez    | s.patino@uniandes.edu.co             |
 
 ## Url del sitio:
-https://ghost-xefe.onrender.com/
-- Ghost version: 5.44.0
 
-## Instalaciones
-Version de node recomendada: `16.20.0`
+- Ghost version: 5.14
+  
+  https://ghost-xefe.onrender.com/
+  
+- Ghost version: 3.42
+  
+  http://jfautest.online/
 
-Version de npm recomandada `8.19.4`
+## Instrucciones de ejecucion
+- Clonar el repositorio git:
+  `git clone https://github.com/santiago-patino/Tests-e2e.git`
+- Instalar node
+  Recomendamos instalar la version de node `v16.20.0`
 
+  Puede obtenerla en este enlace:
+  https://nodejs.org/en/blog/release/v16.20.0
+
+### Cypress
+
+Asegurar que tiene instalado:
+- Android SDK (definiendo las variables de entorno de Sdk, platform-tools y build-tools)
+- Java (definiendo la variable de entorno del Jdk)
+
+En la raiz del proyecto por medio de la terminal, ejecutar los siguientes commandos:
+
+1. Ir a la carpeta de cypress con `cd cypress`. Aqui encontrara dos directorios `3.42` y `5.14` correspondientes a las versiones de ghost utilizadas
+2. Acceda a la version que desea ejecutar con `cd 3.42` ó `cd 5.14`
+3. Una vez aquí con el comando `npm i` instalará las dependencias necesarias:
+   - cypress@^9.6.0
+   - cypress-cucumber-preprocessor@^4.3.1
+     
+Comentario:
+
+     En caso de presentarse algún error en la instalación de las dependencias puede instalar cada una de forma independiente:
+     
+     npm install cypress@^9.6.0 --save-dev
+     npm install cypress-cucumber-preprocessor@^4.3.1 --save-dev
+       
+5. Una vez se instalen las dependencias Ejecutar `npx cypress run`. Este comando empezará a ejecutar los escenarios
+   
 ### Kraken
 
 En la raiz del proyecto, ejecutar los siguientes commandos:
@@ -32,18 +65,14 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
 
 5. Ejecutar `npx kraken-node run`.
 
-### Cypress
-1. Ir a la carpeta de cypress con `cd cypress`.
-2. Instalar con `npm i`.
-3. Ejecutar `npx cypress run`.
 
-## Funcionalidades - Escenarios
-### Crear members:
+## Funcionalidades - Escenarios Semana 5
+### Members:
 
-   1. Crear un member con todos los datos válidos y visualizar el listado de members para verificar que se creó
-   2. Crear un member con datos inválidos y verificar que se recibe un error
-   3. Crear un member con datos de un member existente y verificar que se recibe un error
-   4. Editar datos de un member existente y verificar que se actualiza la información del member
+   1. Crear un member con todos los datos válidos y verificar que se creó
+   2. Crear un member con datos vacíos y verificar que se recibe un error
+   3. Crear un member con datos inválidos y verificar que se recibe un error
+   4. Crear un member con datos de un member existente y verificar que se recibe un error
    5. Eliminar un member existente y verificar que ya no aparece en la lista de members
 ### Posts:
 
@@ -67,28 +96,24 @@ En la raiz del proyecto, ejecutar los siguientes commandos:
    19. Cambio de contraseña con contraseña vieja y contraseñas nuevas vacías
    20. Cambio de contraseña exitoso
 
-## Resumen Kraken
-### Pros
-- Permite espeficar de forma muy detallada los escenarios, lo que permite que los errores en su ejecución sean menos probables.
-- Es rápido para realizar la ejecución de las pruebas.
+## Funcionalidades - Escenarios Semana 6 (Regresión visual)
+### Members:
 
-### Contras
-- Definir los selectores es un proceso largo porque es necesario detallar muy bien dónde se encuentra el elemento, es decir dentro de qué tipo de elementos y clases, porque en algunas ocasiones no encuentra el elemento por el id.
-- Si dentro de un escenario se obtiene un error en alguno de los pasos, se detiene la ejecución.
+   1. Crear un member con datos vacíos y verificar que se recibe un error **(Escenario 2)**
+   2. Crear un member con datos inválidos y verificar que se recibe un error **(Escenario 3)**
+### Posts:
 
-## Resumen Cypress
-### Pros
-- Genera un video resumen de la ejecución de cada uno de los escenarios.
-- Se puede configurar para guardar capturas de pantalla en cada uno de los casos.
-- No se detiene la ejecución si hay un fallo en alguno de los pasos de un escenario.
+   3. Crear un nuevo post, publicarlo y validar que se visualice **(Escenario 7)**
+   4. Eliminar post y validar que ya no aparezca en los posts **(Escenario 10)**
 
-### Contras
-- Es más lento para realizar la ejecución de las pruebas. 
-- Restringe en cada paso la realización de una sola funcionalidad de click().
+## Análisis de herramientas Semana 5 
+[Análisis de herramientas E2E](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-E2E)
 
-## Estrategias de Pruebas
-### Estrategia de Pruebas 1 actualizada
-[estrategia-pruebas1-actualizada.pdf](https://github.com/santiago-patino/Tests-e2e/files/15212033/estrategia-pruebas1-actualizada.pdf)
+## Análisis de herramientas Semana 6
+[Análisis de herramientas VRT](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-VRT)
 
-### Estrategia de Pruebas 2 actualizada
-[estrategia-pruebas2-actualizada.pdf](https://github.com/santiago-patino/Tests-e2e/files/15212034/estrategia-pruebas2-actualizada.pdf)
+## Sistema de registro de incidencias
+https://github.com/santiago-patino/pruebas-automatizadas-issues/issues
+
+## Estrategias de pruebas
+[Estrategias de pruebas](https://github.com/santiago-patino/Tests-e2e/wiki/Estrategias-de-pruebas)

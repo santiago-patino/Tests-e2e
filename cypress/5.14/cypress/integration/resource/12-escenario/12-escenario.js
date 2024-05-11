@@ -65,3 +65,23 @@ Then('Validar notificacion de edicion', () => {
     pagePage.validateMessageUpdated()
     cy.screenshot("5- Mensaje de actualización")
 })
+
+//----Eliminación de Page
+When('Seleccionar page con el nombre {string}', (namepage)=>{
+    pagePage.selectPage(namepage)
+    cy.screenshot("4- Lista de pages")
+})
+And('abrir menu de page', () => {
+    pagePage.menuSettingsPage()
+})
+And('eliminar page', () => {
+    pagePage.deletePage()
+    cy.screenshot("6- Eliminación de page")
+})
+And('confirmar eliminación', () => {
+    pagePage.confirmDeletePage()
+    cy.screenshot("7- confirmación de eliminación")
+})
+Then('Validar eliminacion de page {string}', (namepage) => {
+pagePage.validateDeletePage(namepage)
+})
