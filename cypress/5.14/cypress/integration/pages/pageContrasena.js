@@ -28,6 +28,7 @@ class pageContrasena {
 
     goToProfile = () => {
         this.clickMenu();
+        cy.screenshot("4")
         this.clickProfileButton();
         cy.url().should('contains', '/#/settings/staff/administrator');
 

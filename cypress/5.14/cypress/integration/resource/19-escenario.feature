@@ -7,8 +7,8 @@ Feature Cambiar contraseña con contraseña vieja invalida y nueva contraseña
     When Ingresa el nombre de usuario y ingresa la contraseña
     Then Iniciar Sesion Exitoso
 
-  Scenario: Cambiar contraseña con contraseña vieja invalida y nueva contraseña
-
+  Scenario: Cambio de contraseña con contraseña vieja y contraseñas nuevas vacías
     When Ir a mi perfil
-    And Ingresar datos de contraseñas vieja invalida y nueva contraseña
-    Then Validar cambio de contraseña "Your password is incorrect. Your password is incorrect."
+    And Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas vacías
+    Then Validar que no esté vacío new Password "Sorry, passwords can't be blank"
+
