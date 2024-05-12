@@ -32,9 +32,9 @@ Given('Ingresar al sitio pages', ()=>{
 })
     And('Hacer click en nuevo page', ()=>{ 
         cy.wait(500)
-        cy.screenshot("1 - Listado de page inicial")
+        cy.screenshot("1")
         pageDashboard.createPageUrl()
-        cy.screenshot("2 - Creación Page")
+        cy.screenshot("2")
     })
     And('Ingresa el titulo de page {string}', (namepage)=>{
         pagePage.titleInput(namepage)
@@ -45,21 +45,21 @@ Given('Ingresar al sitio pages', ()=>{
     
     
     And('Hacer click en el boton de publish page', ()=>{
-        cy.screenshot("3 - formulario poblado")
+        cy.screenshot("3")
         cy.wait(500)
         pagePage.publishPageButton()
     })
     And('Hacer click en el boton de confirm page', ()=>{
         pagePage.FinalpublishPageButton()
         cy.wait(500)
-        cy.screenshot("4- Publicación de page")
+        cy.screenshot("4")
         pagePage.confirmPageButton()
     })
 
 Then('Validar que se haya creado page {string}', (namepage)=>{
     pagePage.validateCreatedPage(namepage) 
     cy.wait(500)
-    cy.screenshot("5- Page publicada")
+    cy.screenshot("5")
 })
 
 
@@ -68,36 +68,36 @@ When('Seleccionar page con el nombre {string}', (namepage)=>{
     pagePage.selectPage(namepage)
 })
     And('Hacer click en el boton Update', ()=>{
-        cy.screenshot("6- Edicición de page existente")
+        cy.screenshot("6")
         cy.wait(500)
         pagePage.updatePage()
     })
 Then('Validar notificacion de edicion', () => {
     pagePage.validateMessageUpdated()
     cy.wait(500)
-    cy.screenshot("7- Mensaje de edición")
+    cy.screenshot("7")
 })
 
 //----Eliminación de Page
 When('Seleccionar page con el nombre {string}', (namepage)=>{
     pagePage.selectPage(namepage)
-    cy.screenshot("8- Seleccionar page")
+    cy.screenshot("8")
     cy.wait(500)
 })
 And('abrir menu de page', () => {
     pagePage.menuSettingsPage()
     cy.wait(500)
-    cy.screenshot("9- Page settings")
+    cy.screenshot("9")
 })
 And('eliminar page', () => {
     pagePage.deletePage()
     cy.wait(500)
-    cy.screenshot("10- Eliminación de page")
+    cy.screenshot("10")
 })
 And('confirmar eliminación', () => {
     pagePage.confirmDeletePage()
     cy.wait(500)
-    cy.screenshot("11- confirmación de eliminación")
+    cy.screenshot("11")
 })
 Then('Validar eliminacion de page {string}', (namepage) => {
 pagePage.validateDeletePage(namepage)

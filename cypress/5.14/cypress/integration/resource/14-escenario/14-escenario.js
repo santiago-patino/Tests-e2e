@@ -33,9 +33,9 @@ Given('Ingresar al sitio pages', ()=>{
 })
     And('Hacer click en nuevo page', ()=>{ 
         cy.wait(500)
-        cy.screenshot("1 - Listado de page inicial")
+        cy.screenshot("1")
         pageDashboard.createPageUrl()
-        cy.screenshot("2 - Creación Page")
+        cy.screenshot("2")
     })
     And('Ingresa el titulo de page {string}', (namepage)=>{
         pagePage.titleInput(namepage)
@@ -43,12 +43,12 @@ Given('Ingresar al sitio pages', ()=>{
     And('Ingresa la descripcion de page {string}', (textpage)=>{
         pagePage.descriptionInput(textpage)
         cy.wait(500)
-        cy.screenshot("3 - formulario poblado")
+        cy.screenshot("3")
     })
 Then('Validar draft {string} en lista', (namepage)=>{
     pagePage.validateDraftPage(namepage)
     pagePage.validateDraftStatus(namepage)
-    cy.screenshot("4 - Visualizar Draft")
+    cy.screenshot("4")
     cy.wait(500)
     })
 
@@ -63,7 +63,7 @@ Given('Ingreso a la url de la pagina {string}', (namepage)=>{
     const fullUrl = baseUrl + urlSlug;
 
     cy.visit(fullUrl, {failOnStatusCode: false});
-    cy.screenshot("5 - Visualizar pagina de Draft no publicado")
+    cy.screenshot("5")
     cy.wait(1000)
 })
 

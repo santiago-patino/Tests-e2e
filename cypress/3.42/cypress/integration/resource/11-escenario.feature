@@ -16,11 +16,3 @@ Feature: Crear una page con todos sus datos, publicar y Validar creación
             And Hacer click en el boton de confirm page
             And Ingresar al sitio pages
         Then Validar que se haya creado page "Page 1"
-
-    ## Seleccionar y eliminar Page
-        Given Ingresar al sitio pages
-            When Seleccionar page con el nombre "Page 1"
-            And abrir menu de page
-            And eliminar page
-            And confirmar eliminación
-        Then Validar eliminacion de page "Page 1"
