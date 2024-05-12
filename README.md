@@ -53,18 +53,43 @@ Comentario:
    
 ### Kraken
 
-En la raiz del proyecto, ejecutar los siguientes commandos:
+En la raiz del proyecto por medio de la terminal, ejecutar los siguientes commandos:
 
 1. Ir a la carpeta de kraken con `cd kraken`.
-2. Instalar las dependencias `npm i`.
-3. Seleccionar el numero de la funcionalidad a ejecutar con.
+2. Con el comando `npm i` podra instalar las dependencias necesarias:
+   - cucumber@^6.0.7
+  
+  Comentario:
+
+     En caso de presentarse algún error en la instalación de las dependencias puede instalar cada una de forma independiente:
+     
+     npm install cucumber@^6.0.7 --save-dev
+     
+3. Despues de haber realizo la instalacion de las depencias se debe escoger el numero de la funcionalidad para ejecutar los escenarios asociados (Revisar lista de escenarios y su funcionalidad asociada).
    
-   Por ejemplo: (Seleccionar funcionalidad 1 Crear miembros)
+   (Seleccionar funcionalidad 1 Members)
 
-   `npm run func -- 1` 
+   `npm run func -- 1`
 
-5. Ejecutar `npx kraken-node run`.
+   (Seleccionar funcionalidad 2 Posts)
 
+   `npm run func -- 2`
+
+   (Seleccionar funcionalidad 3 Pages)
+
+   `npm run func -- 3`
+
+   (Seleccionar funcionalidad 4 Cambiar contraseña)
+
+   `npm run func -- 4`
+
+5. Despues de seleccionar la funcionalidad ejecute el comando `npx kraken-node run`.
+
+Comentario:
+
+     En caso de presentarse algún error en la ejecucion de las pruebas kraken. Dirijase al esta ubicacion: kraken\features
+     Y asegurese que solo el archivo de la funcionalidad seleccionada sea el unico con el tipo .feature 
+     (Ya que kraken, no permite ejecutar varios archivos de este tipo a la vez)
 
 ## Funcionalidades - Escenarios Semana 5
 ### Members:
