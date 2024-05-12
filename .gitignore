@@ -13,3 +13,5 @@ package-lock.json
 /.idea/
 /cypress/5.14/cypress/screenshots/*
 /cypress/3.42/cypress/screenshots/
+/cypress/backstop_data/bitmaps_test/*
+/cypress/backstop_data/bitmaps_reference/*
