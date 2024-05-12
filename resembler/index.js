@@ -109,7 +109,7 @@ function step(f, s, info) {
     <img class="img2" src="./${f}/v3-${s}.png" id="refImage" label="Reference">
     </div>
     <div class="imgcontainer">
-    <span class="imgname">Ghost 4.44</span>
+    <span class="imgname">Ghost 5.14</span>
     <img class="img2" src="./${f}/v4-${s}.png" id="testImage" label="Test">
     </div>
     </div>
