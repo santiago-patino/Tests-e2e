@@ -5,15 +5,19 @@ const pagelogin = require('../../pages/pageLogin');
 
 Given('Ingresa a la pagina de inicio de sesion', ()=> {
     cy.visit('ghost')
+    cy.wait(1000);
+    cy.screenshot("1")
 })
 
 When('Ingresa el nombre de usuario y ingresa la contraseña', ()=>{
     pagelogin.singIn()
+    cy.screenshot("2")
 })
 
 Then('Iniciar Sesion Exitoso', ()=>{
     cy.wait(1000)
     pagelogin.check()
+    cy.screenshot("3")
 })
 
 //--- Create post
@@ -21,21 +25,24 @@ Then('Iniciar Sesion Exitoso', ()=>{
 When('Hacer click en nuevo post', ()=>{
     cy.wait(1000)
     pagePost.createButton();
+    cy.screenshot("4")
 })
 
 And('Ingresa el titulo del post {string}', (title)=>{
     cy.wait(1500)
     pagePost.titleEditor(title);
+    cy.screenshot("5")
 })
 
 And('Ingresa la descripcion del post {string}', (descripcion)=>{
     pagePost.descriptionEditor(descripcion);
+    cy.screenshot("6")
 })
 
 Then('Validar que se haya creado como borrador {string}', (text)=>{
     cy.wait(3000)
     pagePost.statusEditor(text);
-    cy.screenshot("1 - Crear un post como borrador")
+    cy.screenshot("7")
 })
 
 //--- Eliminar post
@@ -68,6 +75,5 @@ And('Hace click en confirmar delete', ()=>{
 Then('Validar redireccion a posts', ()=>{
     cy.wait(500)
     cy.url().should('contains', '#/posts');
-    cy.screenshot("4 - Elimina post")
 })
 

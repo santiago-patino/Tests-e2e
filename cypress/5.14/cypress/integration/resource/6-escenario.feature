@@ -12,11 +12,7 @@ Feature: Escenario 6 Crear un nuevo post y validar que se cree como borrador
             And Ingresa la descripcion del post "Description post 1"
         Then Validar que se haya creado como borrador "Draft"
 
-    Scenario: Eliminar post
-        Given Ingresa a la pagina de inicio de sesion
-            When Ingresa el nombre de usuario y ingresa la contraseña
-        Then Iniciar Sesion Exitoso
-        
+    ## Eliminar post
         Given Ingresar al sitio posts
             When Seleccionar el post con el nombre "Post 1"
             And Hacer click en las configuracion del post

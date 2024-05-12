@@ -21,29 +21,34 @@ Then('Iniciar Sesion Exitoso', ()=>{
 When('Hacer click en nuevo post', ()=>{
     cy.wait(1000)
     pagePost.createButton();
+    cy.screenshot("1")
 })
 
 And('Ingresa el titulo del post {string}', (title)=>{
     cy.wait(1500)
     pagePost.titleEditor(title);
+    cy.screenshot("2")
 })
 
 And('Ingresa la descripcion del post {string}', (descripcion)=>{
     pagePost.descriptionEditor(descripcion);
+    cy.screenshot("3")
 })
 
 And('Hace click en el boton de publish post', ()=>{
     pagePost.publishButton();
+    cy.screenshot("4")
 })
 
 And('Hace click en el boton de confirm post', ()=>{
     pagePost.buttonConfirmPublish1();
+    cy.screenshot("5")
 });
 
 Then('Validar que se haya creado el post {string}', (title)=>{
     cy.wait(1000)
     cy.contains('Published').should('exist');
-    cy.screenshot("1 - Crear un post")
+    cy.screenshot("6")
 })
 
 //-- Verificar el nuevo post publicado
@@ -51,11 +56,12 @@ Then('Validar que se haya creado el post {string}', (title)=>{
 Given('Ingresa al post {string} como usuario normal', (title)=> {
     let replacedString = title.replace(/\s+/g, '-');
     cy.visit('/'+replacedString, { failOnStatusCode: false });
+    cy.screenshot("7")
 })
 
 Then('Validar titulo del post {string}', (title)=>{
     pagePost.userTitlePost(title)
-    cy.screenshot("2 - Verificar el post")
+    cy.screenshot("8")
 })
 
 //--- Eliminar post
