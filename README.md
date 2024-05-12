@@ -136,6 +136,27 @@ Comentario:
    2. Crear, eliminar page y validar que no se encuentre page **(Escenario 13)**
    3. Crear page y validar que sea accesible  **(Escenario 15)**
 
+## Comparacion de screeenshots
+Resemble.js
+Para comparar los screenshots generados por las 2 versiones de ghost con la herramienta resemble debe:
+
+1. Ubiquese en el directorio /resembler y puede hacerlo con el siguiente comando: `cd resembler`
+Instalar las dependencias
+2. Una vez aquí con el comando `npm i` instalará las dependencias necesarias:
+   - playwright@^1.44.0
+   - resemblejs@^5.0.0
+     
+Comentario:
+
+     En caso de presentarse algún error en la instalación de las dependencias puede instalar cada una de forma independiente:
+     
+     npm install playwright@^1.44.0
+     npm install resemblejs@^5.0.0
+
+3. Despues de instalar las depenencias ahora debe ejecutar la herramienta con el siguiente comando: `node index.js`
+
+  
+
 
 ## Análisis de herramientas Semana 5 
 [Análisis de herramientas E2E](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-E2E)
