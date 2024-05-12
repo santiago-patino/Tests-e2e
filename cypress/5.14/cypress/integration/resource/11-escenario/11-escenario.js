@@ -33,16 +33,16 @@ Given('Ingresar al sitio pages', ()=>{
 })
     And('Hacer click en nuevo page', ()=>{ 
         cy.wait(500)
-        cy.screenshot("1 - Listado de page inicial")
+        cy.screenshot("1")
         pageDashboard.createPageUrl()
-        cy.screenshot("2 - Creación Page")
+        cy.screenshot("2")
     })
     And('Ingresa el titulo de page {string}', (namepage)=>{
         pagePage.titleInput(namepage)
     })
     And('Ingresa la descripcion de page {string}', (textpage)=>{
         pagePage.descriptionInput(textpage)
-        cy.screenshot("3 - formulario poblado")
+        cy.screenshot("3")
     })
 
 
@@ -51,32 +51,20 @@ Given('Ingresar al sitio pages', ()=>{
     })
     And('Hacer click en el boton de confirm page', ()=>{
         pagePage.FinalpublishPageButton()
-        cy.screenshot("4- Publicación de page")
+        cy.screenshot("4")
         pagePage.confirmPageButton()
     })
 
 Then('Validar que se haya creado page {string}', (namepage)=>{
     cy.wait(1000)
     pagePage.validateCreatedPage(namepage) 
-    cy.screenshot("5- Page publicada")
-})
-
-//----Eliminación de Page
-When('Seleccionar page con el nombre {string}', (namepage)=>{
+    cy.screenshot("5")
     pagePage.selectPage(namepage)
     cy.wait(500)
-})
-And('abrir menu de page', () => {
     pagePage.menuSettingsPage()
     cy.wait(500)
-})
-And('eliminar page', () => {
     pagePage.deletePage()
-})
-And('confirmar eliminación', () => {
     pagePage.confirmDeletePage()
     cy.wait(500)
-})
-Then('Validar eliminacion de page {string}', (namepage) => {
     pagePage.validateDeletePage(namepage)
 })
