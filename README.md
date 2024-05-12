@@ -57,12 +57,16 @@ En la raiz del proyecto por medio de la terminal, ejecutar los siguientes comman
 
 1. Ir a la carpeta de kraken con `cd kraken`.
 2. Con el comando `npm i` podra instalar las dependencias necesarias:
+   - chai@^4.3.6
+   - kraken-node@^1.0.24
    - cucumber@^6.0.7
   
   Comentario:
 
      En caso de presentarse algún error en la instalación de las dependencias puede instalar cada una de forma independiente:
      
+     npm install chai@^4.3.6 
+     npm install kraken-node@^1.0.24
      npm install cucumber@^6.0.7 --save-dev
      
 3. Despues de haber realizo la instalacion de las depencias se debe escoger el numero de la funcionalidad para ejecutar los escenarios asociados (Revisar lista de escenarios y su funcionalidad asociada).
