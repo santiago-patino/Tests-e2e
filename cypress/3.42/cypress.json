@@ -1,5 +1,5 @@
 {
     "baseUrl": "http://jfautest.online/",
-    "testFiles": "**/{11..15}-escenario.feature",
+    "testFiles": "**/*-escenario.feature",
     "chromeWebSecurity": false
 }
