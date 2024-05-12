@@ -88,7 +88,7 @@ En la raiz del proyecto por medio de la terminal, ejecutar los siguientes comman
 Comentario:
 
      En caso de presentarse algún error en la ejecucion de las pruebas kraken. Dirijase al esta ubicacion: kraken\features
-     Y asegurese que solo un archivo de la funcionalidad seleccionada sea del tipo .feature 
+     Y asegurese que solo el archivo de la funcionalidad seleccionada sea el unico con el tipo .feature 
      (Ya que kraken, no permite ejecutar varios archivos de este tipo a la vez)
 
 ## Funcionalidades - Escenarios Semana 5
