@@ -22,13 +22,13 @@ Then("Iniciar Sesion Exitoso", () => {
 When("Ir a la sección members para eliminar un member", () => {
   cy.wait(3000);
   members.goToMembers();
-  cy.screenshot("1 - Ir a crear un nuevo member");
+  cy.screenshot("1");
 });
 
 And("Verificar que existe el member {string}", (nombre) => {
   members.verifyExistingMember(nombre);
   cy.wait(2000);
-  cy.screenshot("2 - Verificar que existe el member");
+  cy.screenshot("2");
 });
 
 And("Seleccionar el miembro a eliminar", () => {
@@ -41,23 +41,23 @@ And("Hacer click en opciones", () => {
       "button.gh-btn.gh-btn-icon.icon-only.gh-btn-action-icon.closed.ember-view"
     ).click();
     cy.wait(2000);
-    cy.screenshot("3 - Borrar el member creado dropdown");
+    cy.screenshot("3");
   });
   
   And("Hacer click en eliminar", () => {
     cy.get("button.mr2 span.red").click();
     cy.wait(2000);
-    cy.screenshot("4 - Borrar el member creado delete button");
+    cy.screenshot("4");
   });
   
   And("Hacer click en confirmar", () => {
     cy.get("button.gh-btn.gh-btn-red.gh-btn-icon.ember-view").click();
     cy.wait(2000);
-    cy.screenshot("5 - Borrar el member creado confirm button");
+    cy.screenshot("5");
   });
 
 Then("No debería existir el member {string}", (nombre) => {
     cy.wait(2000);
   members.notExistMember(nombre);
-  cy.screenshot("6 - No debería existir el member");
+  cy.screenshot("6");
 });

@@ -25,7 +25,7 @@ When(
     cy.wait(3000);
     members.goToMembers();
     cy.screenshot(
-      "1 - Ir a crear un nuevo member"
+      "1"
     );
     members.goToNewMember();
   }
@@ -38,5 +38,5 @@ And("Dar click en Save", () => {
 Then("Debería tener un error de datos vacíos", () => {
   cy.wait(2000);
   members.validateErrorEmptyData();
-  cy.screenshot("2 - Debería tener un error de datos vacíos");
+  cy.screenshot("2");
 });

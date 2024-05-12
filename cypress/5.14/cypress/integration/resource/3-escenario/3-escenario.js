@@ -25,7 +25,7 @@ When(
     cy.wait(3000);
     members.goToMembers();
     cy.screenshot(
-      "1 - Ir a crear un nuevo member"
+      "1"
     );
     members.goToNewMember();
   }
@@ -39,7 +39,7 @@ And("Ingresar el nombre del member {string}", (name) => {
 And("Ingresar el email inválido del member", () => {
   cy.wait(2000);
   members.giveMemberEmail("e.condev");
-  cy.screenshot("2 - Ingresar el email inválido");
+  cy.screenshot("2");
 });
 
 And("Dar click en Save", () => {
@@ -49,5 +49,5 @@ And("Dar click en Save", () => {
 Then("Debería tener un error de datos inválidos", () => {
   cy.wait(2000);
   members.validateErrorInvalidData();
-  cy.screenshot("3 - Debería tener un error de datos inválidos");
+  cy.screenshot("3");
 });
