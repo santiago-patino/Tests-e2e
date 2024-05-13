@@ -1,0 +1,22 @@
+{
+    "cypressGhost342": "./../cypress/3.42/cypress/screenshots/resource",
+    "cypressGhost514": "./../cypress/5.14/cypress/screenshots/resource",
+    "browsers":["chromium", "webkit", "firefox"],
+    "options":{
+        "output": {
+            "errorColor": {
+                "red": 255,
+                "green": 0,
+                "blue": 255
+            },
+            "errorType": "movement",
+            "largeImageThreshold": 1200,
+            "useCrossOrigin": false,
+            "outputDiff": true
+        },
+        "scaleToSameSize": true,
+        "ignore": "antialiasing"
+    },
+    "viewportHeight":600, 
+    "viewportWidth":800
+}

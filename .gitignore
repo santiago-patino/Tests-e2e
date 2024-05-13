@@ -1,6 +1,17 @@
 */node_modules/*
 node_modules
 */reports/*
-cypress/cypress/videos/*
+
+
+cypress/3.42/cypress/videos/*
+cypress/5.14/cypress/videos/*
 
 package-lock.json
+/cypress/cypress/screenshots/
+/cypress/cypress/videos/
+/cypress/3.42/cypress/screenshots/*
+/.idea/
+/cypress/5.14/cypress/screenshots/*
+/cypress/3.42/cypress/screenshots/
+/cypress/backstop_data/bitmaps_test/*
+/cypress/backstop_data/bitmaps_reference/*
