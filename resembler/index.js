@@ -135,7 +135,7 @@ function feature(f, info) {
 
 function createReport(datetime, resInfo) {
 
-  let features = fs.readdirSync(cypressGhost342);
+  let features = fs.readdirSync(cypressGhost342).sort(sorter);
 
   return `
     <html>
@@ -156,7 +156,7 @@ function createReport(datetime, resInfo) {
 }
 
 function sorter(a, b) {
-  if (a < b) return -1;  // any negative number works
-  if (a > b) return 1;   // any positive number works
-  return 0; // equal values MUST yield zero
-}
+  const numA = parseInt(a.match(/^\d+/)[0]);
+  const numB = parseInt(b.match(/^\d+/)[0]);
+  return numA - numB;
+};
