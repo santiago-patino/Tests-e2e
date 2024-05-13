@@ -136,9 +136,9 @@ Comentario:
    4. Eliminar post y validar que ya no aparezca en los posts **(Escenario 10)**
 ### Page:
 
-   1. Crear una page con todos sus datos, publicar y Validar creación **(Escenario 11)**
-   2. Crear, eliminar page y validar que no se encuentre page **(Escenario 13)**
-   3. Crear page y validar que sea accesible  **(Escenario 15)**
+   5. Crear una page con todos sus datos, publicar y Validar creación **(Escenario 11)**
+   6. Crear, eliminar page y validar que no se encuentre page **(Escenario 13)**
+   7. Crear page y validar que sea accesible  **(Escenario 15)**
 
 ## Comparacion de screeenshots
 Resemble.js
