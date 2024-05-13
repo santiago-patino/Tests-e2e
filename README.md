@@ -159,6 +159,13 @@ Comentario:
 
 3. Despues de instalar las depenencias ahora debe ejecutar la herramienta con el siguiente comando: `node index.js`
 
+Importante:
+
+     Recuerde ejecutar primero los escenarios cypress para la version 3.42 y 5.14 ya que esta herramienta requerira de los screenshots que estas generen para hacer la comparacion. Si llega a faltar algun screenshot la herramienta no se ejecutara correctamente.
+     Pero si desea visualizar un reporte previamente generado puede dirigirse a la ruta `/resembler/results` abrir la primera carpeta que tendra el nombre de la primera ejecucion y ella encontrarar el archivo `report.html` puede abrirlo en cualquier navagedor y podra visualizar el reporte.
+     
+4. Al ejecutar el comando `node index.js` y este se ejecuto sin ningun problema dirijase a la carpeta `/results` del mismo directorio y acceda a la carpeta mas nueva que debe ser la ultima y dentro de ella encontrara el archivo `report.html`. Podra abrirlo en cualquier navegador y podra visualizar el reporte con las comparaciones de los screenshots y sus propiedades
+
   
 
 
