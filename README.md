@@ -172,6 +172,9 @@ Importante:
      
 4. Al ejecutar el comando `node index.js` y este se ejecuto sin ningun problema dirijase a la carpeta `/results` del mismo directorio y acceda a la carpeta mas nueva que debe ser la ultima y dentro de ella encontrara el archivo `report.html`. Podra abrirlo en cualquier navegador y podra visualizar el reporte con las comparaciones de los screenshots y sus propiedades
 
+![image](https://github.com/santiago-patino/Tests-e2e/assets/158110277/6f6360a8-1f10-46b9-97cc-34fef2fbd384)
+
+
 ### BackstopJS
 #### Requerimientos previos
 Realizar la instalación de backstop de manera global, para esto se abre una terminal y se ejecuta el siguiente comando `npm install -g backstopjs`
