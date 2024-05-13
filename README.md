@@ -204,6 +204,9 @@ Importante:
 ## Análisis de herramientas Semana 6
 [Análisis de herramientas VRT](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-VRT)
 
+Video analisis Semana 6:
+https://youtu.be/Bq1CLC7RrVA
+
 ## Sistema de registro de incidencias
 https://github.com/santiago-patino/pruebas-automatizadas-issues/issues
 
