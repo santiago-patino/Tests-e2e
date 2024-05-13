@@ -136,9 +136,9 @@ Comentario:
    4. Eliminar post y validar que ya no aparezca en los posts **(Escenario 10)**
 ### Page:
 
-   1. Crear una page con todos sus datos, publicar y Validar creación **(Escenario 11)**
-   2. Crear, eliminar page y validar que no se encuentre page **(Escenario 13)**
-   3. Crear page y validar que sea accesible  **(Escenario 15)**
+   5. Crear una page con todos sus datos, publicar y Validar creación **(Escenario 11)**
+   6. Crear, eliminar page y validar que no se encuentre page **(Escenario 13)**
+   7. Crear page y validar que sea accesible  **(Escenario 15)**
 
 ## Comparacion de screeenshots
 Resemble.js
@@ -158,6 +158,13 @@ Comentario:
      npm install resemblejs@^5.0.0
 
 3. Despues de instalar las depenencias ahora debe ejecutar la herramienta con el siguiente comando: `node index.js`
+
+Importante:
+
+     Recuerde ejecutar primero los escenarios cypress para la version 3.42 y 5.14 ya que esta herramienta requerira de los screenshots que estas generen para hacer la comparacion. Si llega a faltar algun screenshot la herramienta no se ejecutara correctamente.
+     Pero si desea visualizar un reporte previamente generado puede dirigirse a la ruta `/resembler/results` abrir la primera carpeta que tendra el nombre de la primera ejecucion y ella encontrarar el archivo `report.html` puede abrirlo en cualquier navagedor y podra visualizar el reporte.
+     
+4. Al ejecutar el comando `node index.js` y este se ejecuto sin ningun problema dirijase a la carpeta `/results` del mismo directorio y acceda a la carpeta mas nueva que debe ser la ultima y dentro de ella encontrara el archivo `report.html`. Podra abrirlo en cualquier navegador y podra visualizar el reporte con las comparaciones de los screenshots y sus propiedades
 
   
 
