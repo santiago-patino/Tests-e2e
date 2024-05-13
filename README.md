@@ -140,8 +140,14 @@ Comentario:
    6. Crear, eliminar page y validar que no se encuentre page **(Escenario 13)**
    7. Crear page y validar que sea accesible  **(Escenario 15)**
 
+### Cambio contraseña:
+
+8. Cambiar contraseña con contraseña vieja invalida y nueva contraseña **(Escenario 16)**
+9. Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes **(Escenario 18)**
+10. Cambio de contraseña exitoso  **(Escenario 20)**
+
 ## Comparacion de screeenshots
-Resemble.js
+### Resemble.js
 Para comparar los screenshots generados por las 2 versiones de ghost con la herramienta resemble debe:
 
 1. Ubiquese en el directorio /resembler y puede hacerlo con el siguiente comando: `cd resembler`
@@ -166,8 +172,28 @@ Importante:
      
 4. Al ejecutar el comando `node index.js` y este se ejecuto sin ningun problema dirijase a la carpeta `/results` del mismo directorio y acceda a la carpeta mas nueva que debe ser la ultima y dentro de ella encontrara el archivo `report.html`. Podra abrirlo en cualquier navegador y podra visualizar el reporte con las comparaciones de los screenshots y sus propiedades
 
-  
+### BackstopJS
+#### Requerimientos previos
+Realizar la instalación de backstop de manera global, para esto se abre una terminal y se ejecuta el siguiente comando `npm install -g backstopjs`
+#### Pasos para ejecutar las pruebas
+Importante:
 
+    Recuerde ejecutar primero los escenarios cypress para la version 3.42 y 5.14 ya que esta herramienta requerira de los screenshots que estas generen para hacer la comparacion.
+    Para esto en la ruta /cypress/3.42 y /cypress/5.14 se debe ejecutar el siguiente comando para filtrar los escenarios de la semana 6:
+    npx cypress run --config '{"testFiles":["resource/2-escenario.feature","resource/3-escenario.feature","resource/7-escenario.feature","resource/10-escenario.feature","resource/11-escenario.feature","resource/13-escenario.feature","resource/15-escenario.feature","resource/16-escenario.feature","resource/18-escenario.feature", "resource/20-escenario.feature" ]}'
+    
+1. Abrir un terminal y ubiquese en el directorio /cypress, puede hacerlo con el siguiente comando: `cd cypress`
+   
+2. Se debe subir un servidor para poder obtener las imagenes y hacer la comparación, para esto ejecute el siguiente comando:
+`backstop remote`.
+
+Importante:
+
+    Si dentro de la ruta donde se encuentra el repositoio hay alguna carpeta que tenga un espacio en el nombre el servidor no se ejecutará correctamente 
+
+3. En otra terminal se debe ejecutar el siguiente comando `backstop reference` para generar las imagenes de referencia para la prueba.
+4. Una vez finalice de ejecutar el comando anterior se ejecuta el siguiente comando `backstop test` para ejecutar la comparación de las imagenes.
+5. Al final se abre un navegador con el reporte generado.
 
 ## Análisis de herramientas Semana 5 
 [Análisis de herramientas E2E](https://github.com/santiago-patino/Tests-e2e/wiki/An%C3%A1lisis-de-herramientas-E2E)
