@@ -4,21 +4,21 @@
     "description": "Pruebas e2e Ghost",
     "main": "index.js",
     "scripts": {
-      "test": "cypress open"
+        "test": "cypress open"
     },
     "keywords": [
-      "cucumber",
-      "cypress",
-      "javascript"
+        "cucumber",
+        "cypress",
+        "javascript"
     ],
     "author": "Equipo Miso",
     "license": "ISC",
     "devDependencies": {
-      "cypress": "^9.6.0",
-      "cypress-cucumber-preprocessor": "^4.3.1"
+        "@faker-js/faker": "^8.4.1",
+        "cypress": "^9.6.0",
+        "cypress-cucumber-preprocessor": "^4.3.1"
     },
     "cypress-cucumber-preprocessor": {
-      "nonGlobalStepDefinitions": true
+        "nonGlobalStepDefinitions": true
     }
-  }
-  
+}

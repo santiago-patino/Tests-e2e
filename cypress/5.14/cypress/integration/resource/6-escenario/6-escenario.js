@@ -1,6 +1,7 @@
 import { Given, When, And, Then } from "cypress-cucumber-preprocessor/steps";
 const pagePost = require("../../pages/pagePost");
 const pagelogin = require('../../pages/pageLogin');
+import {faker} from '@faker-js/faker'
 
 
 Given('Ingresa a la pagina de inicio de sesion', ()=> {
