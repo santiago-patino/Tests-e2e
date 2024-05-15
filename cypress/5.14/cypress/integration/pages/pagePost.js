@@ -31,8 +31,16 @@ class pagePost {
         this.controls.titleEditor().type(title);
     }
 
+    clearTitleEditor = () =>{
+        this.controls.titleEditor().clear();
+    }
+
     descriptionEditor = (description) =>{
         this.controls.descriptionEditor().type(description);
+    }
+
+    clearDescriptionEditor = () =>{
+        this.controls.descriptionEditor().clear();
     }
 
     tagControlEditor = () =>{
@@ -100,7 +108,10 @@ class pagePost {
     errorCodeUser = (errorCode) =>{
         this.controls.errorCodeUser().should('have.text', errorCode);
     }
-    
+
+    getUrlPostPublished = (title) => {
+        return title.replace(/[^\w\s]/gi, '').replace(/\s+/g, '-');
+    }
 
 }
 

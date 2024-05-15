@@ -1,6 +1,6 @@
-Feature: Escenario 27 Crear un nuevo post, publicarlo y validar que se visualice [a-priori]
+Feature: Escenario 29 Editar un nuevo post, actualizarlo y validar que se visualice la modificacion [a-priori]
 
-    Feature Crear un nuevo post, publicarlo y validar que se visualice
+    Feature Editar un nuevo post, actualizarlo y validar que se visualice la modificacion
 
     Scenario: Crear un nuevo post
         Given Ingresa a la pagina de inicio de sesion
@@ -15,6 +15,21 @@ Feature: Escenario 27 Crear un nuevo post, publicarlo y validar que se visualice
         Then Validar que se haya creado el post
 
     Scenario: Verificar el nuevo post publicado
+        Given Ingresa al post como usuario normal
+        Then Validar titulo del post
+    
+    Scenario: Editar post
+        Given Ingresa a la pagina de inicio de sesion
+            When Ingresa el nombre de usuario y ingresa la contraseña
+        Then Iniciar Sesion Exitoso
+
+        Given Ingresar al sitio posts
+            When Seleccionar el post con el nombre
+            And Editar titulo del post
+            And Editar la descripcion del post
+            And Hacer click en el boton Update
+        Then Validar notificacion de confirmacion
+
         Given Ingresa al post como usuario normal
         Then Validar titulo del post
 

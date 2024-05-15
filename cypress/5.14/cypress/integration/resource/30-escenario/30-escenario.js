@@ -3,6 +3,8 @@ const pagePost = require("../../pages/pagePost");
 const pagelogin = require('../../pages/pageLogin');
 const aPrioriPosts = require('../../data/posts.json');
 
+let count = 0;
+
 function random() {
     let number = Math.floor(Math.random() * 1000);
     console.log(number)
@@ -30,49 +32,49 @@ Then('Iniciar Sesion Exitoso', ()=>{
 When('Hacer click en nuevo post', ()=>{
     cy.wait(1000)
     pagePost.createButton();
-    cy.screenshot("1")
+    cy.screenshot(`${++count}`)
 })
 
 And('Ingresa el titulo del post', ()=>{
     cy.wait(1500)
     pagePost.titleEditor(title);
-    cy.screenshot("2")
+    cy.screenshot(`${++count}`)
 })
 
 And('Ingresa la descripcion del post', ()=>{
     pagePost.descriptionEditor(description);
-    cy.screenshot("3")
+    cy.screenshot(`${++count}`)
 })
 
 And('Hace click en el boton de publish post', ()=>{
     pagePost.publishButton();
-    cy.screenshot("4")
+    cy.screenshot(`${++count}`)
 })
 
 And('Hace click en el boton de confirm post', ()=>{
     pagePost.buttonConfirmPublish1();
     cy.wait(500)
     pagePost.buttonConfirmPublish2();
-    cy.screenshot("5")
+    cy.screenshot(`${++count}`)
 });
 
 Then('Validar que se haya creado el post', ()=>{
     cy.wait(1000)
     pagePost.confirmationPublishTitle(title);
-    cy.screenshot("6")
+    cy.screenshot(`${++count}`)
 })
 
 //-- Verificar el nuevo post publicado
 
 Given('Ingresa al post como usuario normal', ()=> {
     let replacedString = pagePost.getUrlPostPublished(title)
-    cy.visit('/'+replacedString, { failOnStatusCode: false });
-    cy.screenshot("7")
+    cy.visit('/'+replacedString.toLowerCase(), { failOnStatusCode: false });
+    cy.screenshot(`${++count}`)
 })
 
 Then('Validar titulo del post', ()=>{
     pagePost.userTitlePost(title)
-    cy.screenshot("8")
+    cy.screenshot(`${++count}`)
 })
 
 //--- Eliminar post
@@ -80,29 +82,41 @@ Then('Validar titulo del post', ()=>{
 Given('Ingresar al sitio posts', ()=>{
     cy.wait(500);
     cy.visit('ghost'+'/#/posts')
+    cy.wait(1000);
+    cy.screenshot(`${++count}`)
 })
 
 When('Seleccionar el post con el nombre', ()=>{
-    cy.wait(1000)
     pagePost.postsTitleList(title);
+    cy.wait(1000)
+    cy.screenshot(`${++count}`)
 })
 
 And('Hacer click en las configuracion del post', ()=>{
-    cy.wait(1500)
     pagePost.settigsPostEditor();
+    cy.screenshot(`${++count}`)
 })
 
 And('Hace click en el boton delete', ()=>{
-    cy.wait(1500)
+    cy.wait(500)
     pagePost.deleteButtonEditor();
+    cy.screenshot(`${++count}`)
 })
 
 And('Hace click en confirmar delete', ()=>{
-    cy.wait(1500)
+    cy.wait(500)
+    cy.screenshot(`${++count}`)
     pagePost.confirmDeleteButtonEditor();
 })
 
 Then('Validar redireccion a posts', ()=>{
     cy.wait(500)
     cy.url().should('contains', '#/posts');
+    cy.screenshot(`${++count}`)
+})
+
+Then('Validar error {string}', (errorCode)=>{
+    cy.wait(500)
+    pagePost.errorCodeUser(errorCode)
+    cy.screenshot(`${++count}`)
 })

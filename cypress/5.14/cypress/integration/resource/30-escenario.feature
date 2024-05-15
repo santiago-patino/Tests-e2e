@@ -1,6 +1,6 @@
-Feature: Escenario 27 Crear un nuevo post, publicarlo y validar que se visualice [a-priori]
+Feature: Escenario 30 Eliminar post y validar que ya no aparezca en los posts [a-priori]
 
-    Feature Crear un nuevo post, publicarlo y validar que se visualice
+    Feature Crear un nuevo post, añadir un tag y visualizar el post
 
     Scenario: Crear un nuevo post
         Given Ingresa a la pagina de inicio de sesion
@@ -29,4 +29,12 @@ Feature: Escenario 27 Crear un nuevo post, publicarlo y validar que se visualice
             And Hace click en el boton delete
             And Hace click en confirmar delete
         Then Validar redireccion a posts
+
+    Scenario: Verificar el nuevo post publicado no aparesca
+        Given Ingresa al post como usuario normal
+        Then Validar error "404"
+
+        
+
+
             

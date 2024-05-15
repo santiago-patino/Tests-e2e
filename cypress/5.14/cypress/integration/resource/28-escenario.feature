@@ -1,6 +1,6 @@
-Feature: Escenario 27 Crear un nuevo post, publicarlo y validar que se visualice [a-priori]
+Feature: Escenario 28 Crear un nuevo post, añadir un tag, publicarlo y validar que se visualice [a-priori]
 
-    Feature Crear un nuevo post, publicarlo y validar que se visualice
+    Feature Crear un nuevo post, añadir un tag, publicarlo y validar que se visualice
 
     Scenario: Crear un nuevo post
         Given Ingresa a la pagina de inicio de sesion
@@ -10,6 +10,9 @@ Feature: Escenario 27 Crear un nuevo post, publicarlo y validar que se visualice
         When Hacer click en nuevo post
             And Ingresa el titulo del post
             And Ingresa la descripcion del post
+            And Hacer click en las configuracion del post
+            And Añadir Tag
+            And Hacer click en las configuracion del post
             And Hace click en el boton de publish post
             And Hace click en el boton de confirm post
         Then Validar que se haya creado el post

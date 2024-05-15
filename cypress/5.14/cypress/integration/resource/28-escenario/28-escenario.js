@@ -44,22 +44,33 @@ And('Ingresa la descripcion del post', ()=>{
     cy.screenshot("3")
 })
 
+And('Hacer click en las configuracion del post', ()=>{
+    cy.wait(1500)
+    pagePost.settigsPostEditor();
+})
+
+And('Añadir Tag', ()=>{
+    pagePost.tagControlEditor();
+    pagePost.tagOptionEditor();
+    cy.screenshot("4")
+})
+
 And('Hace click en el boton de publish post', ()=>{
     pagePost.publishButton();
-    cy.screenshot("4")
+    cy.screenshot("5")
 })
 
 And('Hace click en el boton de confirm post', ()=>{
     pagePost.buttonConfirmPublish1();
     cy.wait(500)
     pagePost.buttonConfirmPublish2();
-    cy.screenshot("5")
+    cy.screenshot("6")
 });
 
 Then('Validar que se haya creado el post', ()=>{
     cy.wait(1000)
     pagePost.confirmationPublishTitle(title);
-    cy.screenshot("6")
+    cy.screenshot("7")
 })
 
 //-- Verificar el nuevo post publicado
@@ -67,12 +78,12 @@ Then('Validar que se haya creado el post', ()=>{
 Given('Ingresa al post como usuario normal', ()=> {
     let replacedString = pagePost.getUrlPostPublished(title)
     cy.visit('/'+replacedString, { failOnStatusCode: false });
-    cy.screenshot("7")
+    cy.screenshot("8")
 })
 
 Then('Validar titulo del post', ()=>{
     pagePost.userTitlePost(title)
-    cy.screenshot("8")
+    cy.screenshot("9")
 })
 
 //--- Eliminar post

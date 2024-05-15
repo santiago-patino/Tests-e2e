@@ -1,4 +1,4 @@
-Feature: Escenario 6 Crear un nuevo post y validar que se cree como borrador [a-priori]
+Feature: Escenario 26 Crear un nuevo post y validar que se cree como borrador [a-priori]
 
     Feature Crear un nuevo post y validar que se cree como borrador
 
