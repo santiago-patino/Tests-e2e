@@ -1,5 +1,6 @@
 {
     "baseUrl": "https://ghost-xefe.onrender.com/",
     "testFiles": "**/*-escenario.feature",
-    "chromeWebSecurity": false
+    "chromeWebSecurity": false,
+    "postsApi": "https://my.api.mockaroo.com/posts.json?key=5092dc40"
 }
