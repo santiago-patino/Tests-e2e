@@ -23,7 +23,7 @@ Scenario: Crear un nuevo post y validar que se cree como borrador
 Scenario: Crear un nuevo post, publicarlo y validar que se visualice
 
     Given I wait
-    Then I wait for 20 seconds
+    Then I wait for 2 seconds
 
     Given Ir hacia "<HOST>" "ghost"
         When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
@@ -44,8 +44,7 @@ Scenario: Crear un nuevo post, publicarlo y validar que se visualice
 Scenario: Crear un nuevo post, publicarlo y validar que se visualice
 
     Given I wait
-        And I wait for 20 seconds
-    Then I wait for 20 seconds
+    Then I wait for 4 seconds
 
     Given Ir hacia "<HOST>" "ghost"
         When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
@@ -67,9 +66,7 @@ Scenario: Crear un nuevo post, publicarlo y validar que se visualice
 Scenario: Crear un nuevo post, publicarlo y validar que se visualice
 
     Given I wait
-        And I wait for 20 seconds
-        And I wait for 20 seconds
-    Then I wait for 20 seconds
+    Then I wait for 6 seconds
 
     Given Ir hacia "<HOST>" "ghost"
         When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
@@ -98,10 +95,7 @@ Scenario: Crear un nuevo post, publicarlo y validar que se visualice
 Scenario: Crear un nuevo post, publicarlo y validar que se visualice
 
     Given I wait
-        And I wait for 20 seconds
-        And I wait for 20 seconds
-        And I wait for 20 seconds
-    Then I wait for 20 seconds
+    Then I wait for 8 seconds
 
     Given Ir hacia "<HOST>" "ghost"
         When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
