@@ -2,23 +2,33 @@ const { Given, When, Then } = require('@cucumber/cucumber');
 const expect = require('chai').expect;
 const path = require('path');
 const fs = require("fs");
-const aPrioriPosts = require('../data/posts.json');
+const axios = require('axios');
 
-function random() {
-    let number = Math.floor(Math.random() * 1000);
-    console.log(number)
-    return number
+async function fetchDataFromAPI() {
+  try {
+      const response = await axios.get("https://my.api.mockaroo.com/posts.json?key=5092dc40");
+      //const data = await response.json();
+      return response.data;
+  } catch (error) {
+      console.error('Error al obtener datos del API:', error);
+      throw error; // Manejar el error según sea necesario
+  }
 }
 
 let data = [];
+createData();
 
-for (let i = 0; i < 5; i++) {
-    let randomNumber = random();
+async function createData() {
+  for (let i = 0; i < 5; i++) {
+    apiData = await fetchDataFromAPI();
     data.push({
-        title: aPrioriPosts[randomNumber].title.replace(/'/g, ''),
-        description: aPrioriPosts[randomNumber].description
+        title: apiData.title.replace(/'/g, ''),
+        description: apiData.description
     });
+  }
 }
+
+
 
 async function takeScreenshotEveryStep(driver, fileNamePasoEscenario) {
     const screenshot = await driver.takeScreenshot();
@@ -35,7 +45,7 @@ async function takeScreenshotEveryStep(driver, fileNamePasoEscenario) {
     console.log(`Captura de pantalla guardada como ${filePath}`);
 }
 
-When('Ingresar datos en un post con el titulo y descripcion a-priori {kraken-string}', async function (scenario) {
+When('Ingresar datos en un post con el titulo y descripcion pseudo {kraken-string}', async function (scenario) {
     let elementTitle = await this.driver.$(".gh-editor-title");
     await elementTitle.setValue(data[parseInt(scenario)-1].title);
     let elementContent = await this.driver.$(".koenig-editor__editor");
@@ -48,10 +58,10 @@ When('Ingresar datos en un post con el titulo y descripcion a-priori {kraken-str
     return await elementContent.setValue(data[parseInt(scenario)-1].description);
 });
 
-When('Ingresar datos en un post con el titulo y descripcion a-priori editado {kraken-string}', async function (scenario) {
-    let randomNumber = random();
-    data[parseInt(scenario)-1].title = aPrioriPosts[randomNumber].title.replace(/'/g, '')
-    data[parseInt(scenario)-1].description = aPrioriPosts[randomNumber].description
+When('Ingresar datos en un post con el titulo y descripcion pseudo editado {kraken-string}', async function (scenario) {
+    const apiGet = await fetchDataFromAPI();
+    data[parseInt(scenario)-1].title = apiGet.title.replace(/'/g, '')
+    data[parseInt(scenario)-1].description = apiGet.description
 
     let elementTitle = await this.driver.$(".gh-editor-title");
     await elementTitle.setValue(data[parseInt(scenario)-1].title);
@@ -65,7 +75,7 @@ When('Ingresar datos en un post con el titulo y descripcion a-priori editado {kr
     return await elementContent.setValue(data[parseInt(scenario)-1].description);
 });
 
-Then('Publicar y Validar el post con el titulo a-priori {kraken-string}', async function (scenario) {
+Then('Publicar y Validar el post con el titulo pseudo {kraken-string}', async function (scenario) {
     await new Promise(r => setTimeout(r, 1000))
     let publishButton = await this.driver.$(".gh-publish-trigger");
     await publishButton.click();
@@ -88,7 +98,7 @@ Then('Publicar y Validar el post con el titulo a-priori {kraken-string}', async 
     return expect(postTitle).to.equal(data[parseInt(scenario)-1].title);
 });
 
-When('Seleccionar post con el titulo a-priori {kraken-string}', async function (scenario) {
+When('Seleccionar post con el titulo pseudo {kraken-string}', async function (scenario) {
     let postTitle = await this.driver.$(".posts-list").$(".//*//h3[text() = '" + data[parseInt(scenario)-1].title + "']");
     await takeScreenshotEveryStep(
         this.driver,
@@ -97,7 +107,7 @@ When('Seleccionar post con el titulo a-priori {kraken-string}', async function (
     return await postTitle.click();
 });
 
-Then('Validar que no existe un post a-priori {kraken-string}', async function (scenario) {
+Then('Validar que no existe un post pseudo {kraken-string}', async function (scenario) {
     let postTitle = await this.driver.$(".posts-list").$(".//*//h3[text() = '" + data[parseInt(scenario)-1].title + "']");
     await takeScreenshotEveryStep(
         this.driver,
@@ -106,7 +116,7 @@ Then('Validar que no existe un post a-priori {kraken-string}', async function (s
     return expect(await postTitle.isExisting()).to.not.be.true;
 });
 
-Then('Validar que existe un post a-priori {kraken-string}', async function (scenario) {
+Then('Validar que existe un post pseudo {kraken-string}', async function (scenario) {
     let postTitle = await this.driver.$(".posts-list").$(".//*//h3[text() = '" + data[parseInt(scenario)-1].title + "']");
     await takeScreenshotEveryStep(
         this.driver,
