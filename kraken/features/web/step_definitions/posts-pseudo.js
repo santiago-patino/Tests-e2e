@@ -15,18 +15,28 @@ async function fetchDataFromAPI() {
   }
 }
 
-let data = [];
-createData();
+let data = new Array(5);
+//createData();
 
 async function createData() {
-  for (let i = 0; i < 5; i++) {
-    apiData = await fetchDataFromAPI();
-    data.push({
+  // for (let i = 0; i < 5; i++) {
+  //   apiData = await fetchDataFromAPI();
+  //   data.push({
+  //       title: apiData.title.replace(/'/g, ''),
+  //       description: apiData.description
+  //   });
+  // }
+
+  try {
+    let apiData = await fetchDataFromAPI();
+    data[parseInt(i) - 1] = {
         title: apiData.title.replace(/'/g, ''),
         description: apiData.description
-    });
+    };
+    } catch (error) {
+        console.error('Error al obtener o procesar los datos de la API:', error);
+    }
   }
-}
 
 
 
@@ -45,6 +55,10 @@ async function takeScreenshotEveryStep(driver, fileNamePasoEscenario) {
     console.log(`Captura de pantalla guardada como ${filePath}`);
 }
 
+Given('Generar datos posts pseudo {kraken-string}', async function (scenario) {
+  await createData(scenario)
+})
+
 When('Ingresar datos en un post con el titulo y descripcion pseudo {kraken-string}', async function (scenario) {
     let elementTitle = await this.driver.$(".gh-editor-title");
     await elementTitle.setValue(data[parseInt(scenario)-1].title);
@@ -59,9 +73,7 @@ When('Ingresar datos en un post con el titulo y descripcion pseudo {kraken-strin
 });
 
 When('Ingresar datos en un post con el titulo y descripcion pseudo editado {kraken-string}', async function (scenario) {
-    const apiGet = await fetchDataFromAPI();
-    data[parseInt(scenario)-1].title = apiGet.title.replace(/'/g, '')
-    data[parseInt(scenario)-1].description = apiGet.description
+    await createData(scenario)
 
     let elementTitle = await this.driver.$(".gh-editor-title");
     await elementTitle.setValue(data[parseInt(scenario)-1].title);

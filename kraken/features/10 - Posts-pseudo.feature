@@ -3,6 +3,10 @@ Feature: Crear un post, agregar tag, publicarlo, editarlo y validar el sitio
 ## Escenario 1. Crear un nuevo post y validar que se cree como borrador
 @user1 @web
 Scenario: Crear un nuevo post y validar que se cree como borrador
+
+    Given Generar datos posts pseudo "1"
+    Then I wait for 2 seconds
+
     Given Ir hacia "<HOST>" "ghost"
         When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
         And I wait for 2 seconds
@@ -21,6 +25,9 @@ Scenario: Crear un nuevo post y validar que se cree como borrador
 ## Escenario 2. Crear un nuevo post, publicarlo y validar que se visualice
 @user2 @web 
 Scenario: Crear un nuevo post, publicarlo y validar que se visualice
+
+    Given Generar datos posts pseudo "2"
+    Then I wait for 2 seconds
 
     Given I wait
     Then I wait for 2 seconds
@@ -43,6 +50,9 @@ Scenario: Crear un nuevo post, publicarlo y validar que se visualice
 @user3 @web 
 Scenario: Crear un nuevo post, publicarlo y validar que se visualice
 
+    Given Generar datos posts pseudo "3"
+    Then I wait for 2 seconds
+
     Given I wait
     Then I wait for 4 seconds
 
@@ -64,6 +74,9 @@ Scenario: Crear un nuevo post, publicarlo y validar que se visualice
 ## Escenario 4. Editar un nuevo post, actualizarlo y validar que se visualice la modificacion
 @user4 @web 
 Scenario: Crear un nuevo post, publicarlo y validar que se visualice
+
+    Given Generar datos posts pseudo "4"
+    Then I wait for 2 seconds
 
     Given I wait
     Then I wait for 6 seconds
@@ -93,6 +106,9 @@ Scenario: Crear un nuevo post, publicarlo y validar que se visualice
 ## Escenario 5. Eliminar post y validar que ya no aparezca en los posts
 @user5 @web 
 Scenario: Crear un nuevo post, publicarlo y validar que se visualice
+
+    Given Generar datos posts pseudo "5"
+    Then I wait for 2 seconds
 
     Given I wait
     Then I wait for 8 seconds
