@@ -2,5 +2,6 @@
     "baseUrl": "https://ghost-xefe.onrender.com/",
     "testFiles": "**/*-escenario.feature",
     "chromeWebSecurity": false,
-    "postsApi": "https://my.api.mockaroo.com/posts.json?key=5092dc40"
+    "postsApi": "https://my.api.mockaroo.com/posts.json?key=5092dc40",
+    "pageApi": "https://my.api.mockaroo.com/pages.json?key=adf0ee10"
 }
