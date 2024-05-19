@@ -11,6 +11,8 @@ class members {
   };
 
   giveMemberName = (name) => {
+    this.controls.memberNameInput().type(" ", { force: true });
+    this.controls.memberNameInput().clear({ force: true });
     this.controls.memberNameInput().type(name, { force: true });
   };
 
@@ -28,6 +30,14 @@ class members {
 
   validateErrorEmptyData = () => {
     cy.get("p.response").should("contain.text", "Please enter an email.");
+  };
+
+  validateErrorInvalidEmail = () => {
+    cy.get("p.response").should("contain.text", "Invalid Email.");
+  };
+
+  validateErrorInvalidName = () => {
+    cy.get("p.response").should("contain.text", "Name cannot be longer than 191 characters.");
   };
 
   validateErrorInvalidData = () => {
@@ -50,12 +60,21 @@ class members {
       .click();
   };
 
+  verifyExistingMemberToDelete = () => {
+    cy.get("h3.ma0.pa0.gh-members-list-name")
+      .should("exist");
+  };
+
   verifyExistingMember = (nombre) => {
     cy.get("h3.ma0.pa0.gh-members-list-name")
       .should("contain.text", nombre);
   };
 
   selectMemberToDelete = () => {
+    cy.get(`a.ember-view.gh-list-data`).first().click();
+  }
+
+  selectMemberToEdit = () => {
     cy.get(`a.ember-view.gh-list-data`).first().click();
   }
 
