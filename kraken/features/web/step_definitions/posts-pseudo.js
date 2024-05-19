@@ -18,7 +18,7 @@ async function fetchDataFromAPI() {
 let data = new Array(5);
 //createData();
 
-async function createData() {
+async function createData(i) {
   // for (let i = 0; i < 5; i++) {
   //   apiData = await fetchDataFromAPI();
   //   data.push({
