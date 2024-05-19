@@ -96,12 +96,14 @@ Then('Publicar y Validar el post con el titulo pseudo {kraken-string}', async fu
     await continueButton.click();
     let confirmButton = await this.driver.$(".gh-btn-pulse");
     await confirmButton.click();
+    await new Promise(r => setTimeout(r, 1000))
     let anclaPost = await this.driver.$(".gh-post-bookmark-wrapper");
     const linkUrl = await anclaPost.getAttribute('href');
     await this.driver.url(linkUrl);
     //await new Promise(r => setTimeout(r, 3000))
     //let tag = await this.driver.$(".post-card-primary-tag").getText();
     //expect(tag).to.equal("News");
+    await new Promise(r => setTimeout(r, 3000))
     let postTitle = await this.driver.$(".article-title").getText();
     await takeScreenshotEveryStep(
         this.driver,
