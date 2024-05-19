@@ -9,7 +9,8 @@ Scenario: Crear una page con todos sus datos, publicar y visualizar
         And I wait for 2 seconds
     Then Validar inicio sesion exitoso
 
-    Given I go to page
+    Given Generate data pseudo "1"
+        And I go to page
         And I go to new page form
     When I create a page with title and content pseudo "1"
         And I wait for 2 seconds
@@ -32,7 +33,8 @@ Scenario: Crear y editar una page con todos sus datos, actualizar y visualizar
         And I wait for 2 seconds
     Then Validar inicio sesion exitoso
 
-    Given I go to page
+    Given Generate data pseudo "2"
+        And I go to page
         And I go to new page form
     When I create a page with title and content pseudo "2"
         And I wait for 2 seconds
@@ -49,7 +51,8 @@ Scenario: Crear y editar una page con todos sus datos, actualizar y visualizar
         And I wait for 1 seconds
 
     Given Ir hacia "<HOST>" "ghost"
-    When I go to page
+    When Generate data pseudo "3"
+        And I go to page
         And I wait for 2 seconds
         And select page from list with title pseudo "2"
         And I go to edit page with a title pseudo "3"
@@ -66,7 +69,8 @@ Scenario: Crear, eliminar page y validar que no se encuentre page
     When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
     Then Validar inicio sesion exitoso
 
-    Given I go to page
+    Given Generate data pseudo "4"
+        And I go to page
         And I go to new page form
     When I create a page with title and content pseudo "4"
         And I wait for 3 seconds
@@ -89,7 +93,8 @@ Scenario: Crear page draft con todos sus datos e intentar visualizar
         And I wait for 2 seconds
     Then Validar inicio sesion exitoso
 
-    Given I go to page
+    Given Generate data pseudo "5"
+        And I go to page
         And I go to new page form
     When I create a page with title and content pseudo "5"
         And I wait for 2 seconds
@@ -108,7 +113,8 @@ Scenario: Crear page, configurar nav y validar que sea accesible
         And I wait for 2 seconds
     Then Validar inicio sesion exitoso
 
-    Given I go to page
+    Given Generate data pseudo "6"
+        And I go to page
         And I go to new page form
     When I create a page with title and content pseudo "6"
         And I wait for 2 seconds

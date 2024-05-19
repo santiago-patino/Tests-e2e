@@ -15,20 +15,20 @@ async function fetchDataFromAPI() {
     }
   }
   
-  let data = [];
-  createData();
+  let data = new Array(6);
   
-  async function createData() {
-    for (let i = 0; i < 6; i++) {
-      apiData = await fetchDataFromAPI();
-      data.push({
-          title: apiData.title.replace(/'/g, ''),
-          description: apiData.description
-      });
-    }
+  async function createData(i) {
+    try {
+        let apiData = await fetchDataFromAPI();
+        data[parseInt(i) - 1] = {
+            title: apiData.title.replace(/'/g, ''),
+            description: apiData.description
+        };
+        } catch (error) {
+            console.error('Error al obtener o procesar los datos de la API:', error);
+        }
   }
   
-
 async function takeScreenshotEveryStep(driver, fileNamePasoEscenario) {
     const screenshot = await driver.takeScreenshot();
     const buffer = Buffer.from(screenshot, 'base64');
@@ -46,6 +46,9 @@ async function takeScreenshotEveryStep(driver, fileNamePasoEscenario) {
     console.log(`Captura de pantalla guardada como ${filePath}`);
 }
 
+Given('Generate data pseudo {kraken-string}', async function (scenario) {
+    await createData(scenario)
+  })
 
 
 When('I create a page with title and content pseudo {kraken-string}', async function (scenario) {
