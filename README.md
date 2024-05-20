@@ -231,6 +231,7 @@ Para esta estrategia se utilizaron las api's que ofrece Mockaroo:
 - Pages: https://my.api.mockaroo.com/pages.json?key=adf0ee10
 - Members valid data: https://my.api.mockaroo.com/members_api.json?key=8953aa80
 - Members invalid data: https://my.api.mockaroo.com/members_invalidad_data.json?key=8953aa80
+- New Password data: https://my.api.mockaroo.com/passwords.json?key=f44f9790
   
 ### 3. Estrategia escenario aleatorio.
 Para esta estrategia se utilizó la librería faker. La librería contiene diferentes módulos que permiten la generación de datos aleatorios tanto en Cypress como en Kraken. https://fakerjs.dev/
