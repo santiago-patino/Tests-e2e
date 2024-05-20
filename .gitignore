@@ -18,3 +18,4 @@ package-lock.json
 
 /kraken/features/web/step_definitions/screenshots_post
 /kraken/features/web/step_definitions/screenshots_page
+/kraken/features/web/step_definitions/screenshots_password/
