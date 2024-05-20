@@ -335,6 +335,18 @@ Para ejecutar los escenarios recuerde haber realizado todo el proceso de instala
 
     `npm run func -- 16`
 
+    (Seleccionar escenarios actualizar perfil a priori)
+
+    `npm run func -- 17`
+
+  (Seleccionar escenarios actualizar perfil pseudo)
+
+    `npm run func -- 18`
+
+  (Seleccionar escenarios actualizar perfil aleatorio)
+
+    `npm run func -- 19`
+
 Los 120 escenarios ejecutados, con su respectiva estrategia de generación de datos
 
 ID | Archivo | Funcionalidad | Escenario | Estrategia | Ubicación | Herramienta | Responsable
