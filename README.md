@@ -212,3 +212,263 @@ https://github.com/santiago-patino/pruebas-automatizadas-issues/issues
 
 ## Estrategias de pruebas
 [Estrategias de pruebas](https://github.com/santiago-patino/Tests-e2e/wiki/Estrategias-de-pruebas)
+
+----------------------------
+
+## Funcionalidades - Escenarios Semana 7 (Estrategias de generación de datos)
+  
+### 1. Estrategia pool de datos a-priori
+Para esta estrategia se utilizó la herramienta de generación de datos Mockaroo.
+Se generaron 1000 registros de datos almacenados en el directorio:
+
+cypress escenarios: `cypress\5.14\cypress\integration\data`
+
+kraken escenarios: `kraken\features\web\data`
+
+### 2. Estrategia pool de datos (pseudo) aleatorio dinámico
+Para esta estrategia se utilizaron las api's que ofrece Mockaroo:
+- Posts: https://my.api.mockaroo.com/posts.json?key=5092dc40
+- Pages: https://my.api.mockaroo.com/pages.json?key=adf0ee10
+- Members valid data: https://my.api.mockaroo.com/members_api.json?key=8953aa80
+- Members invalid data: https://my.api.mockaroo.com/members_invalidad_data.json?key=8953aa80
+  
+### 3. Estrategia escenario aleatorio.
+Para esta estrategia se utilizó la librería faker. La librería contiene diferentes módulos que permiten la generación de datos aleatorios tanto en Cypress como en Kraken. https://fakerjs.dev/
+
+Para el caso de cypress se instaló faker con el siguiente comando: (Recuerde ubicarse en el directorio principal de cypress `cd cypress`)
+
+`npm install --save-dev @faker-js/faker@8.4.1`
+
+Para el caso de kraken, esta librería NPM [@faker-js/faker](https://github.com/faker-js/faker) ya se encuentra instalada por defecto, así que con haber instalado las dependencias principales indicadas en pasos anteriores no tendrá ningún problema en ejecutar los escenarios
+
+
+ 
+## Ejecucion Escenarios Semana 7 paso a paso
+
+Los escenarios están divididos: 60 escenarios en cypress y 60 en kraken
+
+### Escenarios en cypress: (60 escenarios)
+
+Para ejecutar los escenarios de cypress recuerde haber realizado todo el proceso de instalación detallado en el Readme. 
+Luego de ubicarse en la carpeta cypress/5.14 con `cd cypress` y `cd 5.14`, seleccione los escenarios que desea ejecutar como se explica a continuación.
+
+- A priori: (20)
+
+    Para ejecutar los escenarios tipo a priori ejecute el siguiente comando:
+
+    `npx cypress run --config '{"testFiles":["**/{21..40}-escenario.feature"]}'`
+
+     Este comando ejecutará 20 escenarios del tipo a priori
+
+- Pseudo: (20)
+
+    Para ejecutar los escenarios tipo pseudo ejecute el siguiente comando:
+
+    `npx cypress run --config '{"testFiles":["**/{41..60}-escenario.feature"]}'`
+
+    Este comando ejecutará 20 escenarios del tipo pseudoaleatorio
+
+- Aleatorios: (20)
+
+    Para ejecutar los escenarios tipo aleatorio ejecute el siguiente comando:
+
+    `npx cypress run --config '{"testFiles":["**/{61..80}-escenario.feature"]}'`
+
+    Este comando ejecutará 20 escenarios del tipo aleatorio
+
+O si desea ejecutar un solo escenario puede usar el comando `npx cypress run --spec "cypress/integration/resource/#-escenario.feature"`, por ejemplo, para el escenario 21 el comando sería `npx cypress run --spec "cypress/integration/resource/21-escenario.feature"`
+
+### Escenarios en kraken: (60 escenarios)
+Para ejecutar los escenarios recuerde haber realizado todo el proceso de instalación detallado en el Readme. Ubicándose dentro del directorio con `cd kraken`, primero seleccione el escenario que desea ejecutar con los comandos que se mencionan a continuación y luego de eso ejecute `npx kraken-node run`
+
+- A priori: (20)
+
+    (Seleccionar escenarios a priori members)
+
+    `npm run func -- 5`
+
+    (Seleccionar escenarios a priori posts)
+
+    `npm run func -- 6`
+    
+    (Seleccionar escenarios a priori pages)
+
+    `npm run func -- 7`
+    
+    (Seleccionar escenarios a priori cambiar contraseña)
+
+    `npm run func -- 8`
+
+- Pseudo: (20)
+
+    (Seleccionar escenarios pseudoaleatorios members)
+
+    `npm run func -- 9`
+
+    (Seleccionar escenarios pseudoaleatorios posts)
+
+    `npm run func -- 10`
+
+    (Seleccionar escenarios pseudoaleatorios pages)
+
+    `npm run func -- 11`
+
+    (Seleccionar escenarios pseudoaleatorios cambiar contraseña)
+
+    `npm run func -- 12`
+
+- Aleatorios: (20)
+
+    (Seleccionar escenarios aleatorios members)
+
+    `npm run func -- 13`
+
+    (Seleccionar escenarios aleatorios posts)
+
+    `npm run func -- 14`
+
+    (Seleccionar escenarios aleatorios pages)
+
+    `npm run func -- 15`
+
+    (Seleccionar escenarios aleatorios cambiar contraseña)
+
+    `npm run func -- 16`
+
+    (Seleccionar escenarios actualizar perfil a priori)
+
+    `npm run func -- 17`
+
+  (Seleccionar escenarios actualizar perfil pseudo)
+
+    `npm run func -- 18`
+
+  (Seleccionar escenarios actualizar perfil aleatorio)
+
+    `npm run func -- 19`
+
+Los 120 escenarios ejecutados, con su respectiva estrategia de generación de datos
+
+ID | Archivo | Funcionalidad | Escenario | Estrategia | Ubicación | Herramienta | Responsable
+-- | -- | -- | -- | -- | -- | -- | --
+1 | 21 | Members | Crear un member con datos a priori y verificar que se creó | A priori | cypress/5.14/cypress/integration/resource/21-escenario.feature | Cypress | Edna Conde
+2 | 22 | Members | Editar el member creado con un nuevo nombre a priori | A priori | cypress/5.14/cypress/integration/resource/22-escenario.feature | Cypress | Edna Conde
+3 | 23 | Members | Eliminar el member creado con datos a priori | A priori | cypress/5.14/cypress/integration/resource/23-escenario.feature | Cypress | Edna Conde
+4 | 24 | Members | Crear un member con email inválido a priori y verificar que se recibe error | A priori | cypress/5.14/cypress/integration/resource/24-escenario.feature | Cypress | Edna Conde
+5 | 25 | Members | Crear un member con nombre inválido a priori y verificar que se recibe error | A priori | cypress/5.14/cypress/integration/resource/25-escenario.feature | Cypress | Edna Conde
+6 | 26 | Crear Post | Crear un nuevo post y validar que se cree como borrador [a-priori] | A priori | cypress/5.14/cypress/integration/resource/26-escenario.feature | Cypress | Santiago Patiño
+7 | 27 | Crear Post | Crear un nuevo post, publicarlo y validar que se visualice [a-priori] | A priori | cypress/5.14/cypress/integration/resource/27-escenario.feature | Cypress | Santiago Patiño
+8 | 28 | Crear Post | Crear un nuevo post, añadir un tag, publicarlo y validar que se visualice [a-priori] | A priori | cypress/5.14/cypress/integration/resource/28-escenario.feature | Cypress | Santiago Patiño
+9 | 29 | Editar Post | Editar un nuevo post, actualizarlo y validar que se visualice la modificacion [a-priori] | A priori | cypress/5.14/cypress/integration/resource/29-escenario.feature | Cypress | Santiago Patiño
+10 | 30 | Eliminar Post | Eliminar post y validar que ya no aparezca en los posts [a-priori] | A priori | cypress/5.14/cypress/integration/resource/30-escenario.feature | Cypress | Santiago Patiño
+11 | 31 | Crear Page | Crear page con datos validos y publicar | A priori | cypress/5.14/cypress/integration/resource/31-escenario.feature | Cypress | Manuel Sanchez
+12 | 32 | Crear Page | Crear Page con titulo  y descripcion con mas de 1000 y 5000 caracteres | A priori | cypress/5.14/cypress/integration/resource/32-escenario.feature | Cypress | Manuel Sanchez
+13 | 33 | Crear Page | Crear page draft con todos sus datos e intentar visualizar | A priori | cypress/5.14/cypress/integration/resource/33-escenario.feature | Cypress | Manuel Sanchez
+14 | 34 | Crear Page | Crear, editar Page y validar actualización | A priori | cypress/5.14/cypress/integration/resource/34-escenario.feature | Cypress | Manuel Sanchez
+15 | 35 | Crear Page | Crear page y validar que sea accesible | A priori | cypress/5.14/cypress/integration/resource/35-escenario.feature | Cypress | Manuel Sanchez
+16 | 36 |  Cambiar contraseña |  Cambiar contraseña con contraseña vieja invalida y nueva contraseña | A priori | cypress/5.14/cypress/integration/resource/36-escenario.feature | Cypress | Jhon Avila
+17 | 37 | Cambiar contraseña  |  Cambiar contraseña con contraseña vieja vacía y nueva contraseña | A priori | cypress/5.14/cypress/integration/resource/37-escenario.feature | Cypress | Jhon Avila
+18 | 38 | Cambiar contraseña  |  Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes | A priori | cypress/5.14/cypress/integration/resource/38-escenario.feature | Cypress | Jhon Avila
+19 | 39 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja y contraseñas nuevas con longitud invalida  | A priori | cypress/5.14/cypress/integration/resource/39-escenario.feature | Cypress | Jhon Avila
+20 | 40 |  Cambiar contraseña |   | A priori | cypress/5.14/cypress/integration/resource/40-escenario.feature | Cypress | Jhon Avila
+21 | 41 | Members | Crear un member con datos pseudoaleatorios y verificar que se creó | Pseudo | cypress/5.14/cypress/integration/resource/41-escenario.feature | Cypress | Edna Conde
+22 | 42 | Members | Editar el member creado con un nuevo nombre pseudoaleatorio | Pseudo | cypress/5.14/cypress/integration/resource/42-escenario.feature | Cypress | Edna Conde
+23 | 43 | Members | Eliminar el member creado con datos pseudoaleatorios | Pseudo | cypress/5.14/cypress/integration/resource/43-escenario.feature | Cypress | Edna Conde
+24 | 44 | Members | Crear un member con email inválido pseudoaleatorio y verificar que se recibe error | Pseudo | cypress/5.14/cypress/integration/resource/44-escenario.feature | Cypress | Edna Conde
+25 | 45 | Members | Crear un member con nombre inválido pseudoaleatorio y verificar que se recibe error | Pseudo | cypress/5.14/cypress/integration/resource/45-escenario.feature | Cypress | Edna Conde
+26 | 46 | Crear Post | Crear un nuevo post y validar que se cree como borrador [pseudo] | Pseudo | cypress/5.14/cypress/integration/resource/46-escenario.feature | Cypress | Santiago Patiño
+27 | 47 | Crear Post | Crear un nuevo post, publicarlo y validar que se visualice [pseudo] | Pseudo | cypress/5.14/cypress/integration/resource/47-escenario.feature | Cypress | Santiago Patiño
+28 | 48 | Crear Post | Crear un nuevo post, añadir un tag, publicarlo y validar que se visualice [pseudo] | Pseudo | cypress/5.14/cypress/integration/resource/48-escenario.feature | Cypress | Santiago Patiño
+29 | 49 | Editar Post | Editar un nuevo post, actualizarlo y validar que se visualice la modificacion [pseudo] | Pseudo | cypress/5.14/cypress/integration/resource/49-escenario.feature | Cypress | Santiago Patiño
+30 | 50 | Eliminar Post | Eliminar post y validar que ya no aparezca en los posts [pseudo] | Pseudo | cypress/5.14/cypress/integration/resource/50-escenario.feature | Cypress | Santiago Patiño
+31 | 51 | Crear Page | Crear page con datos validos y publicar | Pseudo | cypress/5.14/cypress/integration/resource/51-escenario.feature | Cypress | Manuel Sanchez
+32 | 52 | Crear Page | Crear y editar una page con todos sus datos, actualizar y visualizar | Pseudo | cypress/5.14/cypress/integration/resource/52-escenario.feature | Cypress | Manuel Sanchez
+33 | 53 | Crear Page | Crear, eliminar page y validar que no se encuentre page | Pseudo | cypress/5.14/cypress/integration/resource/53-escenario.feature | Cypress | Manuel Sanchez
+34 | 54 | Crear Page | Crear page draft con todos sus datos e intentar acceder | Pseudo | cypress/5.14/cypress/integration/resource/54-escenario.feature | Cypress | Manuel Sanchez
+35 | 55 | Crear Page | Crear page y validar que sea accesible | Pseudo | cypress/5.14/cypress/integration/resource/55-escenario.feature | Cypress | Manuel Sanchez
+36 | 56 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja invalida y nueva contraseña  | Pseudo | cypress/5.14/cypress/integration/resource/56-escenario.feature | Cypress | Jhon Avila
+37 | 57 | Cambiar contraseña  |  Cambiar contraseña con contraseña vieja vacía y nueva contraseña  | Pseudo | cypress/5.14/cypress/integration/resource/57-escenario.feature | Cypress | Jhon Avila
+38 | 58 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes  | Pseudo | cypress/5.14/cypress/integration/resource/58-escenario.feature | Cypress | Jhon Avila
+39 | 59 | Cambiar contraseña | Cambiar contraseña con contraseña vieja y contraseñas nuevas con longitud invalida  | Pseudo | cypress/5.14/cypress/integration/resource/59-escenario.feature | Cypress | Jhon Avila
+40 | 60 | Cambiar contraseña  |   | Pseudo | cypress/5.14/cypress/integration/resource/60-escenario.feature | Cypress | Jhon Avila
+41 | 61 | Members | Crear un member con datos aleatorios y verificar que se creó | Aleatorios | cypress/5.14/cypress/integration/resource/61-escenario.feature | Cypress | Edna Conde
+42 | 62 | Members | Editar el member creado con un nuevo nombre aleatorio | Aleatorios | cypress/5.14/cypress/integration/resource/62-escenario.feature | Cypress | Edna Conde
+43 | 63 | Members | Eliminar el member creado con datos aleatorios | Aleatorios | cypress/5.14/cypress/integration/resource/63-escenario.feature | Cypress | Edna Conde
+44 | 64 | Members | Crear un member con email inválido aleatorio y verificar que se recibe error | Aleatorios | cypress/5.14/cypress/integration/resource/64-escenario.feature | Cypress | Edna Conde
+45 | 65 | Members | Crear un member con nombre inválido aleatorio y verificar que se recibe error | Aleatorios | cypress/5.14/cypress/integration/resource/65-escenario.feature | Cypress | Edna Conde
+46 | 66 | Crear Post | Crear un nuevo post y validar que se cree como borrador [aleatorio] | Aleatorios | cypress/5.14/cypress/integration/resource/66-escenario.feature | Cypress | Santiago Patiño
+47 | 67 | Crear Post | Crear un nuevo post, publicarlo y validar que se visualice [aleatorio] | Aleatorios | cypress/5.14/cypress/integration/resource/67-escenario.feature | Cypress | Santiago Patiño
+48 | 68 | Crear Post | Crear un nuevo post, añadir un tag, publicarlo y validar que se visualice [aleatorio] | Aleatorios | cypress/5.14/cypress/integration/resource/68-escenario.feature | Cypress | Santiago Patiño
+49 | 69 | Editar Post | Editar un nuevo post, actualizarlo y validar que se visualice la modificacion [aleatorio] | Aleatorios | cypress/5.14/cypress/integration/resource/69-escenario.feature | Cypress | Santiago Patiño
+50 | 70 | Eliminar Post | Eliminar post y validar que ya no aparezca en los posts [aleatorio] | Aleatorios | cypress/5.14/cypress/integration/resource/70-escenario.feature | Cypress | Santiago Patiño
+51 | 71 | Crear Page | Crear page con datos validos y publicar | Aleatorios | cypress/5.14/cypress/integration/resource/71-escenario.feature | Cypress | Manuel Sanchez
+52 | 72 | Crear Page | Crear y editar una page con todos sus datos, actualizar y visualizar | Aleatorios | cypress/5.14/cypress/integration/resource/72-escenario.feature | Cypress | Manuel Sanchez
+53 | 73 | Crear Page | Crear, eliminar page y validar que no se encuentre page | Aleatorios | cypress/5.14/cypress/integration/resource/73-escenario.feature | Cypress | Manuel Sanchez
+54 | 74 | Crear Page | Crear page draft con todos sus datos e intentar acceder | Aleatorios | cypress/5.14/cypress/integration/resource/74-escenario.feature | Cypress | Manuel Sanchez
+55 | 75 | Crear Page | Crear page y validar que sea accesible | Aleatorios | cypress/5.14/cypress/integration/resource/75-escenario.feature | Cypress | Manuel Sanchez
+56 | 76 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja invalida y nueva contraseña  | Aleatorios | cypress/5.14/cypress/integration/resource/76-escenario.feature | Cypress | Jhon Avila
+57 | 77 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja vacía y nueva contraseña | Aleatorios | cypress/5.14/cypress/integration/resource/77-escenario.feature | Cypress | Jhon Avila
+58 | 78 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes  | Aleatorios | cypress/5.14/cypress/integration/resource/78-escenario.feature | Cypress | Jhon Avila
+59 | 79 | Cambiar contraseña  |  Cambiar contraseña con contraseña vieja y contraseñas nuevas con longitud invalida | Aleatorios | cypress/5.14/cypress/integration/resource/79-escenario.feature | Cypress | Jhon Avila
+60 | 80 | Cambiar contraseña  |   | Aleatorios | cypress/5.14/cypress/integration/resource/80-escenario.feature | Cypress | Jhon Avila
+61 | 5 | Members | Crear un member con datos a priori y verificar que se creó | A priori | kraken/features/5 - Members-apriori.feature | Kraken | Edna Conde
+62 | 5 | Members | Editar el member creado con un nuevo nombre a priori | A priori | kraken/features/5 - Members-apriori.feature | Kraken | Edna Conde
+63 | 5 | Members | Eliminar el member creado con datos a priori | A priori | kraken/features/5 - Members-apriori.feature | Kraken | Edna Conde
+64 | 5 | Members | Crear un member con email inválido a priori y verificar que se recibe error | A priori | kraken/features/5 - Members-apriori.feature | Kraken | Edna Conde
+65 | 5 | Members | Crear un member con nombre inválido a priori y verificar que se recibe error | A priori | kraken/features/5 - Members-apriori.feature | Kraken | Edna Conde
+66 | 6 | Crear Post | Crear un nuevo post y validar que se cree como borrador [a-priori] | A priori | kraken/features/6 - Posts-a-priori.feature | Kraken | Santiago Patiño
+67 | 6 | Crear Post | Crear un nuevo post, publicarlo y validar que se visualice [a-priori] | A priori | kraken/features/6 - Posts-a-priori.feature | Kraken | Santiago Patiño
+68 | 6 | Crear Post | Crear un nuevo post, añadir un tag, publicarlo y validar que se visualice [a-priori] | A priori | kraken/features/6 - Posts-a-priori.feature | Kraken | Santiago Patiño
+69 | 6 | Editar Post | Editar un nuevo post, actualizarlo y validar que se visualice la modificacion [a-priori] | A priori | kraken/features/6 - Posts-a-priori.feature | Kraken | Santiago Patiño
+70 | 6 | Eliminar Post | Eliminar post y validar que ya no aparezca en los posts [a-priori] | A priori | kraken/features/6 - Posts-a-priori.feature | Kraken | Santiago Patiño
+71 | 7 | Crear Page | Crear una page con todos sus datos, publicar y visualizar | A priori | kraken/features/7 - Page-aleatorio.feature | Kraken | Manuel Sanchez
+72 | 7 | Editar Page | Crear y editar una page con todos sus datos, actualizar y visualizar | A priori | kraken/features/7 - Page-aleatorio.feature | Kraken | Manuel Sanchez
+73 | 7 | Eliminar Page | Crear, eliminar page y validar que no se encuentre page | A priori | kraken/features/7 -Page-aleatorio.feature | Kraken | Manuel Sanchez
+74 | 7 | Crear Page | Crear page draft con todos sus datos e intentar visualizar | A priori | kraken/features/7 - Page-aleatorio.feature | Kraken | Manuel Sanchez
+75 | 7 | Crear page | Crear page, configurar nav y validar que sea accesible | A priori | kraken/features/7 - Page-aleatorio.feature | Kraken | Manuel Sanchez
+76 | 8 | Cambiar contraseña | Cambiar contraseña con contraseña vieja invalida y nuevas contraseñas | A priori | kraken/features/8 - Cambiar_contrasena-a-priori.feature | Kraken | Jhon Avila
+77 | 8 | Cambiar contraseña | Cambiar contraseña con contraseña vieja vacía y nueva contraseña | A priori | kraken/features/8 - Cambiar_contrasena-a-priori.feature | Kraken | Jhon Avila
+78 | 8 | Cambiar contraseña | Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes | A priori | kraken/features/8 - Cambiar_contrasena-a-priori.feature | Kraken | Jhon Avila
+79 | 8 | Cambiar contraseña | Cambiar contraseña con contraseña vieja y contraseñas nuevas con longitud invalida | A priori | kraken/features/8 - Cambiar_contrasena-a-priori.feature | Kraken | Jhon Avila
+80 | 17 | Actualizar perfil | Actualizar información de perfil | A priori | kraken/features/17 - Actualizar-perfil-a-priori.feature | Kraken | Jhon Avila
+81 | 9 | Members | Crear un member con datos pseudoaleatorios y verificar que se creó | Pseudo | kraken/features/9 - Members-pseudo.feature | Kraken | Edna Conde
+82 | 9 | Members | Editar el member creado con un nuevo nombre pseudoaleatorio | Pseudo | kraken/features/9 - Members-pseudo.feature | Kraken | Edna Conde
+83 | 9 | Members | Eliminar el member creado con datos pseudoaleatorios | Pseudo | kraken/features/9 - Members-pseudo.feature | Kraken | Edna Conde
+84 | 9 | Members | Crear un member con email inválido pseudoaleatorio y verificar que se recibe error | Pseudo | kraken/features/9 - Members-pseudo.feature | Kraken | Edna Conde
+85 | 9 | Members | Crear un member con nombre inválido pseudoaleatorio y verificar que se recibe error | Pseudo | kraken/features/9 - Members-pseudo.feature | Kraken | Edna Conde
+86 | 10 | Crear Post | Crear un nuevo post y validar que se cree como borrador [pseudo] | Pseudo | kraken/features/10 - Posts-pseudo.feature | Kraken | Santiago Patiño
+87 | 10 | Crear Post | Crear un nuevo post, publicarlo y validar que se visualice [pseudo] | Pseudo | kraken/features/10 - Posts-pseudo.feature | Kraken | Santiago Patiño
+88 | 10 | Crear Post | Crear un nuevo post, añadir un tag, publicarlo y validar que se visualice [pseudo] | Pseudo | kraken/features/10 - Posts-pseudo.feature | Kraken | Santiago Patiño
+89 | 10 | Editar Post | Editar un nuevo post, actualizarlo y validar que se visualice la modificacion [pseudo] | Pseudo | kraken/features/10 - Posts-pseudo.feature | Kraken | Santiago Patiño
+90 | 10 | Eliminar Post | Eliminar post y validar que ya no aparezca en los posts [pseudo] | Pseudo | kraken/features/10 - Posts-pseudo.feature | Kraken | Santiago Patiño
+91 | 11 | Crear Page | Crear una page con todos sus datos, publicar y visualizar | Pseudo | kraken/features/11 - Page-pseudo.feature | Kraken | Manuel Sanchez
+92 | 11 | Editar Page | Crear y editar una page con todos sus datos, actualizar y visualizar | Pseudo | kraken/features/11 - Page-pseudo.feature | Kraken | Manuel Sanchez
+93 | 11 | Eliminar Page | Crear, eliminar page y validar que no se encuentre page | Pseudo | kraken/features/11 - Page-pseudo.feature | Kraken | Manuel Sanchez
+94 | 11 | Crear Page | Crear page draft con todos sus datos e intentar visualizar | Pseudo | kraken/features/11 - Page-pseudo.feature | Kraken | Manuel Sanchez
+95 | 11 | Crear page | Crear page, configurar nav y validar que sea accesible | Pseudo | kraken/features/11 - Page-pseudo.feature | Kraken | Manuel Sanchez
+96 | 12 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja y contraseñas nuevas con longitud invalida  | Pseudo | kraken/features/12 - Cambiar_contrasena-pseudo.feature  | Kraken | Jhon Avila
+97 | 12 | Cambiar contraseña | Cambiar contraseña con contraseña vieja vacía y nueva contraseña  | Pseudo | kraken/features/12 - Cambiar_contrasena-pseudo.feature  | Kraken | Jhon Avila
+98 | 12 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes  | Pseudo | kraken/features/12 - Cambiar_contrasena-pseudo.feature  | Kraken | Jhon Avila
+99 | 12 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja y contraseñas nuevas con longitud invalida  | Pseudo | kraken/features/12 - Cambiar_contrasena-pseudo.feature  | Kraken | Jhon Avila
+100 | 18 | Actualizar perfil  | Actualizar información de perfil  | Pseudo | kraken/features/18 - Actualizar-perfil-a-priori.feature  | Kraken | Jhon Avila
+101 | 13 | Members | Crear un member con datos aleatorios y verificar que se creó | Aleatorios | kraken/features/13 - Members-aleatorios.feature | Kraken | Edna Conde
+102 | 13 | Members | Editar el member creado con un nuevo nombre aleatorio | Aleatorios | kraken/features/13 - Members-aleatorios.feature | Kraken | Edna Conde
+103 | 13 | Members | Eliminar el member creado con datos aleatorios | Aleatorios | kraken/features/13 - Members-aleatorios.feature | Kraken | Edna Conde
+104 | 13 | Members | Crear un member con email inválido aleatorio y verificar que se recibe error | Aleatorios | kraken/features/13 - Members-aleatorios.feature | Kraken | Edna Conde
+105 | 13 | Members | Crear un member con nombre inválido aleatorio y verificar que se recibe error | Aleatorios | kraken/features/13 - Members-aleatorios.feature | Kraken | Edna Conde
+106 | 14 | Crear Post | Crear un nuevo post y validar que se cree como borrador [aleatorio] | Aleatorios | kraken/features/14 - Posts-aleatorio.feature | Kraken | Santiago Patiño
+107 | 14 | Crear Post | Crear un nuevo post, publicarlo y validar que se visualice [aleatorio] | Aleatorios | kraken/features/14 - Posts-aleatorio.feature | Kraken | Santiago Patiño
+108 | 14 | Crear Post | Crear un nuevo post, añadir un tag, publicarlo y validar que se visualice [aleatorio] | Aleatorios | kraken/features/14 - Posts-aleatorio.feature | Kraken | Santiago Patiño
+109 | 14 | Editar Post | Editar un nuevo post, actualizarlo y validar que se visualice la modificacion [aleatorio] | Aleatorios | kraken/features/14 - Posts-aleatorio.feature | Kraken | Santiago Patiño
+110 | 14 | Eliminar Post | Eliminar post y validar que ya no aparezca en los posts [aleatorio] | Aleatorios | kraken/features/14 - Posts-aleatorio.feature | Kraken | Santiago Patiño
+111 | 15 | Crear Page | Crear una page con todos sus datos, publicar y visualizar | Aleatorios | kraken/features/15 - Page-aleatorio.feature | Kraken | Manuel Sanchez
+112 | 15 | Editar Page | Crear y editar una page con todos sus datos, actualizar y visualizar | Aleatorios | kraken/features/15 - Page-aleatorio.feature | Kraken | Manuel Sanchez
+113 | 15 | Eliminar Page | Crear, eliminar page y validar que no se encuentre page | Aleatorios | kraken/features/15 - Page-aleatorio.feature | Kraken | Manuel Sanchez
+114 | 15 | Crear Page | Crear page draft con todos sus datos e intentar visualizar | Aleatorios | kraken/features/15 - Page-aleatorio.feature | Kraken | Manuel Sanchez
+115 | 15 | Crear page | Crear page, configurar nav y validar que sea accesible | Aleatorios | kraken/features/15 - Page-aleatorio.feature | Kraken | Manuel Sanchez
+116 | 16 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja y contraseñas nuevas con longitud invalida  | Aleatorios | kraken/features/16 - Cambiar_contrasena-aleatorio.feature  | Kraken | Jhon Avila
+117 | 16 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja vacía y nueva contraseña  | Aleatorios | kraken/features/16 - Cambiar_contrasena-aleatorio.feature  | Kraken | Jhon Avila
+118 | 16 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja y contraseñas nuevas diferentes  | Aleatorios | kraken/features/16 - Cambiar_contrasena-aleatorio.feature  | Kraken | Jhon Avila
+119 | 16 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja y contraseñas nuevas con longitud invalida  | Aleatorios | kraken/features/16 - Cambiar_contrasena-aleatorio.feature  | Kraken | Jhon Avila
+120 | 19 | Actualizar perfil  | Actualizar información de perfil  | Aleatorios | kraken/features/19 - Actualizar-perfil-a-priori.feature  | Kraken | Jhon Avila
+

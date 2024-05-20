@@ -15,16 +15,15 @@ function agregarTipoAlArchivo(nombreArchivo) {
                 console.error('Error al leer el directorio:', err);
                 return;
             }
-
-            const archivoFeature = fs.readdirSync(directorio).find(file => file.charAt(0) === nombreArchivo);
+            
+            const archivoFeature = fs.readdirSync(directorio).find(file => file.startsWith(`${nombreArchivo} -`));
             if(!archivoFeature) {
                console.log("Este numero de funcionalidad no existe")
                return
             }
 
             archivos.forEach(archivo => {
-                const primerCaracter = archivo.charAt(0);
-                if (primerCaracter === nombreArchivo) {
+                if (archivo.startsWith(`${nombreArchivo} -`)) {
                     if(archivo.endsWith('.feature')) {
                         console.log("Esta funcionalidad ya esta seleccionada")
                         return

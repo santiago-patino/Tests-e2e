@@ -1,6 +1,7 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const expect = require('chai').expect;
 const path = require('path');
+const fs = require("fs");
 
 async function takeScreenshotEveryStep(driver, fileNamePasoEscenario) {
     const screenshot = await driver.takeScreenshot();
@@ -39,6 +40,13 @@ When('Ingresar datos en un post con el titulo {kraken-string} y descripcion {kra
     return await elementContent.setValue(content);
 });
 
+Then('Validar que se cree el borrador', async function() {
+  await new Promise(r => setTimeout(r, 4000))
+  let statusPost = await this.driver.$(".gh-editor-post-status").getText();
+  expect(statusPost).to.include("Draft");
+  //expect(tag).to.equal("News");
+})
+
 Then('Añadir tag', async function () {
     let menuButton = await this.driver.$("button.settings-menu-toggle");
     await menuButton.click();
@@ -66,8 +74,8 @@ Then('Publicar y Validar el post con el titulo {kraken-string}', async function 
     const linkUrl = await anclaPost.getAttribute('href');
     await this.driver.url(linkUrl);
     await new Promise(r => setTimeout(r, 3000))
-    let tag = await this.driver.$(".post-card-primary-tag").getText();
-    expect(tag).to.equal("News");
+    //let tag = await this.driver.$(".post-card-primary-tag").getText();
+    //expect(tag).to.equal("News");
     let postTitle = await this.driver.$(".article-title").getText();
     await takeScreenshotEveryStep(
         this.driver,

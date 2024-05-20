@@ -15,3 +15,7 @@ package-lock.json
 /cypress/3.42/cypress/screenshots/
 /cypress/backstop_data/bitmaps_test/*
 /cypress/backstop_data/bitmaps_reference/*
+
+/kraken/features/web/step_definitions/screenshots_post
+/kraken/features/web/step_definitions/screenshots_page
+/kraken/features/web/step_definitions/screenshots_password/

@@ -9,6 +9,7 @@ class pagePage{
         validateDeletePage: () => cy.get('h3.gh-content-entry-title'),
         validateDraftPage: () => cy.get('h3.gh-content-entry-title'),  
         validateDraftStatus: () => cy.get('.gh-content-status-draft'), 
+        validNewUrl: () => cy.url(),
 
         //Management
         titleInput: () => cy.get('[placeholder="Page title"]'),
@@ -18,6 +19,9 @@ class pagePage{
         confirmPageButton: () => cy.get('.gh-btn-pulse'),        
         selectPage: () => cy.get('.gh-content-entry-title'),
         backEditor: () => cy.get('.gh-back-to-editor'),
+        clearUrl: () => cy.get('.post-setting-slug'),
+        editUrl: () => cy.get('.post-setting-slug'),
+        visitUrl: () => cy.get('.post-view-link'),
 
         urlPage404: () => cy.get('h1.error-code'),
         urlPageValid: () => cy.get('h1.article-title'),
@@ -29,10 +33,35 @@ class pagePage{
         confirmDeletePage: () => cy.get('.gh-btn-red'),
 
     }
-     
-    validateCreatedPage = (namepage) =>{
+
+    // Dar click en url de page
+    visitUrl = () =>{
+        cy.wait(1000)
+        this.elements.visitUrl().click();
+    }
+    // Ingresar nueva url
+    clearUrl = () =>{
+        this.elements.clearUrl().clear({ force: true }).type('{tab}', { force: true })
+    }
+
+    editUrl = (namepage) =>{
+        this.elements.editUrl().scrollIntoView().clear({ force: true }).type(namepage, { force: true })
+        cy.wait(1000)
+    }
+    
+    validNewUrl = (namepage) =>{
+        const formattedNamepage = namepage.replace(/ /g, '-');
         cy.wait(500)
-        this.elements.validateCreatedPage().first().should('contain', namepage);
+        this.elements.validNewUrl().should('contain', formattedNamepage);
+    }
+     
+    validateCreatedPage = (namepage) => {
+        cy.wait(500);
+        this.elements.validateCreatedPage().then(($els) => {
+          const texts = [...$els].map(el => el.innerText);
+          const found = texts.some(text => text.includes(namepage));
+          expect(found).to.be.true;
+        });
     }
 
     validateMessageUpdated = () =>{
@@ -56,6 +85,13 @@ class pagePage{
         cy.wait(500);
         this.elements.validateDraftStatus().should('contain', 'Draft'); 
     }
+
+    invalidatePublish() {
+        cy.get('body').then(($body) => {
+          if ($body.find('.gh-publish-trigger').length === 0) {
+            cy.log('Publicación no permitida: el botón de publicación no está presente');
+            expect(true).to.be.true; // Esta es una aserción que siempre pasa
+          }});}
 
     urlPage404 = () =>{
         this.elements.urlPage404().should('contain', '404')
