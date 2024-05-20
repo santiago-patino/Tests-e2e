@@ -1,6 +1,7 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const expect = require('chai').expect;
 const path = require('path');
+const fs = require('fs');
 
 async function takeScreenshotEveryStep(driver, fileNamePasoEscenario) {
     const screenshot = await driver.takeScreenshot();
@@ -82,13 +83,13 @@ Then('Validar que no esté vacío new Password {kraken-string}', async function 
 
 });
 
-Then('Validar que las contraseñas coincidan {kraken-string}', async function (mensaje) {
+Then('Validar que las contraseñas no coincidan {kraken-string}', async function (mensaje) {
     await new Promise(r => setTimeout(r, 3000))
     let oldPasswordInput = await this.driver.$("#user-new-password-verification ~ p");
     let oldPasswordInputText = await oldPasswordInput.getText();
     await takeScreenshotEveryStep(
         this.driver,
-        "3 - Validar que las contraseñas coincidan"
+        "3 - Validar que las contraseñas no coincidan"
       );
     expect(oldPasswordInputText).to.include(mensaje);
 
