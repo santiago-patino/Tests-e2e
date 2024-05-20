@@ -1,0 +1,13 @@
+Feature: Actualizar perfil
+
+@user1 @web
+Scenario: Cambiar contraseña con contraseña vieja invalida y nueva contraseña
+    Given Ir hacia "<HOST>" "ghost"
+    When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
+    Then Validar inicio sesion exitoso
+
+    When Ir a mi perfil
+    Then Validar pagina de perfil
+
+    When Ingresar datos de perfil aleatorio
+    Then Validar actualizacion perfil "Saved"

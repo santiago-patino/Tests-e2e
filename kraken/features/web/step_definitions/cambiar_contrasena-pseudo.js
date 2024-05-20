@@ -17,11 +17,12 @@ let data = [];
 createData();
 
 async function createData() {
-    for (let i = 0; i <= 4; i++) {
+    for (let i = 0; i <= 5; i++) {
         apiData = await fetchDataFromAPI();
         data.push({
             newPassword: apiData.newPassword,
-            fakeOldPassword: apiData.fakeOldPassword
+            fakeOldPassword: apiData.fakeOldPassword,
+            numericPassword: apiData.numericPassword
         });
     }
 }
@@ -66,6 +67,17 @@ When('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas
     await newPasswordInput.setValue(data[parseInt(scenario)-1].newPassword.substring(0, 7));
     let newPasswordverifyInput = await this.driver.$("#user-new-password-verification");
     await newPasswordverifyInput.setValue(data[parseInt(scenario)-1].newPassword.substring(0, 7));
+    let changePassword = await this.driver.$(".gh-btn.gh-btn-icon.button-change-password.gh-btn-red.ember-view");
+    return await changePassword.click();
+});
+
+When('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas insegura numerica pseudo escenario {kraken-string}', async function (scenario) {
+    let oldPasswordInput = await this.driver.$("#user-password-old");
+    await oldPasswordInput.setValue(OLDPASSWORD);
+    let newPasswordInput = await this.driver.$("#user-password-new");
+    await newPasswordInput.setValue(data[parseInt(scenario)-1].numericPassword.substring(0, 7));
+    let newPasswordverifyInput = await this.driver.$("#user-new-password-verification");
+    await newPasswordverifyInput.setValue(data[parseInt(scenario)-1].numericPassword.substring(0, 7));
     let changePassword = await this.driver.$(".gh-btn.gh-btn-icon.button-change-password.gh-btn-red.ember-view");
     return await changePassword.click();
 });

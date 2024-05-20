@@ -54,4 +54,16 @@ When('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas
     return await changePassword.click();
 });
 
+When('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas insegura numerica aleatorio escenario', async function () {
+    const newPassword = faker.finance.creditCardNumber();
+    let oldPasswordInput = await this.driver.$("#user-password-old");
+    await oldPasswordInput.setValue(OLDPASSWORD);
+    let newPasswordInput = await this.driver.$("#user-password-new");
+    await newPasswordInput.setValue(newPassword);
+    let newPasswordverifyInput = await this.driver.$("#user-new-password-verification");
+    await newPasswordverifyInput.setValue(newPassword);
+    let changePassword = await this.driver.$(".gh-btn.gh-btn-icon.button-change-password.gh-btn-red.ember-view");
+    return await changePassword.click();
+});
+
 

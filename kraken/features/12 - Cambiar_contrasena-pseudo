@@ -49,22 +49,16 @@ Scenario: Cambiar contraseña con contraseña vieja y contraseñas nuevas con lo
     Then Validar longitud nueva contraseña "Password must be at least 10 characters long."
 
 #@user5 @web
-#Scenario: Cambio de contraseña exitoso
+#Scenario: Cambiar contraseña con contraseña vieja y contraseñas nueva insegura numerica
 #    Given Ir hacia "<HOST>" "ghost"
 #    When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
 #    Then Validar inicio sesion exitoso
 #
 #    When Ir a mi perfil
 #    Then Validar pagina de perfil
-#
-#    When Ingresar datos de contraseñas "<PASSWORD>", "<NEWPASSWORD>" y "<NEWPASSWORD>"
-#
-#
-#    When Logout
-#    Then Validar pagina de logueo
-#
-#    When Autenticarse con credenciales "<USERNAME>" "<NEWPASSWORD>"
-#    Then Validar inicio sesion exitoso
+
+#    When Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas insegura numerica pseudo escenario "5"
+#    Then Validar contraseña insegura "Sorry, you cannot use an insecure password."
 
 
     

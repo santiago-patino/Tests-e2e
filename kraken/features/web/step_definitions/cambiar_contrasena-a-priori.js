@@ -11,11 +11,12 @@ function random() {
 
 let data = [];
 
-for (let i = 0; i <= 4; i++) {
+for (let i = 0; i <= 5; i++) {
     let randomNumber = random();
     data.push({
         newPassword: jsonNewPassword[randomNumber].newPassword,
-        fakeOldPassword: jsonNewPassword[randomNumber].fakeOldPassword
+        fakeOldPassword: jsonNewPassword[randomNumber].fakeOldPassword,
+        numericPassword: jsonNewPassword[randomNumber].numericPassword
     });
 }
 
@@ -88,6 +89,17 @@ When('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas
     return await changePassword.click();
 });
 
+When('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas insegura numerica escenario {kraken-string}', async function (scenario) {
+    let oldPasswordInput = await this.driver.$("#user-password-old");
+    await oldPasswordInput.setValue(OLDPASSWORD);
+    let newPasswordInput = await this.driver.$("#user-password-new");
+    await newPasswordInput.setValue(data[parseInt(scenario)-1].numericPassword);
+    let newPasswordverifyInput = await this.driver.$("#user-new-password-verification");
+    await newPasswordverifyInput.setValue(data[parseInt(scenario)-1].numericPassword);
+    let changePassword = await this.driver.$(".gh-btn.gh-btn-icon.button-change-password.gh-btn-red.ember-view");
+    return await changePassword.click();
+});
+
 Then('Validar longitud nueva contraseña {kraken-string}', async function (mensaje) {
     await new Promise(r => setTimeout(r, 3000))
     let oldPasswordInput = await this.driver.$("#user-password-new ~ p");
@@ -95,6 +107,18 @@ Then('Validar longitud nueva contraseña {kraken-string}', async function (mensa
     await takeScreenshotEveryStep(
         this.driver,
         "4 - Validar longitud nueva contraseña"
+    );
+    expect(oldPasswordInputText).to.include(mensaje);
+
+});
+
+Then('Validar contraseña insegura {kraken-string}', async function (mensaje) {
+    await new Promise(r => setTimeout(r, 3000))
+    let oldPasswordInput = await this.driver.$("#user-password-new ~ p");
+    let oldPasswordInputText = await oldPasswordInput.getText();
+    await takeScreenshotEveryStep(
+        this.driver,
+        "5 - Validar contraseña insegura"
     );
     expect(oldPasswordInputText).to.include(mensaje);
 
