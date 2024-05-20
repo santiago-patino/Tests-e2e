@@ -33,21 +33,21 @@ Scenario: Cambiar contraseña con contraseña vieja y contraseñas nuevas difere
     When Ir a mi perfil
     Then Validar pagina de perfil
 
-    When Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas diferentes escenario "3" "<PASSWORD>", "<NEWPASSWORD>" y "<FAKEOLDPASSWORD>"
+    When Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas diferentes escenario "3"
     Then Validar que las contraseñas no coincidan "Your new passwords do not match"
 
-#@user4 @web
-#Scenario: Cambiar contraseña con contraseña vieja y contraseñas nuevas vacías
-#    Given Ir hacia "<HOST>" "ghost"
-#    When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
-#    Then Validar inicio sesion exitoso
-#
-#    When Ir a mi perfil
-#    Then Validar pagina de perfil
-#
-#    When Ingresar datos de contraseñas "<PASSWORD>", "<EMPTYPASSWORD>" y "<EMPTYPASSWORD>"
-#    Then Validar que no esté vacío new Password "Sorry, passwords can't be blank"
-#
+@user4 @web
+Scenario: Cambiar contraseña con contraseña vieja y contraseñas nuevas con longitud invalida
+    Given Ir hacia "<HOST>" "ghost"
+    When Autenticarse con credenciales "<USERNAME>" "<PASSWORD>"
+    Then Validar inicio sesion exitoso
+
+    When Ir a mi perfil
+    Then Validar pagina de perfil
+
+    When Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas con longitud invalida escenario "4"
+    Then Validar longitud nueva contraseña "Password must be at least 10 characters long."
+
 #@user5 @web
 #Scenario: Cambio de contraseña exitoso
 #    Given Ir hacia "<HOST>" "ghost"
