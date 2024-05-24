@@ -10,5 +10,5 @@ Feature Cambiar contraseña con contraseña vieja invalida y nueva contraseña
   Scenario: Cambiar contraseña con contraseña vieja invalida y nueva contraseña
 
     When Ir a mi perfil
-    And Ingresar datos de contraseñas vieja invalida y nueva contraseña a priori
+    And Ingresar datos de contraseñas vieja invalida y nueva contraseña pseudo
     Then Validar cambio de contraseña "Your password is incorrect. Your password is incorrect."
