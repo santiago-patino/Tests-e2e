@@ -2,9 +2,23 @@ import {Given, When, And, Then} from "cypress-cucumber-preprocessor/steps";
 import login from '../../pages/pageLogin.js';
 import pageContrasena from "../../pages/pageContrasena";
 
-const USERNAME = 's.patino@uniandes.edu.co';
-const PASSWORD = 'admin-uniandes';
-const NEWPASSWORD = 'admin-uniandes';
+const newPasswordApi = Cypress.config("newPasswordApi");
+
+async function fetchDataFromAPI() {
+    try {
+        const response = await fetch(newPasswordApi);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error al obtener datos del API:", error);
+        throw error; // Manejar el error según sea necesario
+    }
+}
+
+let fullName;
+let location;
+let website;
+let bio;
 
 Given("Ingresa a la pagina de inicio de sesion", () => {
     cy.visit("ghost");
@@ -17,38 +31,34 @@ When("Ingresa el nombre de usuario y ingresa la contraseña", () => {
     cy.screenshot("2");
 });
 
-And("Ingresa el nombre de usuario e ingresa la nueva contraseña", (message) => {
-    pageContrasena.singIn(USERNAME, NEWPASSWORD);
-    cy.screenshot("9")
-});
-
-Then("Iniciar Sesion Exitoso {string}", (paso) => {
+Then("Iniciar Sesion Exitoso", () => {
     cy.wait(1000);
     login.check();
-    cy.screenshot(paso);
+    cy.screenshot("3");
 });
 
-When('Ir a mi perfil', (paso) => {
+When('Ir a mi perfil', async () => {
     pageContrasena.goToProfile();
     cy.screenshot("5")
+    const data = await fetchDataFromAPI();
+    fullName = data.fullName;
+    location = data.location;
+    website = data.website;
+    bio = data.bio;
 })
 
 
-And('SignOut', () => {
-    pageContrasena.signOut();
-    cy.screenshot("8");
-});
-
-And('Ingresar datos de contraseñas correctos', () => {
-    pageContrasena.typeFieldUserPasswordOld(PASSWORD);
-    pageContrasena.typeFieldUserPasswordNew(NEWPASSWORD);
-    pageContrasena.typeFieldUserPasswordNewVerify(NEWPASSWORD);
+And('Ingresar datos de perfil pseudo', () => {
+    pageContrasena.typeFieldUserNameField(fullName);
+    pageContrasena.typeFieldUserLocationField(location);
+    pageContrasena.typeFieldUserWebsiteField(website);
+    pageContrasena.typeFieldUserBioField(bio);
     cy.screenshot("6");
-    pageContrasena.changePassword();
+    pageContrasena.updateProfile();
 });
 
-Then('Validar cambio de contraseña exitoso {string}', (message) => {
-    pageContrasena.validateSuccess(message);
+Then('Actualizacion de perfil exitoso pseudo {string}', (message) => {
+    pageContrasena.validateSaveprofile(message);
     cy.screenshot("7");
 });
 

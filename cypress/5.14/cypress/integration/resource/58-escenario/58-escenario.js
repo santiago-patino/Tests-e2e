@@ -6,6 +6,22 @@ const PASSWORD = 'admin-uniandes';
 const NEWPASSWORD = 'admin-uniandes';
 const FAKEOLDPASSWORD = "admin-uniandes2";
 
+const newPasswordApi = Cypress.config("newPasswordApi");
+
+async function fetchDataFromAPI() {
+    try {
+        const response = await fetch(newPasswordApi);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error al obtener datos del API:", error);
+        throw error; // Manejar el error según sea necesario
+    }
+}
+
+let newPassword;
+var fakeOldPassword;
+
 Given("Ingresa a la pagina de inicio de sesion", () => {
     cy.visit("ghost");
     cy.wait(1000);
@@ -23,16 +39,19 @@ Then("Iniciar Sesion Exitoso", () => {
     cy.screenshot("3");
 });
 
-When('Ir a mi perfil', () => {
+When('Ir a mi perfil', async () => {
     pageContrasena.goToProfile();
     cy.screenshot("5")
+    const data = await fetchDataFromAPI();
+    newPassword = data.newPassword;
+    fakeOldPassword = data.fakeOldPassword;
 })
 
 
-And('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas diferentes', () => {
+And('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas diferentes pseudo', () => {
     pageContrasena.typeFieldUserPasswordOld(PASSWORD);
-    pageContrasena.typeFieldUserPasswordNew(NEWPASSWORD);
-    pageContrasena.typeFieldUserPasswordNewVerify(FAKEOLDPASSWORD);
+    pageContrasena.typeFieldUserPasswordNew(newPassword);
+    pageContrasena.typeFieldUserPasswordNewVerify(fakeOldPassword);
     cy.screenshot("6");
     pageContrasena.changePassword();
 });

@@ -4,15 +4,22 @@ class pageContrasena {
         menuButton: () => cy.get('#ember31'),
         profileButton: () => cy.get('a[href=\"#/settings/staff/administrator/\"]'),
         singOutButton: () =>cy.get('a[href=\"#/signout/\"]'),
+        userNameField: () =>cy.get('#user-name'),
+        userLocationField: () =>cy.get('#user-location'),
+        userWebsiteField: () =>cy.get('#user-website'),
+        userBioField: () =>cy.get('#user-bio'),
         userPasswordOldField: () =>cy.get('#user-password-old'),
         userPasswordNewField: () => cy.get('#user-password-new'),
         userPasswordNewVerifyField: () =>cy.get('#user-new-password-verification'),
         changePasswordButton: () =>cy.get('.gh-btn.gh-btn-icon.button-change-password.gh-btn-red.ember-view span'),
+        updateProfileButton: () =>cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view'),
         errorMessageUserPasswordOldField: () => cy.get('#user-password-old ~ p'),
         errorMessageUserPasswordNewField: () => cy.get('#user-password-new ~ p'),
         errorMessageUserPasswordNewVerifyField: () => cy.get('#user-new-password-verification ~ p'),
+        mainError: () => cy.get('#login ~ .main-error'),
         alertSucces: () => cy.get('.gh-notification-title'),
         alertError: () => cy.get('.gh-alert.gh-alert-red .gh-alert-content'),
+        saveButtonText: () => cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.gh-btn-green.ember-view span'),
         emailField: () => cy.get('.email'),
         passField: () => cy.get('.password'),
         submitButton: () =>cy.get('button[type="submit"]')
@@ -58,6 +65,19 @@ class pageContrasena {
         });
     }
 
+    typeFieldUserNameField = (text) => {
+        this.controls.userNameField().clear().type(text, {force: true});
+    }
+    typeFieldUserLocationField = (text) => {
+        this.controls.userLocationField().clear().type(text, {force: true});
+    }
+    typeFieldUserWebsiteField = (text) => {
+        this.controls.userWebsiteField().clear().type(text, {force: true});
+    }
+    typeFieldUserBioField = (text) => {
+        this.controls.userBioField().clear().type(text, {force: true});
+    }
+
     typeFieldUserPasswordOld = (text) => {
         this.controls.userPasswordOldField().clear().type(text, {force: true});
     }
@@ -86,10 +106,23 @@ class pageContrasena {
         this.controls.changePasswordButton().click({force: true});
     }
 
+    updateProfile = () => {
+        this.controls.updateProfileButton().click({force: true});
+    }
 
     validateSuccess = (message) => {
         this.controls.alertSucces().then(($alert) => {
             expect($alert[0].innerText).to.equal(message);
+        });
+    }
+
+    validateUser = (message) => {
+        this.controls.mainError().should('contain.text', message)
+    }
+
+    validateSaveprofile = (message) => {
+        this.controls.saveButtonText().then(($span) => {
+            expect($span[0].innerText).to.equal(message);
         });
     }
 

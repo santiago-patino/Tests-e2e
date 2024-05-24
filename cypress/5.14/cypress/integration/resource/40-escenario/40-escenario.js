@@ -2,9 +2,19 @@ import {Given, When, And, Then} from "cypress-cucumber-preprocessor/steps";
 import login from '../../pages/pageLogin.js';
 import pageContrasena from "../../pages/pageContrasena";
 
-const USERNAME = 's.patino@uniandes.edu.co';
-const PASSWORD = 'admin-uniandes';
-const NEWPASSWORD = 'admin-uniandes';
+const jsonNewPassword = require('../../data/newPassword.json');
+
+function random() {
+    let number = Math.floor(Math.random() * jsonNewPassword.length);
+    console.log(number)
+    return number
+}
+
+let fullName = jsonNewPassword[random()].fullName;
+let location = jsonNewPassword[random()].location;
+let website = jsonNewPassword[random()].website;
+let bio = jsonNewPassword[random()].bio;
+
 
 Given("Ingresa a la pagina de inicio de sesion", () => {
     cy.visit("ghost");
@@ -17,38 +27,30 @@ When("Ingresa el nombre de usuario y ingresa la contraseña", () => {
     cy.screenshot("2");
 });
 
-And("Ingresa el nombre de usuario e ingresa la nueva contraseña", (message) => {
-    pageContrasena.singIn(USERNAME, NEWPASSWORD);
-    cy.screenshot("9")
-});
 
-Then("Iniciar Sesion Exitoso {string}", (paso) => {
+Then("Iniciar Sesion Exitoso", () => {
     cy.wait(1000);
     login.check();
-    cy.screenshot(paso);
+    cy.screenshot("3");
 });
 
-When('Ir a mi perfil', (paso) => {
+When('Ir a mi perfil', () => {
     pageContrasena.goToProfile();
     cy.screenshot("5")
 })
 
 
-And('SignOut', () => {
-    pageContrasena.signOut();
-    cy.screenshot("8");
-});
-
-And('Ingresar datos de contraseñas correctos', () => {
-    pageContrasena.typeFieldUserPasswordOld(PASSWORD);
-    pageContrasena.typeFieldUserPasswordNew(NEWPASSWORD);
-    pageContrasena.typeFieldUserPasswordNewVerify(NEWPASSWORD);
+And('Ingresar datos de perfil a priori', () => {
+    pageContrasena.typeFieldUserNameField(fullName);
+    pageContrasena.typeFieldUserLocationField(location);
+    pageContrasena.typeFieldUserWebsiteField(website);
+    pageContrasena.typeFieldUserBioField(bio);
     cy.screenshot("6");
-    pageContrasena.changePassword();
+    pageContrasena.updateProfile();
 });
 
-Then('Validar cambio de contraseña exitoso {string}', (message) => {
-    pageContrasena.validateSuccess(message);
+Then('Actualizacion de perfil exitoso a priori {string}', (message) => {
+    pageContrasena.validateSaveprofile(message);
     cy.screenshot("7");
 });
 

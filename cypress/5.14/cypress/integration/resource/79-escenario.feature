@@ -7,8 +7,8 @@ Feature Cambiar contraseña con contraseña vieja invalida y nueva contraseña
     When Ingresa el nombre de usuario y ingresa la contraseña
     Then Iniciar Sesion Exitoso
 
-  Scenario: Cambiar contraseña con contraseña vieja invalida y nueva contraseña
-
+  Scenario: Cambiar contraseña con contraseña vieja y contraseñas nuevas con longitud invalida
     When Ir a mi perfil
-    And Ingresar datos de contraseñas vieja invalida y nueva contraseña a priori
-    Then Validar cambio de contraseña "Your password is incorrect. Your password is incorrect."
+    And Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas con longitud invalida aleatorio
+    Then Validar longitud contraseña "Password must be at least 10 characters long."
+

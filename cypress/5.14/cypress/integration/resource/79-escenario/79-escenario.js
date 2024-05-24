@@ -1,11 +1,9 @@
 import {Given, When, And, Then} from "cypress-cucumber-preprocessor/steps";
 import login from '../../pages/pageLogin.js';
 import pageContrasena from "../../pages/pageContrasena";
+import {faker} from '@faker-js/faker'
 
-const USERNAME = 's.patino@uniandes.edu.co';
 const PASSWORD = 'admin-uniandes';
-const NEWPASSWORD = 'admin-uniandes';
-const FAKEOLDPASSWORD = "admin-uniandes2";
 
 Given("Ingresa a la pagina de inicio de sesion", () => {
     cy.visit("ghost");
@@ -29,16 +27,16 @@ When('Ir a mi perfil', () => {
     cy.screenshot("5")
 })
 
-And('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas vacías', () => {
+And('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas con longitud invalida aleatorio', () => {
     pageContrasena.typeFieldUserPasswordOld(PASSWORD);
-    pageContrasena.clearFieldUserPasswordNew();
-    pageContrasena.clearFieldUserPasswordNewVerify();
+    pageContrasena.typeFieldUserPasswordNew(faker.internet.password({ length: 12}).substring(0,7));
+    pageContrasena.typeFieldUserPasswordNewVerify(faker.internet.password({ length: 12}).substring(0,7));
     cy.screenshot("6")
     pageContrasena.changePassword();
 });
 
 
-Then('Validar que no esté vacío new Password {string}', (message) => {
+Then('Validar longitud contraseña {string}', (message) => {
     pageContrasena.validateErrorMessageUserPasswordNewField(message);
     cy.screenshot("7");
 });
