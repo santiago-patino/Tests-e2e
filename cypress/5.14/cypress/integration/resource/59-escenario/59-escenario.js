@@ -2,10 +2,22 @@ import {Given, When, And, Then} from "cypress-cucumber-preprocessor/steps";
 import login from '../../pages/pageLogin.js';
 import pageContrasena from "../../pages/pageContrasena";
 
-const USERNAME = 's.patino@uniandes.edu.co';
 const PASSWORD = 'admin-uniandes';
-const NEWPASSWORD = 'admin-uniandes';
-const FAKEOLDPASSWORD = "admin-uniandes2";
+const newPasswordApi = Cypress.config("newPasswordApi");
+
+async function fetchDataFromAPI() {
+    try {
+        const response = await fetch(newPasswordApi);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error al obtener datos del API:", error);
+        throw error; // Manejar el error según sea necesario
+    }
+}
+
+let newPassword;
+let newPasswordSub;
 
 Given("Ingresa a la pagina de inicio de sesion", () => {
     cy.visit("ghost");
@@ -24,21 +36,24 @@ Then("Iniciar Sesion Exitoso", () => {
     cy.screenshot("3");
 });
 
-When('Ir a mi perfil', () => {
+When('Ir a mi perfil', async () => {
     pageContrasena.goToProfile();
     cy.screenshot("5")
+    const data = await fetchDataFromAPI();
+    newPassword = data.newPassword;
+    newPasswordSub = newPassword.substring(0,7);
 })
 
-And('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas vacías', () => {
+And('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas con longitud invalida pseudo', () => {
     pageContrasena.typeFieldUserPasswordOld(PASSWORD);
-    pageContrasena.clearFieldUserPasswordNew();
-    pageContrasena.clearFieldUserPasswordNewVerify();
+    pageContrasena.typeFieldUserPasswordNew(newPasswordSub);
+    pageContrasena.typeFieldUserPasswordNewVerify(newPasswordSub);
     cy.screenshot("6")
     pageContrasena.changePassword();
 });
 
 
-Then('Validar que no esté vacío new Password {string}', (message) => {
+Then('Validar longitud contraseña {string}', (message) => {
     pageContrasena.validateErrorMessageUserPasswordNewField(message);
     cy.screenshot("7");
 });

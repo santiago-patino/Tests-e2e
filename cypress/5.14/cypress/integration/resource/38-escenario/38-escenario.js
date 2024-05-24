@@ -2,9 +2,18 @@ import {Given, When, And, Then} from "cypress-cucumber-preprocessor/steps";
 import login from '../../pages/pageLogin.js';
 import pageContrasena from "../../pages/pageContrasena";
 
+const jsonNewPassword = require('../../data/newPassword.json');
 const PASSWORD = 'admin-uniandes';
-const NEWPASSWORD = 'admin-uniandes';
-const FAKEOLDPASSWORD = "admin-uniandes2";
+
+function random() {
+    let number = Math.floor(Math.random() * jsonNewPassword.length);
+    console.log(number)
+    return number
+}
+
+let newPassword = jsonNewPassword[random()].newPassword
+let fakeOldPassword = jsonNewPassword[random()].fakeOldPassword
+
 
 Given("Ingresa a la pagina de inicio de sesion", () => {
     cy.visit("ghost");
@@ -29,10 +38,10 @@ When('Ir a mi perfil', () => {
 })
 
 
-And('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas diferentes', () => {
+And('Ingresar datos de contraseñas con contraseña vieja y contraseñas nuevas diferentes a priori', () => {
     pageContrasena.typeFieldUserPasswordOld(PASSWORD);
-    pageContrasena.typeFieldUserPasswordNew(NEWPASSWORD);
-    pageContrasena.typeFieldUserPasswordNewVerify(FAKEOLDPASSWORD);
+    pageContrasena.typeFieldUserPasswordNew(newPassword);
+    pageContrasena.typeFieldUserPasswordNewVerify(fakeOldPassword);
     cy.screenshot("6");
     pageContrasena.changePassword();
 });

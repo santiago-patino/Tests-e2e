@@ -1,9 +1,11 @@
 import {Given, When, And, Then} from "cypress-cucumber-preprocessor/steps";
 import login from '../../pages/pageLogin.js';
 import pageContrasena from "../../pages/pageContrasena";
+import {faker} from '@faker-js/faker'
 
-const NEWPASSWORD = 'admin-uniandes';
-const FAKEOLDPASSWORD = "admin-uniandes2";
+const NEWPASSWORD =  faker.internet.password({ length: 12})
+const FAKEOLDPASSWORD = faker.internet.password({ length: 12})
+
 
 Given("Ingresa a la pagina de inicio de sesion", () => {
     cy.visit("ghost");
@@ -28,7 +30,7 @@ When('Ir a mi perfil', () => {
     cy.screenshot("5")
 })
 
-And('Ingresar datos de contraseñas vieja invalida y nueva contraseña', () => {
+And('Ingresar datos de contraseñas vieja invalida y nueva contraseña aleatorio', () => {
     pageContrasena.typeFieldUserPasswordOld(FAKEOLDPASSWORD);
     pageContrasena.typeFieldUserPasswordNew(NEWPASSWORD);
     pageContrasena.typeFieldUserPasswordNewVerify(NEWPASSWORD);

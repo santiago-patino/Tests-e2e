@@ -5,5 +5,6 @@
     "postsApi": "https://my.api.mockaroo.com/posts.json?key=5092dc40",
     "pageApi": "https://my.api.mockaroo.com/pages.json?key=adf0ee10",
     "membersApi": "https://my.api.mockaroo.com/members_api.json?key=8953aa80",
-    "membersInvalidDataApi": "https://my.api.mockaroo.com/members_invalidad_data.json?key=8953aa80"
+    "membersInvalidDataApi": "https://my.api.mockaroo.com/members_invalidad_data.json?key=8953aa80",
+    "newPasswordApi": "https://my.api.mockaroo.com/passwords.json?key=f44f9790"
 }
