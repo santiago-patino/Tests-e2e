@@ -16,6 +16,7 @@ class pageContrasena {
         errorMessageUserPasswordOldField: () => cy.get('#user-password-old ~ p'),
         errorMessageUserPasswordNewField: () => cy.get('#user-password-new ~ p'),
         errorMessageUserPasswordNewVerifyField: () => cy.get('#user-new-password-verification ~ p'),
+        mainError: () => cy.get('#login ~ .main-error'),
         alertSucces: () => cy.get('.gh-notification-title'),
         alertError: () => cy.get('.gh-alert.gh-alert-red .gh-alert-content'),
         saveButtonText: () => cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.gh-btn-green.ember-view span'),
@@ -113,6 +114,10 @@ class pageContrasena {
         this.controls.alertSucces().then(($alert) => {
             expect($alert[0].innerText).to.equal(message);
         });
+    }
+
+    validateUser = (message) => {
+        this.controls.mainError().should('contain.text', message)
     }
 
     validateSaveprofile = (message) => {
