@@ -473,3 +473,16 @@ ID | Archivo | Funcionalidad | Escenario | Estrategia | Ubicación | Herramienta
 119 | 16 | Cambiar contraseña  | Cambiar contraseña con contraseña vieja y contraseñas nuevas con longitud invalida  | Aleatorios | kraken/features/16 - Cambiar_contrasena-aleatorio.feature  | Kraken | Jhon Avila
 120 | 19 | Actualizar perfil  | Actualizar información de perfil  | Aleatorios | kraken/features/19 - Actualizar-perfil-a-priori.feature  | Kraken | Jhon Avila
 
+
+----------------------------
+
+## Semana 8
+
+### Estrategia de pruebas
+ARCHIVO
+### Inventario de pruebas
+ARCHIVO
+### Repositorio de reporte de incidencias 
+https://github.com/santiago-patino/pruebas-automatizadas-issues/issues
+### Enlace video
+https://youtu.be/ZgXeEmLa-MU
