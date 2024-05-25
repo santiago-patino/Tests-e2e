@@ -486,3 +486,17 @@ ARCHIVO
 https://github.com/santiago-patino/pruebas-automatizadas-issues/issues
 ### Enlace video
 https://youtu.be/ZgXeEmLa-MU
+
+### Pruebas semana 8 (Semana 1)
+
+Para la primera semana de la implementacion de la estrategia de pruebas se implementaran las pruebas exploratorias haciendo uso de la herramienta Axe Web Accessibility Tools, esta herramienta funciona como extension de google chrome asi que recuerde utilizar este navegador para ejecutar las pruebas. Debe instalar la extension de la herramient en el siguiente enlace:
+
+https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?pli=1
+
+Una vez instalada, 
+
+- Dirigase a la aplicacion a probar seria Ghost https://ghost-xefe.onrender.com/
+- Haga click derecho con el cursor y seleccione inspeccionar
+- Luego selecciona la pestaña llamada `axe Devtools`
+- Y luego seleccione `Scan ALL of my page` y esto lo que hara es escanear el html de la pantalla en la que se encuentra actualmente
+- Recuerde que esto no escaneara toda la aplicacion sino solo la seccion en la que se encuentra. Si desea probar una funcionalidad especifica dirigase a ella y realize los mismos pasos anteriores
