@@ -497,8 +497,11 @@ Una vez instalada,
 
 - Dirigase a la aplicacion a probar seria Ghost https://ghost-xefe.onrender.com/ghost
 - Ingrese con las credenciales
+  
   User: s.patino@uniandes.edu.co
+  
   Password: admin-uniandes
+  
 - Haga click derecho con el cursor y seleccione inspeccionar
 - Luego selecciona la pestaña llamada `axe Devtools`
 - Y luego seleccione `Scan ALL of my page` y esto lo que hara es escanear el html de la pantalla en la que se encuentra actualmente
