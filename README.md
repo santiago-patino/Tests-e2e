@@ -477,11 +477,12 @@ ID | Archivo | Funcionalidad | Escenario | Estrategia | Ubicación | Herramienta
 ----------------------------
 
 ## Semana 8
+Nota: Para visualizar la estrategia e inventario de pruebas es necesario estar logeado en una cuenta Uniandes.
 
 ### Estrategia de pruebas
-ARCHIVO
+https://uniandes-my.sharepoint.com/:w:/g/personal/mg_sanchezb1_uniandes_edu_co/EZsxbX08uSBMv697zdz-F10BiX13I85nlChrEbUvKhmDzg?e=mx6SGM
 ### Inventario de pruebas
-ARCHIVO
+https://uniandes-my.sharepoint.com/:x:/g/personal/mg_sanchezb1_uniandes_edu_co/EQtBS0uRLspJr-3Es7xXSuwBRIv2hJo7k_R8Eirc6wGgdA?e=Cq3ED3
 ### Repositorio de reporte de incidencias 
 https://github.com/santiago-patino/pruebas-automatizadas-issues/issues
 ### Enlace video
