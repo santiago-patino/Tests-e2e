@@ -507,3 +507,10 @@ Una vez instalada,
 - Luego selecciona la pestaña llamada `axe Devtools`
 - Y luego seleccione `Scan ALL of my page` y esto lo que hara es escanear el html de la pantalla en la que se encuentra actualmente
 - Recuerde que esto no escaneara toda la aplicacion sino solo la seccion en la que se encuentra. Si desea probar una funcionalidad especifica dirigase a ella y realize los mismos pasos anteriores
+
+
+## Retrospectiva
+Para acceder a la restrospectiva de la semana 8 acceda a este enlace: 
+
+https://miro.com/app/board/uXjVKDIvQX4=/?share_link_id=639664807364
+
