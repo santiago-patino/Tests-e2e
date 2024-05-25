@@ -489,7 +489,7 @@ https://youtu.be/ZgXeEmLa-MU
 
 ### Pruebas semana 8 (Semana 1)
 
-Para la primera semana de la implementacion de la estrategia de pruebas se implementaran las pruebas exploratorias haciendo uso de la herramienta Axe Web Accessibility Tools, esta herramienta funciona como extension de google chrome asi que recuerde utilizar este navegador para ejecutar las pruebas. Debe instalar la extension de la herramient en el siguiente enlace:
+Para la primera semana de la implementacion de la estrategia de pruebas se implementaran las pruebas exploratorias haciendo uso de la herramienta Axe Web Accessibility Tools, esta herramienta funciona como extension de google chrome asi que recuerde utilizar este navegador para ejecutar las pruebas. Debe instalar la extension de la herramienta en el siguiente enlace:
 
 https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?pli=1
 
